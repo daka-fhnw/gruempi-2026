@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Header from "./Header";
 import Start from "./pages/Start";
 import Regeln from "./pages/Regeln";
+import "./App.scss";
 
 export default function App() {
   return (
