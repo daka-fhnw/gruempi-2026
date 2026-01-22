@@ -7,10 +7,12 @@ export default function App() {
   return (
     <>
       <Header />
-      <Routes>
-        <Route path="/" element={<Start />} />
-        <Route path="/regeln" element={<Regeln />} />
-      </Routes>
+      <main className="container">
+        <Routes>
+          <Route path="/" element={<Start />} />
+          <Route path="/regeln" element={<Regeln />} />
+        </Routes>
+      </main>
     </>
   );
 }
