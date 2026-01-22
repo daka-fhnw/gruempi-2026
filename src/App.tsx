@@ -1,11 +1,16 @@
-import Button from "react-bootstrap/Button";
+import { Route, Routes } from "react-router-dom";
+import Header from "./Header";
+import Start from "./pages/Start";
+import Regeln from "./pages/Regeln";
 
-function App() {
+export default function App() {
   return (
-    <div className="app">
-      <Button variant="primary">Primary</Button>
-    </div>
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Start />} />
+        <Route path="/regeln" element={<Regeln />} />
+      </Routes>
+    </>
   );
 }
-
-export default App;
