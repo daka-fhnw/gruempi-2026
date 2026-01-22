@@ -1,1 +1,11 @@
 @import "bootstrap";
+
+@font-face {
+  font-family: Tracklister;
+  src: url(Tracklister-Bold.woff);
+}
+h1,
+h2,
+h3 {
+  font-family: Tracklister;
+}
