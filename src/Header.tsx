@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-import logo from "./assets/logo_buffer.svg";
+import { Button } from "react-bootstrap";
+import MenuIcon from "./icons/MenuIcon";
+import logo from "./assets/logo.svg";
 import "./Header.scss";
 
 export default function Header() {
-  const [isScrolled, setScrolled] = useState(false);
+  const [isScrolled, setScrolled] = useState<boolean>(false);
   const handleScroll = () => {
     if (window.pageYOffset > 100) {
       setScrolled(true);
@@ -17,13 +19,20 @@ export default function Header() {
   }, []);
   return (
     <header
-      className={`bg-primary position-fixed top-0 start-0 end-0 ${isScrolled && "scrolled"}`}
+      className={`bg-secondary position-fixed top-0 start-0 end-0 ${isScrolled && "scrolled"}`}
     >
-      <div className="text-center py-1">
-        <img src={logo} title="FHNW Grümpi 2026" />
-        <div className="eventinfo">
-          <h5 className="my-0">30. April 2026 ab 17:00</h5>
-          <h5 className="my-0">Fussballplatz Kriegacker Muttenz</h5>
+      <div className="container">
+        <div className="row gx-0 align-items-end flex-nowrap">
+          <div className="col overflow-hidden">
+            <img className="logo" src={logo} title="FHNW Grümpi 2026" />
+          </div>
+          <div className="col-auto p-1">
+            <nav>
+              <Button variant="primary" title="Menü">
+                <MenuIcon />
+              </Button>
+            </nav>
+          </div>
         </div>
       </div>
     </header>

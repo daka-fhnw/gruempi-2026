@@ -1,3 +1,6 @@
-$primary: #fde70e;
-$secondary: #000000;
-$link-color: #0d6efd;
+$primary: #000000;
+$secondary: #fde70e;
+
+.btn-primary:hover {
+  background-color: #6c757d !important;
+}
