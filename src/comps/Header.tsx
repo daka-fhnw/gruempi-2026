@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
-import MenuIcon from "./icons/MenuIcon";
-import logo from "./assets/logo.svg";
+import MenuIcon from "../icons/MenuIcon";
+import logo from "../assets/logo.svg";
 import "./Header.scss";
 
 export default function Header() {
