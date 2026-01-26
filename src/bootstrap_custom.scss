@@ -1,6 +1,9 @@
 $primary: #000000;
 $secondary: #fde70e;
 
+$app-black-hover-color: #565c64;
+$link-hover-color: $app-black-hover-color;
+
 .btn-primary:hover {
-  background-color: #6c757d !important;
+  background-color: $app-black-hover-color !important;
 }
