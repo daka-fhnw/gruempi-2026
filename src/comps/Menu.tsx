@@ -1,4 +1,4 @@
-import { type PropsWithChildren } from "react";
+import { useCallback, type PropsWithChildren } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import CloseIcon from "../icons/CloseIcon";
@@ -11,6 +11,7 @@ type MenuProps = {
 };
 
 export default function Menu({ hideMenu }: MenuProps) {
+  const hideMenuDelay = useCallback(() => setTimeout(hideMenu), [hideMenu]);
   useEscapeKey(hideMenu);
   useLockBodyScroll();
   return (
@@ -22,11 +23,17 @@ export default function Menu({ hideMenu }: MenuProps) {
           </Button>
         </div>
         <div className="row justify-content-end">
-          <MenuItem linkTo="/" hideMenu={hideMenu}>
+          <MenuItem linkTo="/" hideMenu={hideMenuDelay}>
             Start
           </MenuItem>
-          <MenuItem linkTo="/regeln" hideMenu={hideMenu}>
+          <MenuItem linkTo="/regeln" hideMenu={hideMenuDelay}>
             Regeln
+          </MenuItem>
+          <MenuItem linkTo="/impressum" hideMenu={hideMenuDelay}>
+            Impressum
+          </MenuItem>
+          <MenuItem linkTo="/datenschutz" hideMenu={hideMenuDelay}>
+            Datenschutz
           </MenuItem>
         </div>
       </div>

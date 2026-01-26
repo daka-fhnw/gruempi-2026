@@ -1,4 +1,17 @@
+.wrapper {
+  min-height: 100vh;
+}
+
 main {
   margin-top: 9rem;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
 }
+
+footer, footer a {
+  color: white;
+}
+
+footer a:hover {
+  color : lightgray;
+}
+
