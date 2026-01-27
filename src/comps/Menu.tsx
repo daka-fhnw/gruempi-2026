@@ -29,6 +29,9 @@ export default function Menu({ hideMenu }: MenuProps) {
           <MenuItem linkTo="/regeln" hideMenu={hideMenuDelay}>
             Regeln
           </MenuItem>
+          <MenuItem linkTo="/anreise" hideMenu={hideMenuDelay}>
+            Anreise
+          </MenuItem>
           <MenuItem linkTo="/impressum" hideMenu={hideMenuDelay}>
             Kontakt
           </MenuItem>

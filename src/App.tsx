@@ -2,6 +2,7 @@ import { Link, Route, Routes } from "react-router-dom";
 import Header from "./comps/Header";
 import Start from "./pages/Start";
 import Regeln from "./pages/Regeln";
+import Anreise from "./pages/Anreise";
 import Impressum from "./pages/Impressum";
 import Datenschutz from "./pages/Datenschutz";
 import "./App.scss";
@@ -15,6 +16,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Start />} />
             <Route path="/regeln" element={<Regeln />} />
+            <Route path="/anreise" element={<Anreise />} />
             <Route path="/impressum" element={<Impressum />} />
             <Route path="/datenschutz" element={<Datenschutz />} />
           </Routes>
