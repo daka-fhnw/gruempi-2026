@@ -30,6 +30,7 @@ export default function Header() {
             <div className="col-auto p-1">
               <nav>
                 <Button variant="primary" title="Menü" onClick={showMenu}>
+                  <span className="d-none d-md-inline">Menü </span>
                   <MenuIcon />
                 </Button>
               </nav>
