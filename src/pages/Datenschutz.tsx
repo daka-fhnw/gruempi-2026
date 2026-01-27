@@ -4,7 +4,7 @@ export default function Datenschutz() {
   useScrollToTop();
   return (
     <>
-      <h1>Datenschutz</h1>
+      <h1>Datenschutzerklärung</h1>
       <div></div>
     </>
   );

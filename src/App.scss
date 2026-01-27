@@ -3,15 +3,16 @@
 }
 
 main {
-  margin-top: 9rem;
+  margin-top: 9.5rem;
   margin-bottom: 3rem;
 }
 
-footer, footer a {
+footer a {
+  display: inline-block;
   color: white;
-}
+  padding: 0.5rem;
 
-footer a:hover {
-  color : lightgray;
+  &:hover {
+    color: lightgray;
+  }
 }
-

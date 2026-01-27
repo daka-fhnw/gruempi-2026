@@ -19,10 +19,9 @@ export default function App() {
             <Route path="/datenschutz" element={<Datenschutz />} />
           </Routes>
         </main>
-        <footer className="bg-primary flex-grow-0 p-2">
+        <footer className="bg-primary flex-grow-0">
           <div className="container text-light text-end">
             <Link to="/impressum">Impressum</Link>
-            {" | "}
             <Link to="/datenschutz">Datenschutz</Link>
           </div>
         </footer>

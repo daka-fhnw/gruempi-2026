@@ -30,10 +30,7 @@ export default function Menu({ hideMenu }: MenuProps) {
             Regeln
           </MenuItem>
           <MenuItem linkTo="/impressum" hideMenu={hideMenuDelay}>
-            Impressum
-          </MenuItem>
-          <MenuItem linkTo="/datenschutz" hideMenu={hideMenuDelay}>
-            Datenschutz
+            Kontakt
           </MenuItem>
         </div>
       </div>
