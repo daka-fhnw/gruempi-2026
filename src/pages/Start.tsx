@@ -1,5 +1,6 @@
 import useScrollToTop from "../hooks/useScrollToTop";
 import Countdown from "../comps/Countdown";
+import Sponsoren from "../comps/Sponsoren";
 import start from "../assets/start.webp";
 
 export default function Start() {
@@ -7,17 +8,20 @@ export default function Start() {
   return (
     <div>
       <h1>Fachhochschule Grümpelturnier</h1>
-      <h2>
+      <h3>
         Donnerstag 30.&nbsp;April&nbsp;2026 ab&nbsp;17:00, Fussballplatz
         Kriegacker Muttenz
-      </h2>
-      <div className="fw-bold mb-2">
+      </h3>
+      <div className="fw-bold">
         Mit Festwirtschaft zu fairen Preisen 😋
+        <br />
+        <Countdown /> ⚽
       </div>
-      <div className="fw-bold mb-2">
-        ⚽ <Countdown /> ⚽
+      <div className="my-3">
+        <img src={start} className="img-fluid" />
       </div>
-      <img src={start} className="img-fluid" />
+      <h2>Sponsoren</h2>
+      <Sponsoren />
     </div>
   );
 }
