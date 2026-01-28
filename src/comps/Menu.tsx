@@ -6,19 +6,19 @@ import useEscapeKey from "../hooks/useEscapeKey";
 import useLockBodyScroll from "../hooks/useLockBodyScroll";
 import "./Menu.scss";
 
-type MenuProps = {
+interface MenuProps {
   hideMenu: () => void;
-};
+}
 
 export default function Menu({ hideMenu }: MenuProps) {
-  const hideMenuDelay = useCallback(() => setTimeout(hideMenu), [hideMenu]);
-  useEscapeKey(hideMenu);
   useLockBodyScroll();
+  useEscapeKey(hideMenu);
+  const hideMenuDelay = useCallback(() => setTimeout(hideMenu), [hideMenu]);
   return (
     <nav className="app-menu bg-secondary">
       <div className="container">
         <div className="text-end my-3">
-          <Button variant="primary" title="Menü" onClick={hideMenu}>
+          <Button variant="primary" title="Menü schliessen" onClick={hideMenu}>
             <CloseIcon />
           </Button>
         </div>
@@ -41,12 +41,16 @@ export default function Menu({ hideMenu }: MenuProps) {
   );
 }
 
-type MenuItemProps = PropsWithChildren<{
+interface MenuItemProps {
   linkTo: string;
   hideMenu: () => void;
-}>;
+}
 
-function MenuItem({ linkTo, hideMenu, children }: MenuItemProps) {
+function MenuItem({
+  linkTo,
+  hideMenu,
+  children,
+}: PropsWithChildren<MenuItemProps>) {
   return (
     <div className="col12 col-md-6 col-lg-4 col-xxl-3 text-end">
       <h1>

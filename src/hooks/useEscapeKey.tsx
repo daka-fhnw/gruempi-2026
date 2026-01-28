@@ -6,7 +6,7 @@ const useEscapeKey = (onEscape: () => void): void => {
       event.key === "Escape" && onEscape();
     document.addEventListener("keydown", handleEscape, false);
     return () => document.removeEventListener("keydown", handleEscape, false);
-  }, []);
+  }, [onEscape]);
 };
 
 export default useEscapeKey;

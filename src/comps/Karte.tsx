@@ -9,15 +9,15 @@ import L from "leaflet";
 import marker from "../assets/marker.svg";
 import "./Karte.scss";
 
-const ATTRIBUTION =
+const attribution =
   '&copy; <a href="https://www.swisstopo.admin.ch/en/home.html">swisstopo</a>';
-const WMTS_MAP =
+const wmtsMapUrl =
   "https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.pixelkarte-farbe/default/current/3857/{z}/{x}/{y}.jpeg";
-const WMTS_IMAGE =
+const wmtsImageUrl =
   "https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.swissimage/default/current/3857/{z}/{x}/{y}.jpeg";
-const LOCATION = L.latLng([47.533354, 7.639526]);
-const BOUNDS = L.latLngBounds([45.81, 10.5], [47.81, 5.95]);
-const ICON = L.icon({
+const position = L.latLng([47.533354, 7.639526]);
+const bounds = L.latLngBounds([45.81, 10.5], [47.81, 5.95]);
+const icon = L.icon({
   iconUrl: marker,
   iconSize: [50, 50],
   iconAnchor: [25, 50],
@@ -26,8 +26,8 @@ const ICON = L.icon({
 export default function Karte() {
   return (
     <MapContainer
-      center={LOCATION}
-      maxBounds={BOUNDS}
+      center={position}
+      maxBounds={bounds}
       maxBoundsViscosity={1}
       zoom={17}
       minZoom={8}
@@ -36,13 +36,13 @@ export default function Karte() {
     >
       <LayersControl position="topright">
         <LayersControl.BaseLayer name="Karte" checked={true}>
-          <TileLayer attribution={ATTRIBUTION} url={WMTS_MAP} />
+          <TileLayer attribution={attribution} url={wmtsMapUrl} />
         </LayersControl.BaseLayer>
         <LayersControl.BaseLayer name="Luftbilder">
-          <TileLayer attribution={ATTRIBUTION} url={WMTS_IMAGE} />
+          <TileLayer attribution={attribution} url={wmtsImageUrl} />
         </LayersControl.BaseLayer>
       </LayersControl>
-      <Marker position={LOCATION} icon={ICON}>
+      <Marker position={position} icon={icon}>
         <Popup>
           FHNW Grümpi 2026
           <br />

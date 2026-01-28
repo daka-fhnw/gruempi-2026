@@ -5,7 +5,7 @@ export default function Datenschutz() {
   return (
     <>
       <h1>Datenschutzerklärung</h1>
-      <div></div>
+      <div>TODO</div>
     </>
   );
 }

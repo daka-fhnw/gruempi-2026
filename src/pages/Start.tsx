@@ -6,7 +6,7 @@ export default function Start() {
   useScrollToTop();
   return (
     <div>
-      <h1>Fachhochschule Grümpi</h1>
+      <h1>Fachhochschule Grümpelturnier</h1>
       <h2>
         Donnerstag 30.&nbsp;April&nbsp;2026 ab&nbsp;17:00, Fussballplatz
         Kriegacker Muttenz

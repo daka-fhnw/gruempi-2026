@@ -4,7 +4,7 @@ export default function Regeln() {
   useScrollToTop();
   return (
     <div>
-      <h1>Teilnahmebedingungen FHNW Grümpi 2026</h1>
+      <h1>Teilnahmebedingungen</h1>
       <p>
         In allen hier nicht aufgeführten Fällen entscheidet das OK endgültig.
       </p>
