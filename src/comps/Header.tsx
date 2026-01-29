@@ -19,13 +19,13 @@ export default function Header() {
     <>
       <header className={`bg-secondary ${isScrolled && "scrolled"}`}>
         <div className="container">
-          <div className="row align-items-end flex-nowrap gx-0">
+          <div className="row align-items-end flex-nowrap gx-1">
             <div className="col overflow-hidden">
               <Link to="/">
                 <img className="logo" src={logo} alt="FHNW Grümpi 2026" />
               </Link>
             </div>
-            <div className="col-auto p-1">
+            <div className="col-auto py-1">
               <nav>
                 <Button
                   variant="primary"

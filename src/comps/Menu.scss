@@ -6,4 +6,9 @@ nav.app-menu {
   bottom: 0;
   z-index: 9001;
   overflow-y: auto;
+
+  .logo {
+    margin-top: 0.2rem;
+    height: 8rem;
+  }
 }

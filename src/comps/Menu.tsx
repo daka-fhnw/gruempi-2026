@@ -4,6 +4,7 @@ import { Button } from "react-bootstrap";
 import CloseIcon from "../icons/CloseIcon";
 import useEscapeKey from "../hooks/useEscapeKey";
 import useLockBodyScroll from "../hooks/useLockBodyScroll";
+import logo from "../assets/logo.svg";
 import "./Menu.scss";
 
 interface MenuProps {
@@ -17,12 +18,24 @@ export default function Menu({ hideMenu }: MenuProps) {
   return (
     <nav className="app-menu bg-secondary">
       <div className="container">
-        <div className="text-end my-3">
-          <Button variant="primary" title="Menü schliessen" onClick={hideMenu}>
-            <CloseIcon />
-          </Button>
+        <div className="row align-items-center flex-nowrap gx-1">
+          <div className="col overflow-hidden">
+            <Link to="/" onClick={hideMenu}>
+              <img className="logo" src={logo} alt="FHNW Grümpi 2026" />
+            </Link>
+          </div>
+          <div className="col-auto py-1">
+            <Button
+              variant="primary"
+              title="Menü schliessen"
+              onClick={hideMenu}
+            >
+              <span className="d-none d-md-inline">Schliessen </span>
+              <CloseIcon />
+            </Button>
+          </div>
         </div>
-        <div className="row justify-content-end">
+        <div className="row justify-content-end mt-0 mt-lg-5">
           <MenuItem linkTo="/" hideMenu={hideMenuDelay}>
             Start
           </MenuItem>
