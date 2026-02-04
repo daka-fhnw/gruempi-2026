@@ -46,7 +46,7 @@ interface SponsorProps {
 function Sponsor({ imgPath, label, url }: SponsorProps) {
   return (
     <div className="col-6 col-md-4 col-lg-3">
-      <Card className="shadow">
+      <Card className="shadow bg-white">
         <a href={url} title={label}>
           <Card.Img
             className="pt-2 px-1 px-sm-4 px-md-2 px-xl-4 px-xxl-5"
