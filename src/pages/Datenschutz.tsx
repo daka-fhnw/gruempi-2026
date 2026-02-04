@@ -18,15 +18,16 @@ export default function Datenschutz() {
         E-Mail-Adresse) erhoben werden, erfolgt dies auf freiwilliger Basis. Die
         erhobenen Daten werden ausschliesslich im direkten Zusammenhang mit dem
         Grümpelturnier verwendet und somit niemandem ausserhalb zur Verfügung
-        gestellt oder verkauft.
+        gestellt oder verkauft. Nach Durchführung des Grümpelturniers werden
+        diese Daten vollständig gelöscht.
       </p>
       <h2>Cookies</h2>
       <p>Diese Website verwendet keine Cookies.</p>
       <h2>Hosting Provider & Server-Logfiles</h2>
       <p>
-        Der Provider der Seiten erhebt und speichert automatisch Informationen
-        in so genannten Server-Log Files, die dein Browser automatisch
-        übermittelt. Dies sind:
+        Der Provider dieser Website erhebt und speichert automatisch
+        Informationen in so genannten Server-Log-Files, die dein Browser
+        automatisch übermittelt. Dies sind:
       </p>
       <ul>
         <li>IP-Adresse</li>
