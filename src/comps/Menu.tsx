@@ -65,7 +65,7 @@ function MenuItem({
   children,
 }: PropsWithChildren<MenuItemProps>) {
   return (
-    <div className="col12 col-md-6 col-lg-4 col-xxl-3 text-end">
+    <div className="col-12 col-md-6 col-lg-4 col-xxl-3 text-end">
       <h1>
         <Link to={linkTo} onClick={hideMenu}>
           {children}
