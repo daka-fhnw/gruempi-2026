@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "wouter";
 import { Button } from "react-bootstrap";
 import MenuIcon from "../icons/MenuIcon";
 import Menu from "./Menu";

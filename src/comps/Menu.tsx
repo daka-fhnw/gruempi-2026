@@ -1,5 +1,5 @@
-import { useCallback, type PropsWithChildren } from "react";
-import { Link } from "react-router-dom";
+import { type PropsWithChildren } from "react";
+import { Link } from "wouter";
 import { Button } from "react-bootstrap";
 import CloseIcon from "../icons/CloseIcon";
 import useEscapeKey from "../hooks/useEscapeKey";
@@ -14,7 +14,6 @@ interface MenuProps {
 export default function Menu({ hideMenu }: MenuProps) {
   useLockBodyScroll();
   useEscapeKey(hideMenu);
-  const hideMenuDelay = useCallback(() => setTimeout(hideMenu), [hideMenu]);
   return (
     <nav className="app-menu bg-secondary">
       <div className="container">
@@ -36,16 +35,16 @@ export default function Menu({ hideMenu }: MenuProps) {
           </div>
         </div>
         <div className="row justify-content-end mt-0 mt-lg-5">
-          <MenuItem linkTo="/" hideMenu={hideMenuDelay}>
+          <MenuItem linkTo="/" hideMenu={hideMenu}>
             Start
           </MenuItem>
-          <MenuItem linkTo="/regeln" hideMenu={hideMenuDelay}>
+          <MenuItem linkTo="/regeln" hideMenu={hideMenu}>
             Regeln
           </MenuItem>
-          <MenuItem linkTo="/anreise" hideMenu={hideMenuDelay}>
+          <MenuItem linkTo="/anreise" hideMenu={hideMenu}>
             Anreise
           </MenuItem>
-          <MenuItem linkTo="/impressum" hideMenu={hideMenuDelay}>
+          <MenuItem linkTo="/impressum" hideMenu={hideMenu}>
             Kontakt
           </MenuItem>
         </div>

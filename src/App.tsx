@@ -1,8 +1,9 @@
 import React, { Suspense } from "react";
-import { Link, Route, Routes } from "react-router-dom";
+import { Link, Route, Switch } from "wouter";
 import Header from "./comps/Header";
 import Loading from "./comps/Loading";
 import "./App.scss";
+import NotFound from "./comps/NotFound";
 
 export default function App() {
   const Start = React.lazy(() => import("./pages/Start"));
@@ -16,13 +17,14 @@ export default function App() {
       <div className="wrapper d-flex flex-column">
         <main className="container flex-fill">
           <Suspense fallback={<Loading />}>
-            <Routes>
-              <Route path="/" element={<Start />} />
-              <Route path="/regeln" element={<Regeln />} />
-              <Route path="/anreise" element={<Anreise />} />
-              <Route path="/impressum" element={<Impressum />} />
-              <Route path="/datenschutz" element={<Datenschutz />} />
-            </Routes>
+            <Switch>
+              <Route path="/" component={Start} />
+              <Route path="/regeln" component={Regeln} />
+              <Route path="/anreise" component={Anreise} />
+              <Route path="/impressum" component={Impressum} />
+              <Route path="/datenschutz" component={Datenschutz} />
+              <Route component={NotFound} />
+            </Switch>
           </Suspense>
         </main>
         <footer className="bg-primary flex-grow-0">

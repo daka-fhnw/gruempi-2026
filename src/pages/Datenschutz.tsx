@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "wouter";
 import useScrollToTop from "../hooks/useScrollToTop";
 
 export default function Datenschutz() {
