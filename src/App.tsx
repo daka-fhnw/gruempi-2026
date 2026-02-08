@@ -1,9 +1,10 @@
 import React, { Suspense } from "react";
 import { Link, Route, Switch } from "wouter";
 import Header from "./comps/Header";
+import ScrollToTop from "./comps/ScrollToTop";
 import Loading from "./comps/Loading";
-import "./App.scss";
 import NotFound from "./comps/NotFound";
+import "./App.scss";
 
 export default function App() {
   const Start = React.lazy(() => import("./pages/Start"));
@@ -14,6 +15,7 @@ export default function App() {
   return (
     <>
       <Header />
+      <ScrollToTop />
       <div className="wrapper d-flex flex-column">
         <main className="container flex-fill">
           <Suspense fallback={<Loading />}>

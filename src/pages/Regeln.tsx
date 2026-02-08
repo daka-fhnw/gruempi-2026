@@ -1,7 +1,4 @@
-import useScrollToTop from "../hooks/useScrollToTop";
-
 export default function Regeln() {
-  useScrollToTop();
   return (
     <div>
       <h1>Teilnahmebedingungen</h1>

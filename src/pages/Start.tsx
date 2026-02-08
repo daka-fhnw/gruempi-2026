@@ -1,10 +1,8 @@
-import useScrollToTop from "../hooks/useScrollToTop";
 import Countdown from "../comps/Countdown";
 import Sponsoren from "../comps/Sponsoren";
 import start from "../assets/start.webp";
 
 export default function Start() {
-  useScrollToTop();
   return (
     <div>
       <h1>Fachhochschule Grümpelturnier</h1>
