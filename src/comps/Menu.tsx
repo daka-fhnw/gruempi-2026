@@ -1,6 +1,6 @@
 import { type PropsWithChildren } from "react";
 import { Link } from "wouter";
-import { Button } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
 import CloseIcon from "../icons/CloseIcon";
 import useEscapeKey from "../hooks/useEscapeKey";
 import useLockBodyScroll from "../hooks/useLockBodyScroll";
