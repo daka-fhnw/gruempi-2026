@@ -5,7 +5,7 @@ const millisInHour = 1000 * 60 * 60;
 const millisInDay = millisInHour * 24;
 const refreshInterval = 1000 * 60 * 5;
 
-export default function Countdown() {
+export function Countdown() {
   const [message, setMessage] = useState("");
   useEffect(() => {
     const calculate = () => {

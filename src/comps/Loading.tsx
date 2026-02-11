@@ -1,21 +1,22 @@
+import { useEffect, useState } from "react";
 import icon from "../assets/fussball.svg";
 import "./Loading.scss";
 
-import { useEffect, useState } from "react";
-export default function Loading() {
+const showDelay = 300;
+
+export function Loading() {
   const [show, setShow] = useState(false);
   useEffect(() => {
-    const timer = setTimeout(() => setShow(true), 300);
+    const timer = setTimeout(() => setShow(true), showDelay);
     return () => clearTimeout(timer);
   }, []);
-  return (
-    <>
-      {show && (
-        <div className="d-flex align-items-center justify-content-center">
-          <img className="icon" src={icon} alt="Fussball" />
-          <div>Lädt gerade...</div>
-        </div>
-      )}
-    </>
-  );
+  if (show) {
+    return (
+      <div className="d-flex align-items-center justify-content-center">
+        <img className="icon" src={icon} alt="Fussball" />
+        <div>Lädt gerade...</div>
+      </div>
+    );
+  }
+  return null;
 }

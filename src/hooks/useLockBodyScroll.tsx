@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 // see: https://reactlevelup.com/posts/use-lock-body-scroll
-const useLockBodyScroll = (): void => {
+export const useLockBodyScroll = (): void => {
   useEffect(() => {
     const originalStyle = window.getComputedStyle(document.body).overflow;
     document.body.style.overflow = "hidden";
@@ -10,5 +10,3 @@ const useLockBodyScroll = (): void => {
     };
   }, []);
 };
-
-export default useLockBodyScroll;

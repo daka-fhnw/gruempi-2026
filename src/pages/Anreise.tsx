@@ -1,4 +1,4 @@
-import Karte from "../comps/Karte";
+import { Karte } from "../comps/Karte";
 
 export default function Anreise() {
   return (

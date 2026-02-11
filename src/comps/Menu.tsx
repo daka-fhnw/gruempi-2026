@@ -1,9 +1,9 @@
 import { type PropsWithChildren } from "react";
 import { Link } from "wouter";
 import Button from "react-bootstrap/Button";
-import CloseIcon from "../icons/CloseIcon";
-import useEscapeKey from "../hooks/useEscapeKey";
-import useLockBodyScroll from "../hooks/useLockBodyScroll";
+import { CloseIcon } from "../icons/CloseIcon";
+import { useEscapeKey } from "../hooks/useEscapeKey";
+import { useLockBodyScroll } from "../hooks/useLockBodyScroll";
 import logo from "../assets/logo.svg";
 import "./Menu.scss";
 
@@ -11,7 +11,7 @@ interface MenuProps {
   hideMenu: () => void;
 }
 
-export default function Menu({ hideMenu }: MenuProps) {
+export function Menu({ hideMenu }: MenuProps) {
   useLockBodyScroll();
   useEscapeKey(hideMenu);
   return (

@@ -1,5 +1,5 @@
-import Countdown from "../comps/Countdown";
-import Sponsoren from "../comps/Sponsoren";
+import { Countdown } from "../comps/Countdown";
+import { Sponsoren } from "../comps/Sponsoren";
 import start from "../assets/start.webp";
 
 export default function Start() {

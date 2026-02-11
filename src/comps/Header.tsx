@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useState } from "react";
 import { Link } from "wouter";
 import Button from "react-bootstrap/Button";
-import MenuIcon from "../icons/MenuIcon";
-import Menu from "./Menu";
+import { MenuIcon } from "../icons/MenuIcon";
+import { Menu } from "./Menu";
 import logo from "../assets/logo.svg";
 import "./Header.scss";
 
-export default function Header() {
+export function Header() {
   const [isScrolled, setScrolled] = useState<boolean>(false);
   const [isMenuOpen, setMenuOpen] = useState<boolean>(false);
   const hideMenu = useCallback(() => setMenuOpen(false), [setMenuOpen]);

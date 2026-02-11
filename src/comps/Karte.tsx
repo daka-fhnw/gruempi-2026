@@ -5,25 +5,25 @@ import {
   Popup,
   TileLayer,
 } from "react-leaflet";
-import L from "leaflet";
+import { latLng, latLngBounds, icon } from "leaflet";
 import marker from "../assets/marker.svg";
 import "./Karte.scss";
 
 const attribution =
-  '&copy; <a href="https://www.swisstopo.admin.ch/en/home.html">swisstopo</a>';
+  '&copy; <a href="https://www.swisstopo.admin.ch">swisstopo</a>';
 const wmtsMapUrl =
   "https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.pixelkarte-farbe/default/current/3857/{z}/{x}/{y}.jpeg";
 const wmtsImageUrl =
   "https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.swissimage/default/current/3857/{z}/{x}/{y}.jpeg";
-const position = L.latLng([47.533354, 7.639526]);
-const bounds = L.latLngBounds([45.81, 10.5], [47.81, 5.95]);
-const icon = L.icon({
+const position = latLng([47.533354, 7.639526]);
+const bounds = latLngBounds([45.81, 10.5], [47.81, 5.95]);
+const markerIcon = icon({
   iconUrl: marker,
   iconSize: [50, 50],
   iconAnchor: [25, 50],
 });
 
-export default function Karte() {
+export function Karte() {
   return (
     <MapContainer
       center={position}
@@ -42,7 +42,7 @@ export default function Karte() {
           <TileLayer attribution={attribution} url={wmtsImageUrl} />
         </LayersControl.BaseLayer>
       </LayersControl>
-      <Marker position={position} icon={icon}>
+      <Marker position={position} icon={markerIcon}>
         <Popup>
           FHNW Grümpi 2026
           <br />

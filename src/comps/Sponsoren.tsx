@@ -5,7 +5,7 @@ import placeholder from "../assets/sponsoren/placeholder.webp";
 const label = "Sponsor werden!";
 const url = "mailto:info@grümpi.ch";
 
-export default function Sponsoren() {
+export function Sponsoren() {
   return (
     <div className="mb-n3">
       <Group label="Platin">

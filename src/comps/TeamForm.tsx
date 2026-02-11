@@ -7,17 +7,17 @@ const maxTeamNameLen = 40;
 
 type TeamFormStates = "initial" | "invalid" | "pending" | "failed";
 
-interface TeamFormProps {
-  submitLabel: string;
-  onSubmit: (formData: TeamFormValues) => Promise<void>;
-}
-
 export interface TeamFormValues {
   team: string;
   email: string;
 }
 
-export default function TeamForm({ submitLabel, onSubmit }: TeamFormProps) {
+interface TeamFormProps {
+  submitLabel: string;
+  onSubmit: (formData: TeamFormValues) => Promise<void>;
+}
+
+export function TeamForm({ submitLabel, onSubmit }: TeamFormProps) {
   const [formState, setFormState] = useState<TeamFormStates>("initial");
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();

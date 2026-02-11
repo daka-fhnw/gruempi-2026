@@ -1,12 +1,12 @@
 import React, { Suspense } from "react";
 import { Link, Route, Switch } from "wouter";
-import Header from "./comps/Header";
-import ScrollToTop from "./comps/ScrollToTop";
-import Loading from "./comps/Loading";
-import NotFound from "./comps/NotFound";
+import { Header } from "./comps/Header";
+import { ScrollToTop } from "./comps/ScrollToTop";
+import { Loading } from "./comps/Loading";
+import { NotFound } from "./comps/NotFound";
 import "./App.scss";
 
-export default function App() {
+export function App() {
   const Start = React.lazy(() => import("./pages/Start"));
   const Regeln = React.lazy(() => import("./pages/Regeln"));
   const Anreise = React.lazy(() => import("./pages/Anreise"));

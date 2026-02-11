@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import Alert from "react-bootstrap/Alert";
-import BackToStart from "../comps/BackToStart";
-import TeamForm from "../comps/TeamForm";
+import { BackToStart } from "../comps/BackToStart";
+import { TeamForm } from "../comps/TeamForm";
 import type { TeamFormValues } from "../comps/TeamForm";
 
 const mainMessage =
@@ -11,7 +11,7 @@ const mainMessage =
 
 export default function Anmelden() {
   const [success, setSuccess] = useState(false);
-  const onSubmit = (values: TeamFormValues) => {
+  const onSubmit = useCallback((values: TeamFormValues) => {
     console.log(values);
     //fetch("/create-team.php", {
     //  method: "POST",
@@ -20,7 +20,7 @@ export default function Anmelden() {
     return new Promise((resolve) => setTimeout(resolve, 3000)).then(() => {
       setSuccess(true);
     });
-  };
+  }, []);
   return (
     <>
       <h1>Team anmelden</h1>
