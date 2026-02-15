@@ -12,13 +12,15 @@ const mainMessage =
 export default function Anmelden() {
   const [success, setSuccess] = useState(false);
   const onSubmit = useCallback((values: TeamFormValues) => {
-    console.log(values);
-    //fetch("/create-team.php", {
-    //  method: "POST",
-    //  body: JSON.stringify(values),
-    //})
-    return new Promise((resolve) => setTimeout(resolve, 3000)).then(() => {
-      setSuccess(true);
+    return fetch("/add-team.php", {
+      method: "POST",
+      body: JSON.stringify(values),
+    }).then((response) => {
+      if (response.ok) {
+        setSuccess(true);
+      } else {
+        throw new Error("HTTP status code: " + response.status);
+      }
     });
   }, []);
   return (
