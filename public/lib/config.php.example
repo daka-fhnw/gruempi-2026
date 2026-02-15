@@ -1,8 +1,8 @@
 <?php
 
-return array(
+return [
     'db.host' => '',
     'db.user' => '',
-    'db.password' => '',
+    'db.pass' => '',
     'db.name' => '',
-);
+];
