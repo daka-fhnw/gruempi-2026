@@ -1,16 +1,23 @@
-import { useState, type FormEvent } from "react";
+import { useState, type SubmitEvent } from "react";
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
 const maxTeamNameLen = 40;
 
-type TeamFormStates = "initial" | "invalid" | "pending" | "failed";
+type TeamFormStates =
+  | "initial"
+  | "invalid"
+  | "pending"
+  | "failed"
+  | "duplicateName";
 
 export interface TeamFormValues {
   team: string;
   email: string;
 }
+
+export const duplicateNameError = "duplicateName";
 
 interface TeamFormProps {
   submitLabel: string;
@@ -19,9 +26,9 @@ interface TeamFormProps {
 
 export function TeamForm({ submitLabel, onSubmit }: TeamFormProps) {
   const [formState, setFormState] = useState<TeamFormStates>("initial");
-  const handleSubmit = (event: FormEvent) => {
+  const handleSubmit = (event: SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const form = event.currentTarget as HTMLFormElement;
+    const form = event.currentTarget;
     if (form.checkValidity()) {
       setFormState("pending");
       const formData = new FormData(form);
@@ -29,7 +36,11 @@ export function TeamForm({ submitLabel, onSubmit }: TeamFormProps) {
       const email = formData.get("email") as string;
       onSubmit({ team, email }).catch((error) => {
         console.log(`TeamForm: ${error}`);
-        setFormState("failed");
+        if (error === duplicateNameError) {
+          setFormState("duplicateName");
+        } else {
+          setFormState("failed");
+        }
       });
     } else {
       setFormState("invalid");
@@ -76,6 +87,11 @@ export function TeamForm({ submitLabel, onSubmit }: TeamFormProps) {
       {formState === "failed" && (
         <Alert variant="danger">
           Da ist etwas schief gegangen 😕. Bitte versuche es später nochmals.
+        </Alert>
+      )}
+      {formState === "duplicateName" && (
+        <Alert variant="danger">
+          Der Teamname ist leider bereits vergeben, sorry 😕
         </Alert>
       )}
       <Button
