@@ -11,8 +11,21 @@ export default function Impressum() {
         (FHNW) zu organisieren und durchzuführen.
       </p>
       <h2>Kontakt</h2>
+      <h5>E-Mail</h5>
       <p>
         <a href="mailto:info@grümpi.ch">info@grümpi.ch</a>
+      </p>
+      <h5>Adresse</h5>
+      <p>
+        Fachhochschule Nordwestschweiz FHNW
+        <br />
+        Hochschule für Architektur, Bau und Geomatik
+        <br />
+        Institut Geomatik: G2024
+        <br />
+        Hofackerstrasse 30
+        <br />
+        4132 Muttenz
       </p>
       <h2>Rechtliches</h2>
       <h3>Haftung</h3>

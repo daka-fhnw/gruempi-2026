@@ -57,8 +57,8 @@ export default function Datenschutz() {
         gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und
         den Zweck der Datenverarbeitung sowie ein Recht auf Berichtigung oder
         Löschung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema
-        personenbezogene Daten können Sie sich jederzeit unter der im{" "}
-        <Link to="/impressum">Impressum</Link> angegebenen Adresse an uns
+        personenbezogene Daten können Sie sich jederzeit über die im{" "}
+        <Link to="/impressum">Impressum</Link> angegebene Email-Adresse an uns
         wenden.
       </p>
     </>
