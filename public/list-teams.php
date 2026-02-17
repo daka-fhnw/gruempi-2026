@@ -8,10 +8,10 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
 $config = require('lib/config.php');
 try {
     $dbconn = require('lib/dbconnect.php');
-    $sql = "SELECT name FROM teams";
+    $sql = "SELECT `team` FROM teams";
     $data = $dbconn->query($sql)->fetchAll(PDO::FETCH_COLUMN);
 } catch (Exception $e) {
     error_log($e);
     exitWith(500, "Internal server error");
 }
-echo json_encode($data);
+echo jsonEncodeUTF8($data);

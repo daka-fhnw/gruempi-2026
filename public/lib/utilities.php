@@ -5,10 +5,15 @@ function jsonHeader()
     header("Content-Type: application/json");
 }
 
-function exitWith($code, $message)
+function jsonEncodeUTF8($data)
+{
+    return json_encode($data, JSON_UNESCAPED_UNICODE);
+}
+
+function exitWith($code, $message, $errorId = null)
 {
     http_response_code($code);
-    echo json_encode(["message" => $message]);
+    echo jsonEncodeUTF8(["message" => $message, "errorId" => $errorId]);
     exit();
 }
 

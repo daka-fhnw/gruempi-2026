@@ -13,7 +13,7 @@ CREATE TABLE
         UNIQUE INDEX (`team`),
         UNIQUE INDEX (`email`),
         INDEX `id_token` (`id`, `token`)
-    );
+    ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 
 CREATE TABLE
     teams_log (
@@ -27,4 +27,4 @@ CREATE TABLE
         `lastname` VARCHAR(255),
         `mobile` VARCHAR(255),
         PRIMARY KEY (`id`)
-    );
+    ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;

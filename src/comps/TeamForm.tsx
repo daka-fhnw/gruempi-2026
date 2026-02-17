@@ -5,10 +5,11 @@ import Form from "react-bootstrap/Form";
 import "./TeamForm.scss";
 
 const maxTeamNameLen = 40;
-const existingTeamErrorId = "existingTeam";
-const existingEmailErrorId = "existingEmail";
+const errorIdInvalid = "invalid";
+const errorIdExistingTeam = "existingTeam";
+const errorIdExistingEmail = "existingEmail";
 
-type TeamFormStates = "initial" | "invalid" | "pending" | "failed";
+type TeamFormStates = "initial" | "pending" | "failed";
 
 export interface TeamFormValues {
   team: string;
@@ -24,9 +25,11 @@ interface TeamFormProps {
 }
 
 function getErrorMsg(error: unknown) {
-  if (error === existingTeamErrorId) {
+  if (error === errorIdInvalid) {
+    return "Bitte fülle das Formular vollständig und korrekt aus.";
+  } else if (error === errorIdExistingTeam) {
     return "Der Teamname ist leider bereits vergeben, sorry 😕";
-  } else if (error === existingEmailErrorId) {
+  } else if (error === errorIdExistingEmail) {
     return "Mit der E-Mail-Adresse wurde bereits ein Team angemeldet, sorry 😕";
   } else {
     console.error(error);
@@ -53,7 +56,8 @@ export function TeamForm({ submitLabel, onSubmit }: TeamFormProps) {
         setErrorMessage(getErrorMsg(error));
       });
     } else {
-      setFormState("invalid");
+      setFormState("failed");
+      setErrorMessage(getErrorMsg(errorIdInvalid));
     }
   };
   return (
@@ -140,11 +144,6 @@ export function TeamForm({ submitLabel, onSubmit }: TeamFormProps) {
           </Form.Check.Label>
         </Form.Check>
       </div>
-      {formState === "invalid" && (
-        <Alert variant="danger">
-          Bitte fülle das Formular vollständig und korrekt aus.
-        </Alert>
-      )}
       {formState === "failed" && <Alert variant="danger">{errorMessage}</Alert>}
       <Button
         variant="primary"
