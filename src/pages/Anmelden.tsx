@@ -1,8 +1,7 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import Alert from "react-bootstrap/Alert";
 import { BackToStart } from "../comps/BackToStart";
-import { duplicateNameError, TeamForm } from "../comps/TeamForm";
-import type { TeamFormValues } from "../comps/TeamForm";
+import { TeamForm, type TeamFormValues } from "../comps/TeamForm";
 
 const mainMessage =
   "Die Anmeldung ist erst vollständig, nachdem du den Bestätigungslink aufgerufen hast. " +
@@ -11,30 +10,27 @@ const mainMessage =
 
 export default function Anmelden() {
   const [success, setSuccess] = useState(false);
-  const [teams, setTeams] = useState<string[]>([]);
-  useEffect(() => {
-    fetch("/list-teams.php")
-      .then((response) => response.json())
-      .then((data) => setTeams(data));
-  }, []);
-  const onSubmit = useCallback(
-    (values: TeamFormValues) => {
-      if (teams.includes(values.team)) {
-        return Promise.reject(duplicateNameError);
+  const onSubmit = useCallback((values: TeamFormValues) => {
+    return fetch("/add-team.php", {
+      method: "POST",
+      body: JSON.stringify(values),
+    }).then((response) => {
+      if (response.ok) {
+        setSuccess(true);
+      } else {
+        const defaultError = "HTTP status code " + response.status;
+        return response
+          .json()
+          .catch((error) => {
+            console.error(error);
+            return Promise.reject(defaultError);
+          })
+          .then((data) => {
+            return Promise.reject(data?.errorId ?? defaultError);
+          });
       }
-      return fetch("/add-team.php", {
-        method: "POST",
-        body: JSON.stringify(values),
-      }).then((response) => {
-        if (response.ok) {
-          setSuccess(true);
-        } else {
-          throw new Error("HTTP status code: " + response.status);
-        }
-      });
-    },
-    [teams],
-  );
+    });
+  }, []);
   return (
     <>
       <h1>Team anmelden</h1>
