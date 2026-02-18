@@ -38,6 +38,9 @@ export function Menu({ hideMenu }: MenuProps) {
           <MenuItem linkTo="/" hideMenu={hideMenu}>
             Start
           </MenuItem>
+          <MenuItem linkTo="/gallerie" hideMenu={hideMenu}>
+            Rückblick
+          </MenuItem>
           <MenuItem linkTo="/regeln" hideMenu={hideMenu}>
             Regeln
           </MenuItem>

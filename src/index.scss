@@ -22,3 +22,8 @@ h5 {
 html {
   scrollbar-gutter: stable;
 }
+
+.image-gallery {
+  --ig-thumbnail-size: 12rem;
+  --ig-thumbnail-size-small: 6rem;
+}
