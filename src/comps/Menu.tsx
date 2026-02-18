@@ -34,15 +34,15 @@ export function Menu({ hideMenu }: MenuProps) {
             </Button>
           </div>
         </div>
-        <div className="row justify-content-end mt-0 mt-lg-5">
+        <div className="row justify-content-start mt-3 mt-lg-5">
           <MenuItem linkTo="/" hideMenu={hideMenu}>
-            Start
+            Startseite
           </MenuItem>
           <MenuItem linkTo="/gallerie" hideMenu={hideMenu}>
             Rückblick
           </MenuItem>
           <MenuItem linkTo="/regeln" hideMenu={hideMenu}>
-            Regeln
+            Spielregeln
           </MenuItem>
           <MenuItem linkTo="/anreise" hideMenu={hideMenu}>
             Anreise
@@ -67,7 +67,7 @@ function MenuItem({
   children,
 }: PropsWithChildren<MenuItemProps>) {
   return (
-    <div className="col-12 col-md-6 col-lg-4 col-xxl-3 text-end">
+    <div className="col-12 col-md-6 col-xl-4 text-center">
       <h1>
         <Link to={linkTo} onClick={hideMenu}>
           {children}
