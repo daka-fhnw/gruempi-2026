@@ -27,7 +27,7 @@ export default function Start() {
         <img src={foto} className="img-fluid border" />
       </div>
       <div className="mb-3">
-        🡺 <Link href="/gallerie">Hier findest du weitere Fotos</Link> 🤩 🡸
+        <Link href="/gallerie">Hier findest du weitere Fotos</Link> 🤩
       </div>
       <h2>Sponsoren</h2>
       <Sponsoren />
