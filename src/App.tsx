@@ -35,7 +35,7 @@ export function App() {
           </Suspense>
         </main>
         <footer className="bg-primary flex-grow-0">
-          <div className="container">
+          <div className="container text-light">
             <div className="row justify-content-between">
               <div className="col-auto">
                 <a href="https://instagram.com/fhnwgruempi" target="_blank">
@@ -46,7 +46,8 @@ export function App() {
                 </a>
               </div>
               <div className="col-auto">
-                <Link to="/impressum">Impressum</Link>{" "}
+                <Link to="/impressum">Impressum</Link>
+                {" | "}
                 <Link to="/datenschutz">Datenschutz</Link>
               </div>
             </div>

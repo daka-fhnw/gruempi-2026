@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import { MailIcon } from "../icons/MailIcon";
 
 export default function Impressum() {
   return (
@@ -13,7 +14,12 @@ export default function Impressum() {
       <h2>Kontakt</h2>
       <h5>E-Mail</h5>
       <p>
-        <a href="mailto:info@grümpi.ch">info@grümpi.ch</a>
+        <a href="mailto:info@grümpi.ch">
+          <span className="me-1">
+            <MailIcon />
+          </span>
+          info@grümpi.ch
+        </a>
       </p>
       <h5>Adresse</h5>
       <p>
@@ -21,7 +27,9 @@ export default function Impressum() {
         <br />
         Hochschule für Architektur, Bau und Geomatik
         <br />
-        Institut Geomatik: G2024
+        Institut Geomatik
+        <br />
+        Klasse G2024
         <br />
         Hofackerstrasse 30
         <br />

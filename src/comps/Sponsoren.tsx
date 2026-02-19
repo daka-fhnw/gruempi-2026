@@ -1,6 +1,6 @@
 import type { PropsWithChildren } from "react";
 import Card from "react-bootstrap/Card";
-import placeholder from "../assets/sponsoren/placeholder.webp";
+import placeholder from "../assets/sponsorp.webp";
 
 const label = "Sponsor werden!";
 const url = "mailto:info@grümpi.ch";

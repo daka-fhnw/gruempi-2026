@@ -53,6 +53,7 @@ export function Menu({ hideMenu }: MenuProps) {
           </MenuItem>
           <MenuItem
             href="https://instagram.com/fhnwgruempi"
+            external={true}
             hideMenu={hideMenu}
           >
             <span className="me-1">
@@ -68,18 +69,20 @@ export function Menu({ hideMenu }: MenuProps) {
 
 interface MenuItemProps {
   href: string;
+  external?: boolean;
   hideMenu: () => void;
 }
 
 function MenuItem({
   href,
+  external,
   hideMenu,
   children,
 }: PropsWithChildren<MenuItemProps>) {
   return (
     <div className="col-12 col-md-6 col-xl-4 text-center">
       <h1>
-        {href.startsWith("http://") || href.startsWith("https://") ? (
+        {external ? (
           <a href={href} target="_blank" onClick={hideMenu}>
             {children}
           </a>

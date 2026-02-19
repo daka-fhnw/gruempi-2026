@@ -27,4 +27,4 @@ dist-ssr
 public/lib/config.php
 
 # gallery images
-public/gallerie/**/*.webp
+public/img/gallerie/**/*.webp
