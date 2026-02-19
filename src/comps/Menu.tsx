@@ -2,6 +2,7 @@ import { type PropsWithChildren } from "react";
 import { Link } from "wouter";
 import Button from "react-bootstrap/Button";
 import { CloseIcon } from "../icons/CloseIcon";
+import { InstaIcon } from "../icons/InstaIcon";
 import { useEscapeKey } from "../hooks/useEscapeKey";
 import { useLockBodyScroll } from "../hooks/useLockBodyScroll";
 import logo from "../assets/logo.svg";
@@ -35,20 +36,29 @@ export function Menu({ hideMenu }: MenuProps) {
           </div>
         </div>
         <div className="row justify-content-start mt-3 mt-lg-5">
-          <MenuItem linkTo="/" hideMenu={hideMenu}>
+          <MenuItem href="/" hideMenu={hideMenu}>
             Startseite
           </MenuItem>
-          <MenuItem linkTo="/gallerie" hideMenu={hideMenu}>
+          <MenuItem href="/gallerie" hideMenu={hideMenu}>
             Rückblick
           </MenuItem>
-          <MenuItem linkTo="/regeln" hideMenu={hideMenu}>
+          <MenuItem href="/regeln" hideMenu={hideMenu}>
             Spielregeln
           </MenuItem>
-          <MenuItem linkTo="/anreise" hideMenu={hideMenu}>
+          <MenuItem href="/anreise" hideMenu={hideMenu}>
             Anreise
           </MenuItem>
-          <MenuItem linkTo="/impressum" hideMenu={hideMenu}>
+          <MenuItem href="/impressum" hideMenu={hideMenu}>
             Kontakt
+          </MenuItem>
+          <MenuItem
+            href="https://instagram.com/fhnwgruempi"
+            hideMenu={hideMenu}
+          >
+            <span className="me-1">
+              <InstaIcon />
+            </span>
+            Instagram
           </MenuItem>
         </div>
       </div>
@@ -57,21 +67,27 @@ export function Menu({ hideMenu }: MenuProps) {
 }
 
 interface MenuItemProps {
-  linkTo: string;
+  href: string;
   hideMenu: () => void;
 }
 
 function MenuItem({
-  linkTo,
+  href,
   hideMenu,
   children,
 }: PropsWithChildren<MenuItemProps>) {
   return (
     <div className="col-12 col-md-6 col-xl-4 text-center">
       <h1>
-        <Link to={linkTo} onClick={hideMenu}>
-          {children}
-        </Link>
+        {href.startsWith("http://") || href.startsWith("https://") ? (
+          <a href={href} target="_blank" onClick={hideMenu}>
+            {children}
+          </a>
+        ) : (
+          <Link href={href} onClick={hideMenu}>
+            {children}
+          </Link>
+        )}
       </h1>
     </div>
   );

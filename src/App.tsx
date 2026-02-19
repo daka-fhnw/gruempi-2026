@@ -4,6 +4,7 @@ import { Header } from "./comps/Header";
 import { ScrollToTop } from "./comps/ScrollToTop";
 import { Loading } from "./comps/Loading";
 import { NotFound } from "./comps/NotFound";
+import { InstaIcon } from "./icons/InstaIcon";
 import "./App.scss";
 
 export function App() {
@@ -34,9 +35,21 @@ export function App() {
           </Suspense>
         </main>
         <footer className="bg-primary flex-grow-0">
-          <div className="container text-light text-end">
-            <Link to="/impressum">Impressum</Link>
-            <Link to="/datenschutz">Datenschutz</Link>
+          <div className="container">
+            <div className="row justify-content-between">
+              <div className="col-auto">
+                <a href="https://instagram.com/fhnwgruempi" target="_blank">
+                  <span className="me-1">
+                    <InstaIcon />
+                  </span>
+                  Instagram
+                </a>
+              </div>
+              <div className="col-auto">
+                <Link to="/impressum">Impressum</Link>{" "}
+                <Link to="/datenschutz">Datenschutz</Link>
+              </div>
+            </div>
           </div>
         </footer>
       </div>
