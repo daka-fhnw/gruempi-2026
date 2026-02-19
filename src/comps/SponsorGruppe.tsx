@@ -46,8 +46,9 @@ function MaybeWithUrl({
   children,
 }: PropsWithChildren<MaybeWithUrlProps>) {
   if (sponsor.url) {
+    const isMailto = sponsor.url.startsWith("mailto:");
     return (
-      <a href={sponsor.url} target="_blank">
+      <a href={sponsor.url} target={isMailto ? undefined : "_blank"}>
         {children}
       </a>
     );
