@@ -1,4 +1,4 @@
-export default [
+export const fotos2025 = [
   "/img/gallerie/2025/20250508-163435.webp",
   "/img/gallerie/2025/20250508-163500.webp",
   "/img/gallerie/2025/20250508-163517.webp",
