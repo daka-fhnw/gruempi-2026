@@ -13,6 +13,7 @@ export function App() {
   const Anreise = React.lazy(() => import("./pages/Anreise"));
   const Gallerie = React.lazy(() => import("./pages/Gallerie"));
   const Anmelden = React.lazy(() => import("./pages/Anmelden"));
+  const Sponsoren = React.lazy(() => import("./pages/Sponsoren"));
   const Impressum = React.lazy(() => import("./pages/Impressum"));
   const Datenschutz = React.lazy(() => import("./pages/Datenschutz"));
   return (
@@ -28,6 +29,7 @@ export function App() {
               <Route path="/anreise" component={Anreise} />
               <Route path="/gallerie" component={Gallerie} />
               <Route path="/anmelden" component={Anmelden} />
+              <Route path="/sponsoren" component={Sponsoren} />
               <Route path="/impressum" component={Impressum} />
               <Route path="/datenschutz" component={Datenschutz} />
               <Route component={NotFound} />

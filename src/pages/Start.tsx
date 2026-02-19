@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Link } from "wouter";
 import { Countdown } from "../comps/Countdown";
-import { Sponsoren } from "../comps/Sponsoren";
-import fotos2025 from "../fotos2025";
+import { fotos2025 } from "../listen_gallerie";
+import { fixpunkte } from "../listen_sponsoren";
+import { SponsorGruppe } from "../comps/SponsorGruppe";
 
 function randomFoto() {
   return fotos2025[Math.floor(Math.random() * fotos2025.length)];
@@ -29,8 +30,9 @@ export default function Start() {
       <div className="mb-3">
         <Link href="/gallerie">Hier findest du weitere Fotos</Link> 🤩
       </div>
-      <h2>Sponsoren</h2>
-      <Sponsoren />
+      <h2>Hauptsponsoren</h2>
+      <SponsorGruppe list={fixpunkte} size="16rem" />
+      <Link href="/sponsoren">Weitere Sponsoren</Link> 😍
     </>
   );
 }

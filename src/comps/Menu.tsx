@@ -42,6 +42,9 @@ export function Menu({ hideMenu }: MenuProps) {
           <MenuItem href="/gallerie" hideMenu={hideMenu}>
             Rückblick
           </MenuItem>
+          <MenuItem href="/sponsoren" hideMenu={hideMenu}>
+            Sponsoren
+          </MenuItem>
           <MenuItem href="/regeln" hideMenu={hideMenu}>
             Spielregeln
           </MenuItem>
