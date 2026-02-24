@@ -8,7 +8,7 @@ CREATE TABLE
         `mobile` VARCHAR(255),
         `token` VARCHAR(255) NOT NULL,
         `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        `verified` BOOLEAN NOT NULL DEFAULT FALSE,
+        `verified_at` TIMESTAMP NULL DEFAULT NULL,
         PRIMARY KEY (`id`),
         UNIQUE INDEX (`team`),
         UNIQUE INDEX (`email`),
