@@ -103,18 +103,20 @@ function add_team_log_entry($dbconn, $data, $action)
 function send_registered_email($data)
 {
     $to = $data['email'];
-    $subject = 'Anmeldung FHNW Grümpi 2026';
+    $subject = mime_encode('Anmeldung FHNW Grümpi 2026');
     $message = replace_placeholders(
         file_get_contents('lib/templates/registered.html'),
         $data
     );
     $headers = [
-        'From: "FHNW Grümpi 2026" <info@grümpi.ch>',
-        'X-Mailer: PHP/' . phpversion(),
-        'MIME-Version: 1.0',
-        'Content-type: text/html; charset=utf-8',
+        'From' => mime_encode('FHNW Grümpi 2026') . ' <info@xn--grmpi-lva.ch>',
+        'Reply-To' => 'info@grümpi.ch',
+        'X-Mailer' => 'PHP/' . phpversion(),
+        'MIME-Version' => '1.0',
+        'Content-Type' => 'text/html; charset=utf-8',
     ];
-    return mail($to, $subject, $message, implode("\r\n", $headers));
+    $params = '-finfo@xn--grmpi-lva.ch';
+    return mail($to, $subject, $message, $headers, $params);
 }
 
 function replace_placeholders($message, $data)
@@ -124,4 +126,9 @@ function replace_placeholders($message, $data)
         $variables['{{' . $key . '}}'] = $value;
     }
     return strtr($message, $variables);
+}
+
+function mime_encode($text)
+{
+    return mb_encode_mimeheader($text, 'UTF-8', 'Q');
 }
