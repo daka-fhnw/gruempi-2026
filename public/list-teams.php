@@ -1,17 +1,17 @@
 <?php
 
 require('lib/utilities.php');
-jsonHeader();
+header_json();
 if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
-    exitWith(400, "Bad request");
+    exit_with(400, "Bad request");
 }
-$config = require('lib/config.php');
 try {
-    $dbconn = require('lib/dbconnect.php');
-    $sql = "SELECT `team` FROM teams";
-    $data = $dbconn->query($sql)->fetchAll(PDO::FETCH_COLUMN);
+    $dbconn = db_connect();
+    $sql = "SELECT `team` FROM teams WHERE `verified_at` IS NOT NULL ORDER BY `verified_at` ASC";
+    $stmt = $dbconn->query($sql);
+    $data = $stmt->fetchAll(PDO::FETCH_COLUMN);
 } catch (Exception $e) {
     error_log($e);
-    exitWith(500, "Internal server error");
+    exit_with(500, "Internal server error");
 }
-echo jsonEncodeUTF8($data);
+echo json_encode_unescaped($data);

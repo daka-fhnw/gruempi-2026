@@ -1,4 +1,4 @@
 DELETE FROM `teams`
 WHERE
-    VERIFIED = FALSE
+    `verified_at` IS NULL
     AND TIMESTAMPDIFF (HOUR, `created_at`, CURRENT_TIMESTAMP) > 24;
