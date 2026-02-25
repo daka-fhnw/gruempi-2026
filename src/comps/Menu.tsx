@@ -45,11 +45,8 @@ export function Menu({ hideMenu }: MenuProps) {
           <MenuItem href="/sponsoren" hideMenu={hideMenu}>
             Sponsoren
           </MenuItem>
-          <MenuItem href="/regeln" hideMenu={hideMenu}>
-            Spielregeln
-          </MenuItem>
-          <MenuItem href="/anreise" hideMenu={hideMenu}>
-            Anreise
+          <MenuItem href="/infos" hideMenu={hideMenu}>
+            Infos & Regeln
           </MenuItem>
           <MenuItem href="/impressum" hideMenu={hideMenu}>
             Kontakt
@@ -59,7 +56,7 @@ export function Menu({ hideMenu }: MenuProps) {
             external={true}
             hideMenu={hideMenu}
           >
-            <span className="me-1">
+            <span className="me-1 insta">
               <InstaIcon />
             </span>
             Instagram

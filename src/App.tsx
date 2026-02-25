@@ -9,7 +9,7 @@ import "./App.scss";
 
 export function App() {
   const Start = React.lazy(() => import("./pages/Start"));
-  const Regeln = React.lazy(() => import("./pages/Regeln"));
+  const Infos = React.lazy(() => import("./pages/Infos"));
   const Anreise = React.lazy(() => import("./pages/Anreise"));
   const Gallerie = React.lazy(() => import("./pages/Gallerie"));
   const Anmelden = React.lazy(() => import("./pages/Anmelden"));
@@ -25,7 +25,7 @@ export function App() {
           <Suspense fallback={<Loading />}>
             <Switch>
               <Route path="/" component={Start} />
-              <Route path="/regeln" component={Regeln} />
+              <Route path="/infos" component={Infos} />
               <Route path="/anreise" component={Anreise} />
               <Route path="/gallerie" component={Gallerie} />
               <Route path="/anmelden" component={Anmelden} />

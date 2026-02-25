@@ -128,7 +128,7 @@ export function TeamForm({ submitLabel, onSubmit }: TeamFormProps) {
           <Form.Check.Input type="checkbox" required />
           <Form.Check.Label>
             Hiermit bestätige ich, dass ich mit den{" "}
-            <a href="/regeln" target="_blank">
+            <a href="/infos" target="_blank">
               Teilnahmebedingungen
             </a>{" "}
             einverstanden bin.
