@@ -1,8 +1,36 @@
+import { Link } from "wouter";
+import { ArrowIcon } from "../icons/ArrowIcon";
+
 export default function Regeln() {
   return (
     <>
-      <h1>Teilnahmebedingungen und Spielregeln</h1>
-      <h2>1. Überblick</h2>
+      <h1>Infos zum FHNW Grümpi 2026</h1>
+      <h4>Wer organisiert das Grümpi?</h4>
+      <p>
+        Das Grümpi wird traditionsgemäss von den Geomatikstudenten im vierten
+        Semester an der FHNW in Muttenz organisiert.
+      </p>
+      <h4>Wo findet das Grümpi statt?</h4>
+      <p>
+        Das Grümpi findet in unmittelbarer Nähe zum FHNW Campus in Muttenz auf
+        dem Fussballplatz Kriegacker statt (Gründenstrasse 32).
+        <br />
+        <span className="me-1">
+          <ArrowIcon />
+        </span>
+        <Link href="/anreise">Hier findest du eine Kartenübersicht</Link>
+      </p>
+      <h4>Wann findet das Grümpi statt?</h4>
+      <p>
+        Das Grümpi findet am 30. April 2026 ab 17:00 bei jedem Wetter statt.
+        <br />
+        <span className="me-1">
+          <ArrowIcon />
+        </span>
+        <a href="/event.ics">Trag dir den Termin gleich ein</a>
+      </p>
+      <h2>Teilnahmebedingungen und Spielregeln</h2>
+      <h4>1. Überblick</h4>
       <ul>
         <li>
           <b>Maximale Anzahl Teams:</b> 20 Mannschaften
@@ -19,7 +47,7 @@ export default function Regeln() {
           gibt kein Spiel um Platz 3/4.
         </li>
       </ul>
-      <h2>2. Mannschaften</h2>
+      <h4>2. Mannschaften</h4>
       <ul>
         <li>
           Teilnahmeberechtigt sind alle Studierenden und Mitarbeitenden der
@@ -61,7 +89,7 @@ export default function Regeln() {
           beim Wettkampfbüro melden und die Turniergebühr begleichen.
         </li>
       </ul>
-      <h2>3. Turniermodus</h2>
+      <h4>3. Turniermodus</h4>
       <ul>
         <li>
           <b>Gruppenphase</b>
@@ -93,7 +121,7 @@ export default function Regeln() {
           </ol>
         </li>
       </ul>
-      <h2>4. Spielregeln</h2>
+      <h4>4. Spielregeln</h4>
       <ul>
         <li>
           Fairplay steht an diesem Anlass ganz oben. Es ist ein Spassturnier und
@@ -150,7 +178,7 @@ export default function Regeln() {
           Spiel mit 0:3 Forfait.
         </li>
       </ul>
-      <h2>5. Schiedsrichter</h2>
+      <h4>5. Schiedsrichter</h4>
       <ul>
         <li>
           Jede Mannschaft muss während der Gruppenphase Schiedsrichter für
@@ -161,14 +189,14 @@ export default function Regeln() {
           Es gibt keinen VAR!
         </li>
       </ul>
-      <h2>6. Wetter</h2>
+      <h4>6. Wetter</h4>
       <ul>
         <li>
           Wenn während des Turniers extreme Platz- und Wetterverhältnissen
           herrschen, kann das OK das Turnier unterbrechen oder abbrechen.
         </li>
       </ul>
-      <h2>7. Versicherung und Datenschutz</h2>
+      <h4>7. Versicherung und Datenschutz</h4>
       <ul>
         <li>Versicherung ist Sache jedes einzelnen Teilnehmenden.</li>
         <li>

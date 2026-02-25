@@ -1,0 +1,13 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//AnandChowdhary//calendar-link//EN
+BEGIN:VEVENT
+DTSTART:20260430T150000Z
+DTEND:20260430T200000Z
+DTSTAMP:20260225T091005Z
+SUMMARY:FHNW Grümpi 2026
+DESCRIPTION:Das jährliche FHNW Grümpi findet auch dieses Jahr in unmittelbarer Nähe zum FHNW Campus in Muttenz statt. Kommt vorbei und erlebt einen spannenden Fussballabend. Natürlich geniesst ihr auch als Zuschauer ein tolles Angebot inklusive Festwirtschaft und seid herzlich Willkommen.
+LOCATION:Fussballplatz Kriegacker, Gründenstrasse 32, 4132 Muttenz
+UID:91325
+END:VEVENT
+END:VCALENDAR
