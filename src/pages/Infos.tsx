@@ -27,7 +27,7 @@ export default function Regeln() {
         <span className="me-1">
           <ArrowIcon />
         </span>
-        <a href="/event.ics">Trag dir den Termin gleich ein</a>
+        <a href="/fhnw-gruempi.ics">Kalendereintrag herunterladen</a>
       </p>
       <h2>Teilnahmebedingungen und Spielregeln</h2>
       <h4>1. Überblick</h4>

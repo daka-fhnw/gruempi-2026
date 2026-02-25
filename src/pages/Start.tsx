@@ -31,7 +31,7 @@ export default function Start() {
             <DateIcon />
           </div>
           <div className="col">
-            <a href="/event.ics" title="Zum Kalender hinzufügen">
+            <a href="/fhnw-gruempi.ics" title="Kalendereintrag">
               Donnerstag 30.&nbsp;April&nbsp;2026 ab&nbsp;17:00
             </a>
           </div>
