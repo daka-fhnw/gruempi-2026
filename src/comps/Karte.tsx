@@ -113,7 +113,7 @@ function KarteZoom() {
     for (const position of positions) {
       markerBounds.extend(position);
     }
-    map.fitBounds(markerBounds);
+    map.fitBounds(markerBounds, { padding: [25, 25] });
   }, [map]);
   return null;
 }
