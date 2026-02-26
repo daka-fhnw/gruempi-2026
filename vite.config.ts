@@ -16,4 +16,23 @@ export default defineConfig({
       },
     },
   },
+  server: {
+    proxy: {
+      "/api": {
+        target: "https://grümpi.ch/",
+        changeOrigin: true,
+        configure: (proxy) => {
+          proxy.on("error", (err) => {
+            console.log("error", err);
+          });
+          proxy.on("proxyReq", (_proxyReq, req) => {
+            console.log("Proxy request:", req.method, req.url);
+          });
+          proxy.on("proxyRes", (proxyRes, req) => {
+            console.log("Proxy response:", proxyRes.statusCode, req.url);
+          });
+        },
+      },
+    },
+  },
 });
