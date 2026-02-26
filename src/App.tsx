@@ -16,6 +16,8 @@ export function App() {
   const Sponsoren = React.lazy(() => import("./pages/Sponsoren"));
   const Impressum = React.lazy(() => import("./pages/Impressum"));
   const Datenschutz = React.lazy(() => import("./pages/Datenschutz"));
+  const Team = React.lazy(() => import("./pages/Team"));
+  const Teams = React.lazy(() => import("./pages/Teams"));
   return (
     <>
       <Header />
@@ -32,6 +34,8 @@ export function App() {
               <Route path="/sponsoren" component={Sponsoren} />
               <Route path="/impressum" component={Impressum} />
               <Route path="/datenschutz" component={Datenschutz} />
+              <Route path="/team/:token" component={Team} />
+              <Route path="/teams" component={Teams} />
               <Route component={NotFound} />
             </Switch>
           </Suspense>

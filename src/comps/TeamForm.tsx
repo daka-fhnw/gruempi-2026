@@ -2,6 +2,7 @@ import { useState, type SubmitEvent } from "react";
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import type { Team } from "../types";
 import "./TeamForm.scss";
 
 const maxTeamNameLen = 40;
@@ -11,17 +12,9 @@ const errorIdExistingEmail = "existingEmail";
 
 type TeamFormStates = "initial" | "pending" | "failed";
 
-export interface TeamFormValues {
-  team: string;
-  email: string;
-  firstname: string;
-  lastname: string;
-  mobile: string;
-}
-
 interface TeamFormProps {
   submitLabel: string;
-  onSubmit: (formData: TeamFormValues) => Promise<void>;
+  onSubmit: (formData: Team) => Promise<void>;
 }
 
 function getErrorMsg(error: unknown) {

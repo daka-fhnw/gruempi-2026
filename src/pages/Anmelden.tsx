@@ -1,7 +1,8 @@
 import { useCallback, useState } from "react";
 import Alert from "react-bootstrap/Alert";
 import { BackToStart } from "../comps/BackToStart";
-import { TeamForm, type TeamFormValues } from "../comps/TeamForm";
+import { TeamForm } from "../comps/TeamForm";
+import type { Team } from "../types";
 
 const mainMessage =
   "Die Anmeldung ist erst vollständig, nachdem du den Bestätigungslink aufgerufen hast. " +
@@ -10,8 +11,8 @@ const mainMessage =
 
 export default function Anmelden() {
   const [success, setSuccess] = useState(false);
-  const onSubmit = useCallback((values: TeamFormValues) => {
-    return fetch("/add-team.php", {
+  const onSubmit = useCallback((values: Team) => {
+    return fetch("/api/add-team.php", {
       method: "POST",
       body: JSON.stringify(values),
     }).then((response) => {
