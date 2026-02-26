@@ -5,8 +5,8 @@ export default function Anreise() {
     <>
       <h1>Fussballplatz Kriegacker</h1>
       <p>
-        In unmittelbarer Nähe zum FHNW Campus in Muttenz: <br />
-        Gründenstrasse 32, 4132 Muttenz
+        In unmittelbarer Nähe zum FHNW Campus:
+        Gründenstrasse&nbsp;32,&nbsp;4132&nbsp;Muttenz
       </p>
       <p>
         Für die Anreise bieten sich die Bushaltestellen Kriegacker und

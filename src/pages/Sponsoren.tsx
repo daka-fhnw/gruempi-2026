@@ -14,13 +14,17 @@ export default function Sponsoren() {
       <h2>Fixpunkte (Hauptsponsoren)</h2>
       <SponsorGruppe list={fixpunkte} size="16rem" />
       <h2>Höhenfixpunkte</h2>
-      <SponsorGruppe list={hoehenfixpunkte} size="14rem" />
+      <SponsorGruppe list={hoehenfixpunkte} size="13rem" />
       <h2>Passpunkte</h2>
-      <SponsorGruppe list={passpunkte} size="12rem" />
+      <SponsorGruppe list={passpunkte} size="10rem" />
       <h2>Grenzpunkte</h2>
-      <SponsorGruppe list={grenzpunkte} size="10rem" />
+      <SponsorGruppe list={grenzpunkte} size="8rem" />
       <h2>Rüebli</h2>
-      <SponsorGruppe list={ruebli} size="8rem" />
+      <ul>
+        {ruebli.map((sponsor, index) => (
+          <li key={index}>{sponsor}</li>
+        ))}
+      </ul>
     </div>
   );
 }

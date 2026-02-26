@@ -36,10 +36,4 @@ export const grenzpunkte: Sponsor[] = [
   },
 ];
 
-export const ruebli: Sponsor[] = [
-  {
-    imgPath: "/img/sponsoren/placeholder.webp",
-    label: "Sponsor werden!",
-    url: "mailto:info@grümpi.ch",
-  },
-];
+export const ruebli: string[] = ["Sponsor werden!"];
