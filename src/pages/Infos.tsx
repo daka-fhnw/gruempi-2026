@@ -13,7 +13,7 @@ export default function Regeln() {
       <h4>Wo findet das Grümpi statt?</h4>
       <p>
         Das Grümpi findet in unmittelbarer Nähe zum FHNW Campus in Muttenz auf
-        dem Fussballplatz Kriegacker statt (Gründenstrasse 32).
+        dem Fussballplatz Kriegacker (Gründenstrasse&nbsp;32) statt.
         <br />
         <span className="me-1">
           <ArrowIcon />
