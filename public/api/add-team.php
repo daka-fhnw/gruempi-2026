@@ -9,28 +9,28 @@ $data = extract_data();
 if (!check_data($data)) {
     exit_with(400, 'Invalid content', 'invalid');
 }
-$data['token'] = generate_token();
 try {
     $dbconn = db_connect();
-    remove_expired($dbconn);
+    remove_expired_teams($dbconn);
     if (!check_existing_team($dbconn, $data)) {
         exit_with(400, 'Team name already exists', 'existingTeam');
     }
     if (!check_existing_email($dbconn, $data)) {
         exit_with(400, 'E-mail address already in use', 'existingEmail');
     }
+    $data['token'] = generate_token();
     $data['id'] = add_team_entry($dbconn, $data);
-    $data['link'] = "https://grümpi.ch/team/{$data['id']}-{$data['token']}";
+    $data['link'] = create_email_link($data);
     add_team_log_entry($dbconn, $data, 'created');
-    if (!send_registered_email($data)) {
+    if (!send_email($data)) {
         throw new RuntimeException("Sending email to {$data["email"]} failed");
     }
-} catch (Exception $err) {
-    error_log($err);
+    http_response_code(200);
+    echo json_encode_unescaped(['message' => 'Team successfully added']);
+} catch (Exception $e) {
+    error_log($e);
     exit_with(500, 'Internal server error');
 }
-http_response_code(200);
-echo json_encode_unescaped(['message' => 'Team successfully added']);
 
 function extract_data()
 {
@@ -49,13 +49,6 @@ function check_data($data)
         && is_non_empty_string($data['firstname'])
         && is_non_empty_string($data['lastname'])
         && is_valid_email($data['email']);
-}
-
-function remove_expired($dbconn)
-{
-    $sql = 'DELETE FROM `teams` WHERE `verified_at` IS NULL AND TIMESTAMPDIFF(HOUR, `created_at`, CURRENT_TIMESTAMP) > 24';
-    $stmt = $dbconn->prepare($sql);
-    $stmt->execute();
 }
 
 function check_existing_team($dbconn, $data)
@@ -100,12 +93,18 @@ function add_team_log_entry($dbconn, $data, $action)
     $stmt->execute([$data['id'], $action, $data['team'], $data['firstname'], $data['lastname'], $data['email'], $data['mobile']]);
 }
 
-function send_registered_email($data)
+function create_email_link($data)
+{
+    $id_token = join_id_token($data['id'], $data['token']);
+    return "https://grümpi.ch/team/$id_token";
+}
+
+function send_email($data)
 {
     $to = $data['email'];
     $subject = mime_encode('Anmeldung FHNW Grümpi 2026');
     $message = replace_placeholders(
-        file_get_contents('lib/templates/registered.html'),
+        file_get_contents('lib/email.html'),
         $data
     );
     $headers = [
