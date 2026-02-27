@@ -21,12 +21,12 @@ try {
     $data['token'] = generate_token();
     $data['id'] = add_team_entry($dbconn, $data);
     $data['link'] = create_email_link($data);
-    add_team_log_entry($dbconn, $data, 'created');
+    add_team_log_entry($dbconn, $data['id'], 'created', $data);
     if (!send_email($data)) {
         throw new RuntimeException("Sending email to {$data["email"]} failed");
     }
     http_response_code(200);
-    echo json_encode_unescaped(['message' => 'Team successfully added']);
+    echo json_encode_unescaped(['message' => 'Team added']);
 } catch (Exception $e) {
     error_log($e);
     exit_with(500, 'Internal server error');
@@ -36,11 +36,11 @@ function extract_data()
 {
     $input = json_decode(file_get_contents('php://input'), true);
     return [
-        'team' => $input['team'] ?? null,
-        'firstname' => $input['firstname'] ?? null,
-        'lastname' => $input['lastname'] ?? null,
-        'email' => $input['email'] ?? null,
-        'mobile' => $input['mobile'] ?? null,
+        'team' => trim_to_null($input['team'] ?? null),
+        'firstname' => trim_to_null($input['firstname'] ?? null),
+        'lastname' => trim_to_null($input['lastname'] ?? null),
+        'email' => trim_to_null($input['email'] ?? null),
+        'mobile' => trim_to_null($input['mobile'] ?? null),
     ];
 }
 function check_data($data)
@@ -53,7 +53,7 @@ function check_data($data)
 
 function check_existing_team($dbconn, $data)
 {
-    $sql = 'SELECT COUNT(*) FROM teams WHERE `team` = ?';
+    $sql = 'SELECT COUNT(*) FROM `teams` WHERE `team`=?';
     $stmt = $dbconn->prepare($sql);
     $stmt->execute([$data['team']]);
     return $stmt->fetchColumn() === 0;
@@ -61,7 +61,7 @@ function check_existing_team($dbconn, $data)
 
 function check_existing_email($dbconn, $data)
 {
-    $sql = 'SELECT COUNT(*) FROM teams WHERE `email` = ?';
+    $sql = 'SELECT COUNT(*) FROM `teams` WHERE `email`=?';
     $stmt = $dbconn->prepare($sql);
     $stmt->execute([$data['email']]);
     return $stmt->fetchColumn() === 0;
@@ -80,17 +80,10 @@ function generate_token()
 
 function add_team_entry($dbconn, $data)
 {
-    $sql = 'INSERT INTO teams (`team`, `firstname`, `lastname`, `email`, `mobile`, `token`) VALUES (?,?,?,?,?,?)';
+    $sql = 'INSERT INTO `teams` (`team`, `firstname`, `lastname`, `email`, `mobile`, `token`) VALUES (?,?,?,?,?,?)';
     $stmt = $dbconn->prepare($sql);
     $stmt->execute([$data['team'], $data['firstname'], $data['lastname'], $data['email'], $data['mobile'], $data['token']]);
     return $dbconn->lastInsertId();
-}
-
-function add_team_log_entry($dbconn, $data, $action)
-{
-    $sql = 'INSERT INTO teams_log (`team_id`, `action`, `team`, `firstname`, `lastname`, `email`, `mobile`) VALUES (?,?,?,?,?,?,?)';
-    $stmt = $dbconn->prepare($sql);
-    $stmt->execute([$data['id'], $action, $data['team'], $data['firstname'], $data['lastname'], $data['email'], $data['mobile']]);
 }
 
 function create_email_link($data)
