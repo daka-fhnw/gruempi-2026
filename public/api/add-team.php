@@ -28,7 +28,7 @@ try {
     http_response_code(200);
     echo json_encode_unescaped(['message' => 'Team added']);
 } catch (Exception $e) {
-    error_log($e);
+    log_app_error('ERROR', 'add-team', $e);
     exit_with(500, 'Internal server error');
 }
 

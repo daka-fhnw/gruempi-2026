@@ -22,13 +22,13 @@ try {
     unset($team['verified_at']);
     http_response_code(200);
     echo json_encode_unescaped($team);
-} catch (Exception $err) {
-    error_log($err);
+} catch (Exception $e) {
+    log_app_error('ERROR', 'get-team', $e);
     exit_with(500, 'Internal server error');
 }
 function load_team($dbconn, $id, $token)
 {
-    $sql = 'SELECT `team`, `email`, `firstname`, `lastname`, `mobile`, `verified_at` FROM teams WHERE `id`=? AND `token`=? LIMIT 1';
+    $sql = 'SELECT `team`, `email`, `firstname`, `lastname`, `mobile`, `verified_at` FROM `teams` WHERE `id`=? AND `token`=? LIMIT 1';
     $stmt = $dbconn->prepare($sql);
     $stmt->execute([$id, $token]);
     return $stmt->fetch(PDO::FETCH_ASSOC);
@@ -36,7 +36,7 @@ function load_team($dbconn, $id, $token)
 
 function verify_team($dbconn, $id)
 {
-    $sql = 'UPDATE teams SET `verified_at`=CURRENT_TIMESTAMP WHERE `id`=? AND `verified_at` IS NULL';
+    $sql = 'UPDATE `teams` SET `verified_at`=CURRENT_TIMESTAMP WHERE `id`=? AND `verified_at` IS NULL';
     $stmt = $dbconn->prepare($sql);
     $stmt->execute([$id]);
 }
