@@ -38,11 +38,29 @@ function join_id_token($id, $token)
 
 function split_id_token($data)
 {
-    $split = explode('-', $data);
-    if (count($split) === 2) {
-        return $split;
+    if (is_string($data)) {
+        $split = explode('-', $data);
+        if (
+            count($split) === 2
+            && strlen($split[0]) !== 0
+            && strlen($split[1]) !== 0
+        ) {
+            return $split;
+        }
     }
     return [null, null];
+}
+
+function trim_to_null($data)
+{
+    if (is_string($data)) {
+        $trimmed = trim($data);
+        if (strlen($trimmed) === 0) {
+            return null;
+        }
+        return $trimmed;
+    }
+    return $data;
 }
 
 function db_connect()
@@ -60,4 +78,19 @@ function remove_expired_teams($dbconn)
     $sql = 'DELETE FROM `teams` WHERE `verified_at` IS NULL AND TIMESTAMPDIFF(HOUR, `created_at`, CURRENT_TIMESTAMP) > 24';
     $stmt = $dbconn->prepare($sql);
     $stmt->execute();
+}
+
+function add_team_log_entry($dbconn, $id, $action, $data = [])
+{
+    $sql = 'INSERT INTO teams_log (`team_id`, `action`, `team`, `firstname`, `lastname`, `email`, `mobile`) VALUES (?,?,?,?,?,?,?)';
+    $stmt = $dbconn->prepare($sql);
+    $stmt->execute([
+        $id,
+        $action,
+        $data['team'] ?? null,
+        $data['firstname'] ?? null,
+        $data['lastname'] ?? null,
+        $data['email'] ?? null,
+        $data['mobile'] ?? null
+    ]);
 }
