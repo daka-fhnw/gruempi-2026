@@ -94,3 +94,12 @@ function add_team_log_entry($dbconn, $id, $action, $data = [])
         $data['mobile'] ?? null
     ]);
 }
+
+function log_app_error($severity, $context, $message)
+{
+    $timestamp = new DateTime();
+    $timestamp = $timestamp->format("Y-m-d H:i:s");
+    $text = "$timestamp $severity [$context]: $message\n";
+    $path = '../../logs/app_error.log';
+    error_log($text, 3, $path);
+}

@@ -11,7 +11,7 @@ try {
     http_response_code(200);
     echo json_encode_unescaped($data);
 } catch (Exception $e) {
-    error_log($e);
+    log_app_error('ERROR', 'list-teams', $e);
     exit_with(500, 'Internal server error');
 }
 

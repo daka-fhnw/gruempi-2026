@@ -28,8 +28,8 @@ try {
     add_team_log_entry($dbconn, $data['id'], 'edited', $data);
     http_response_code(200);
     echo json_encode_unescaped(['message' => 'Team updated']);
-} catch (Exception $err) {
-    error_log($err);
+} catch (Exception $e) {
+    log_app_error('ERROR', 'edit-team', $e);
     exit_with(500, 'Internal server error');
 }
 
