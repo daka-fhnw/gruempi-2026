@@ -1,0 +1,31 @@
+{
+  "fixpunkte": [
+    {
+      "imgPath": "/img/sponsoren/placeholder.webp",
+      "label": "Sponsor werden!",
+      "url": "mailto:info@grümpi.ch"
+    }
+  ],
+  "hoehenfixpunkte": [
+    {
+      "imgPath": "/img/sponsoren/placeholder.webp",
+      "label": "Sponsor werden!",
+      "url": "mailto:info@grümpi.ch"
+    }
+  ],
+  "passpunkte": [
+    {
+      "imgPath": "/img/sponsoren/placeholder.webp",
+      "label": "Sponsor werden!",
+      "url": "mailto:info@grümpi.ch"
+    }
+  ],
+  "grenzpunkte": [
+    {
+      "imgPath": "/img/sponsoren/placeholder.webp",
+      "label": "Sponsor werden!",
+      "url": "mailto:info@grümpi.ch"
+    }
+  ],
+  "ruebli": ["Sponsor werden!"]
+}
