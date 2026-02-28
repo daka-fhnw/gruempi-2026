@@ -4,7 +4,7 @@ import { Alert, Button } from "react-bootstrap";
 import { Loading } from "../comps/Loading";
 import { BackToStart } from "../comps/BackToStart";
 import { TeamForm, type Team } from "../comps/TeamForm";
-import { ArrowIcon } from "../icons/ArrowIcon";
+import { ArrowLink } from "../comps/ArrowLink";
 
 type TeamViewStates =
   | "loading"
@@ -102,16 +102,15 @@ interface TeamOverviewProps {
   setViewState: (state: TeamViewStates) => void;
 }
 
+function nonBreakingText(text: string) {
+  return text.replaceAll(" ", "\u00a0");
+}
+
 function TeamOverview({ values, setViewState }: TeamOverviewProps) {
   const teamListLink = (
-    <div>
-      <span className="me-1">
-        <ArrowIcon />
-      </span>{" "}
-      <Link href="/teams">
-        Hier findest du die Liste der angemeldeten Teams
-      </Link>
-    </div>
+    <Link href="/teams">
+      <ArrowLink>Liste der angemeldeten Teams</ArrowLink>
+    </Link>
   );
   return (
     <>
@@ -119,12 +118,15 @@ function TeamOverview({ values, setViewState }: TeamOverviewProps) {
       {values.waitinglist === false ? (
         <Alert variant="success">
           Dein Team ist bestätigt (nicht auf der Warteliste).
+          <br />
           {teamListLink}
         </Alert>
       ) : (
         <Alert variant="danger">
-          Dein Team steht auf der Warteliste, da bereits 20 Teams angemeldet
-          sind. Schau doch ab und zu vorbei, vielleicht wird ein Platz frei.
+          Dein Team steht auf der Warteliste, da bereits 20&nbsp;Teams
+          angemeldet sind. Schau doch ab und zu vorbei, vielleicht wird ein
+          Platz frei.
+          <br />
           {teamListLink}
         </Alert>
       )}
@@ -133,7 +135,7 @@ function TeamOverview({ values, setViewState }: TeamOverviewProps) {
       <h3>Team Captain</h3>
       <p>
         {values.firstname} {values.lastname}, {values.email}
-        {values.mobile ? ` / ${values.mobile}` : ""}
+        {values.mobile ? ` / ${nonBreakingText(values.mobile)}` : ""}
       </p>
       <div>
         <Button variant="primary me-2" onClick={() => setViewState("edit")}>

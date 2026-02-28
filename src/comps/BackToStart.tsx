@@ -1,13 +1,10 @@
 import { Link } from "wouter";
-import { ArrowIcon } from "../icons/ArrowIcon";
+import { ArrowLink } from "./ArrowLink";
 
 export function BackToStart() {
   return (
-    <div>
-      <span className="me-1">
-        <ArrowIcon />
-      </span>
-      <Link to="~/">Zur Startseite</Link>
-    </div>
+    <Link href="~/">
+      <ArrowLink>Zur Startseite</ArrowLink>
+    </Link>
   );
 }

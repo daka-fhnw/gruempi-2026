@@ -1,7 +1,5 @@
 import { useState, type SubmitEvent, type MouseEvent } from "react";
-import Alert from "react-bootstrap/Alert";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
+import { Alert, Button, Form } from "react-bootstrap";
 import "./TeamForm.scss";
 
 const maxTeamNameLen = 40;

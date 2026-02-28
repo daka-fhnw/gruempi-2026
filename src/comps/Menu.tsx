@@ -1,6 +1,6 @@
 import { type PropsWithChildren } from "react";
 import { Link } from "wouter";
-import Button from "react-bootstrap/Button";
+import { Button } from "react-bootstrap";
 import { CloseIcon } from "../icons/CloseIcon";
 import { InstaIcon } from "../icons/InstaIcon";
 import { useEscapeKey } from "../hooks/useEscapeKey";
@@ -39,7 +39,7 @@ export function Menu({ hideMenu }: MenuProps) {
           <MenuItem href="/" hideMenu={hideMenu}>
             Startseite
           </MenuItem>
-          <MenuItem href="/gallerie" hideMenu={hideMenu}>
+          <MenuItem href="/galerie" hideMenu={hideMenu}>
             Rückblick
           </MenuItem>
           <MenuItem href="/sponsoren" hideMenu={hideMenu}>

@@ -42,17 +42,25 @@ export default function Teams() {
       {viewState === "loaded" && teamLists !== null && (
         <>
           <h2>Bestätigt</h2>
-          <ul>
-            {teamLists.confirmed.map((team, index) => (
-              <li key={index}>{team}</li>
-            ))}
-          </ul>
+          {teamLists.confirmed.length === 0 ? (
+            <span>noch leer</span>
+          ) : (
+            <ul>
+              {teamLists.confirmed.map((team, index) => (
+                <li key={index}>{team}</li>
+              ))}
+            </ul>
+          )}
           <h2>Warteliste</h2>
-          <ol>
-            {teamLists.waitinglist.map((team, index) => (
-              <li key={index}>{team}</li>
-            ))}
-          </ol>
+          {teamLists.waitinglist.length === 0 ? (
+            <span>noch leer</span>
+          ) : (
+            <ol>
+              {teamLists.waitinglist.map((team, index) => (
+                <li key={index}>{team}</li>
+              ))}
+            </ol>
+          )}
         </>
       )}
     </>
