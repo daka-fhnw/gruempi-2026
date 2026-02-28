@@ -15,3 +15,8 @@ $font-size-base: 1.1rem;
 $enable-dark-mode: false;
 $enable-negative-margins: true;
 $enable-smooth-scroll: false;
+
+.form-control,
+.form-check-input:not(:checked) {
+  background-color: white !important;
+}
