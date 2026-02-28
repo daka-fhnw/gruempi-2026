@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { ArrowIcon } from "../icons/ArrowIcon";
+import { ArrowLink } from "../comps/ArrowLink";
 
 export default function Regeln() {
   return (
@@ -15,19 +15,28 @@ export default function Regeln() {
         Das Grümpi findet in unmittelbarer Nähe zum FHNW Campus in Muttenz auf
         dem Fussballplatz Kriegacker (Gründenstrasse&nbsp;32) statt.
         <br />
-        <span className="me-1">
-          <ArrowIcon />
-        </span>
-        <Link href="/anreise">Hier findest du eine Kartenübersicht</Link>
+        <Link href="/anreise">
+          <ArrowLink>Hier findest du eine Kartenübersicht</ArrowLink>
+        </Link>
       </p>
       <h4>Wann findet das Grümpi statt?</h4>
       <p>
-        Das Grümpi findet am 30. April 2026 ab 17:00 bei jedem Wetter statt.
+        Das Grümpi findet am 30.&nbsp;April&nbsp;2026 ab 17:00 bei jedem Wetter
+        statt.
         <br />
-        <span className="me-1">
-          <ArrowIcon />
-        </span>
-        <a href="/fhnw-gruempi.ics">Kalendereintrag herunterladen</a>
+        <a href="/fhnw-gruempi.ics">
+          <ArrowLink>Kalendereintrag herunterladen</ArrowLink>
+        </a>
+      </p>
+      <h4>Wo kann ich mich umziehen?</h4>
+      <p>
+        Bitte verwende die Garderoben bei den Turnhallen im
+        2.&nbsp;Untergeschoss im FHNW Campus in Muttenz
+        (Hofackerstrasse&nbsp;30).
+        <br />
+        <Link href="/anreise">
+          <ArrowLink>Hier findest du eine Kartenübersicht</ArrowLink>
+        </Link>
       </p>
       <h2>Teilnahmebedingungen und Spielregeln</h2>
       <h4>1. Überblick</h4>
