@@ -1,8 +1,7 @@
-import { useState, type SubmitEvent } from "react";
+import { useState, type SubmitEvent, type MouseEvent } from "react";
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import type { Team } from "../types";
 import "./TeamForm.scss";
 
 const maxTeamNameLen = 40;
@@ -12,9 +11,20 @@ const errorIdExistingEmail = "existingEmail";
 
 type TeamFormStates = "initial" | "pending" | "failed";
 
+export interface Team {
+  team: string;
+  email: string;
+  firstname: string;
+  lastname: string;
+  mobile: string | null;
+  waitinglist?: boolean;
+}
+
 interface TeamFormProps {
+  values?: Team;
   submitLabel: string;
   onSubmit: (formData: Team) => Promise<void>;
+  onCancel?: () => void;
 }
 
 function getErrorMsg(error: unknown) {
@@ -30,7 +40,17 @@ function getErrorMsg(error: unknown) {
   }
 }
 
-export function TeamForm({ submitLabel, onSubmit }: TeamFormProps) {
+export function TeamForm({
+  values,
+  submitLabel,
+  onSubmit,
+  onCancel,
+}: TeamFormProps) {
+  const [team, setTeam] = useState(values?.team ?? "");
+  const [firstname, setFirstname] = useState(values?.firstname ?? "");
+  const [lastname, setLastname] = useState(values?.lastname ?? "");
+  const [email, setEmail] = useState(values?.email ?? "");
+  const [mobile, setMobile] = useState(values?.mobile ?? "");
   const [formState, setFormState] = useState<TeamFormStates>("initial");
   const [errorMessage, setErrorMessage] = useState("");
   const handleSubmit = (event: SubmitEvent<HTMLFormElement>) => {
@@ -38,12 +58,6 @@ export function TeamForm({ submitLabel, onSubmit }: TeamFormProps) {
     const form = event.currentTarget;
     if (form.checkValidity()) {
       setFormState("pending");
-      const formData = new FormData(form);
-      const team = formData.get("team") as string;
-      const firstname = formData.get("firstname") as string;
-      const lastname = formData.get("lastname") as string;
-      const email = formData.get("email") as string;
-      const mobile = formData.get("mobile") as string;
       onSubmit({ team, firstname, lastname, email, mobile }).catch((error) => {
         setFormState("failed");
         setErrorMessage(getErrorMsg(error));
@@ -51,6 +65,12 @@ export function TeamForm({ submitLabel, onSubmit }: TeamFormProps) {
     } else {
       setFormState("failed");
       setErrorMessage(getErrorMsg(errorIdInvalid));
+    }
+  };
+  const handleCancel = (event: MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    if (onCancel) {
+      onCancel();
     }
   };
   return (
@@ -64,6 +84,8 @@ export function TeamForm({ submitLabel, onSubmit }: TeamFormProps) {
         <Form.Control
           type="text"
           name="team"
+          value={team}
+          onChange={(event) => setTeam(event.target.value)}
           required
           maxLength={maxTeamNameLen}
           disabled={formState === "pending"}
@@ -79,6 +101,8 @@ export function TeamForm({ submitLabel, onSubmit }: TeamFormProps) {
           <Form.Control
             type="text"
             name="firstname"
+            value={firstname}
+            onChange={(event) => setFirstname(event.target.value)}
             required
             disabled={formState === "pending"}
           />
@@ -88,6 +112,8 @@ export function TeamForm({ submitLabel, onSubmit }: TeamFormProps) {
           <Form.Control
             type="text"
             name="lastname"
+            value={lastname}
+            onChange={(event) => setLastname(event.target.value)}
             required
             disabled={formState === "pending"}
           />
@@ -97,6 +123,8 @@ export function TeamForm({ submitLabel, onSubmit }: TeamFormProps) {
           <Form.Control
             type="email"
             name="email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
             required
             disabled={formState === "pending"}
           />
@@ -109,6 +137,8 @@ export function TeamForm({ submitLabel, onSubmit }: TeamFormProps) {
           <Form.Control
             type="text"
             name="mobile"
+            value={mobile}
+            onChange={(event) => setMobile(event.target.value)}
             disabled={formState === "pending"}
           />
           <Form.Text className="text-muted">
@@ -117,19 +147,16 @@ export function TeamForm({ submitLabel, onSubmit }: TeamFormProps) {
         </Form.Group>
       </div>
       <div className="mb-2">
-        <Form.Check id="form-rules">
+        <Form.Check id="form-rules" disabled={formState === "pending"}>
           <Form.Check.Input type="checkbox" required />
           <Form.Check.Label>
-            Hiermit bestätige ich, dass ich mit den{" "}
-            <a href="/infos" target="_blank">
-              Teilnahmebedingungen
-            </a>{" "}
-            einverstanden bin.
+            Hiermit bestätige ich, dass ich mit den Teilnahmebedingungen und
+            Spielregeln einverstanden bin.
           </Form.Check.Label>
         </Form.Check>
       </div>
       <div className="mb-3">
-        <Form.Check id="form-referee">
+        <Form.Check id="form-referee" disabled={formState === "pending"}>
           <Form.Check.Input type="checkbox" required />
           <Form.Check.Label>
             Ich habe verstanden, dass wir einen Schiedsrichter bereitstellen
@@ -138,16 +165,25 @@ export function TeamForm({ submitLabel, onSubmit }: TeamFormProps) {
         </Form.Check>
       </div>
       {formState === "failed" && <Alert variant="danger">{errorMessage}</Alert>}
-      <Button
-        variant="primary"
-        type="submit"
-        disabled={formState === "pending"}
-      >
-        {formState === "pending" && (
-          <span className="spinner-border spinner-border-sm" />
-        )}{" "}
-        {submitLabel}
-      </Button>
+      <div>
+        <Button
+          variant="primary"
+          type="submit"
+          disabled={formState === "pending"}
+        >
+          {formState === "pending" && (
+            <span className="spinner-border spinner-border-sm" />
+          )}{" "}
+          {submitLabel}
+        </Button>
+        {onCancel && (
+          <span className="ms-3">
+            <a href="#" onClick={handleCancel}>
+              Abbrechen
+            </a>
+          </span>
+        )}
+      </div>
     </Form>
   );
 }
