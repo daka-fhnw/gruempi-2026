@@ -8,7 +8,7 @@ import { DateIcon } from "../icons/DateIcon";
 import { GeoIcon } from "../icons/GeoIcon";
 import { FoodIcon } from "../icons/FoodIcon";
 import { FireIcon } from "../icons/FireIcon";
-import { ArrowIcon } from "../icons/ArrowIcon";
+import { ArrowLink } from "../comps/ArrowLink";
 
 function randomFoto() {
   return fotos2025[Math.floor(Math.random() * fotos2025.length)];
@@ -62,28 +62,28 @@ export default function Start() {
         </div>
       </div>
       <div className="mb-3">
-        <span className="me-1">
-          <ArrowIcon />
-        </span>
-        <Link href="/infos">Alle weiteren Infos findest du hier</Link> 😎
+        <Link href="/infos">
+          <ArrowLink>Alle weiteren Infos findest du hier</ArrowLink>
+        </Link>{" "}
+        😎
       </div>
       <h2>Eindrücke vom Grümpi 2025</h2>
       <div className="mb-3">
         <img src={foto} className="img-fluid border" />
       </div>
       <div className="mb-3">
-        <span className="me-1">
-          <ArrowIcon />
-        </span>
-        <Link href="/gallerie">Hier findest du weitere Fotos</Link> 🤩
+        <Link href="/galerie">
+          <ArrowLink>Hier findest du weitere Fotos</ArrowLink>
+        </Link>{" "}
+        🤩
       </div>
       <h2>Hauptsponsoren</h2>
       <SponsorGruppe list={fixpunkte} size="16rem" />
       <div className="mb-0">
-        <span className="me-1">
-          <ArrowIcon />
-        </span>
-        <Link href="/sponsoren">Weitere Sponsoren</Link> 😍
+        <Link href="/sponsoren">
+          <ArrowLink>Weitere Sponsoren</ArrowLink>
+        </Link>{" "}
+        😍
       </div>
     </>
   );

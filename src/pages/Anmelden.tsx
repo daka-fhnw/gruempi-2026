@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 import { Link } from "wouter";
-import Alert from "react-bootstrap/Alert";
+import { Alert } from "react-bootstrap";
 import { BackToStart } from "../comps/BackToStart";
 import { TeamForm, type Team } from "../comps/TeamForm";
 

@@ -1,4 +1,4 @@
-import Card from "react-bootstrap/Card";
+import { Card } from "react-bootstrap";
 import { type Sponsor } from "../listen_sponsoren";
 import type { PropsWithChildren } from "react";
 

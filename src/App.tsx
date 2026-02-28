@@ -11,7 +11,7 @@ export function App() {
   const Start = React.lazy(() => import("./pages/Start"));
   const Infos = React.lazy(() => import("./pages/Infos"));
   const Anreise = React.lazy(() => import("./pages/Anreise"));
-  const Gallerie = React.lazy(() => import("./pages/Gallerie"));
+  const Galerie = React.lazy(() => import("./pages/Galerie"));
   const Anmelden = React.lazy(() => import("./pages/Anmelden"));
   const Sponsoren = React.lazy(() => import("./pages/Sponsoren"));
   const Impressum = React.lazy(() => import("./pages/Impressum"));
@@ -29,7 +29,7 @@ export function App() {
               <Route path="/" component={Start} />
               <Route path="/infos" component={Infos} />
               <Route path="/anreise" component={Anreise} />
-              <Route path="/gallerie" component={Gallerie} />
+              <Route path="/galerie" component={Galerie} />
               <Route path="/anmelden" component={Anmelden} />
               <Route path="/sponsoren" component={Sponsoren} />
               <Route path="/impressum" component={Impressum} />

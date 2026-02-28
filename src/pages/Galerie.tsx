@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import ImageGallery from "react-image-gallery";
-import "react-image-gallery/styles/image-gallery.css";
 import type { ImageGalleryRef } from "react-image-gallery";
+import "react-image-gallery/styles/image-gallery.css";
 import { fotos2025 } from "../listen_gallerie";
 
 const images = fotos2025.map((filename) => ({
@@ -9,7 +9,7 @@ const images = fotos2025.map((filename) => ({
   thumbnail: filename.replace(".webp", "_th.webp"),
 }));
 
-export default function Gallerie() {
+export default function Galerie() {
   const galleryRef = useRef<ImageGalleryRef>(null);
   return (
     <>
