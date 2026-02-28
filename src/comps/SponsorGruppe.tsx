@@ -1,6 +1,6 @@
 import { Card } from "react-bootstrap";
-import { type Sponsor } from "../listen_sponsoren";
 import type { PropsWithChildren } from "react";
+import type { Sponsor } from "../listen_sponsoren";
 
 interface SponsorGruppeProps {
   size: string;

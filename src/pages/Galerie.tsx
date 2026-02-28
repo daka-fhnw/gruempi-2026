@@ -2,7 +2,7 @@ import { useRef } from "react";
 import ImageGallery from "react-image-gallery";
 import type { ImageGalleryRef } from "react-image-gallery";
 import "react-image-gallery/styles/image-gallery.css";
-import { fotos2025 } from "../listen_gallerie";
+import { fotos2025 } from "../listen_galerie";
 
 const images = fotos2025.map((filename) => ({
   original: filename,

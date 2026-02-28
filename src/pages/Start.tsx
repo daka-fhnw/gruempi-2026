@@ -1,14 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import { Countdown } from "../comps/Countdown";
-import { fotos2025 } from "../listen_gallerie";
-import { fixpunkte } from "../listen_sponsoren";
+import { fotos2025 } from "../listen_galerie";
+import { loadSponsors, type SponsorLists } from "../listen_sponsoren";
 import { SponsorGruppe } from "../comps/SponsorGruppe";
 import { DateIcon } from "../icons/DateIcon";
 import { GeoIcon } from "../icons/GeoIcon";
 import { FoodIcon } from "../icons/FoodIcon";
 import { FireIcon } from "../icons/FireIcon";
 import { ArrowLink } from "../comps/ArrowLink";
+import { Loading } from "../comps/Loading";
 
 function randomFoto() {
   return fotos2025[Math.floor(Math.random() * fotos2025.length)];
@@ -16,6 +17,10 @@ function randomFoto() {
 
 export default function Start() {
   const [foto] = useState(randomFoto());
+  const [sponsoren, setSponsoren] = useState<SponsorLists | null>(null);
+  useEffect(() => {
+    loadSponsors().then((data) => setSponsoren(data));
+  }, []);
   return (
     <>
       <h1>Fachhochschule Grümpelturnier</h1>
@@ -78,7 +83,11 @@ export default function Start() {
         🤩
       </div>
       <h2>Hauptsponsoren</h2>
-      <SponsorGruppe list={fixpunkte} size="16rem" />
+      {sponsoren !== null ? (
+        <SponsorGruppe list={sponsoren.fixpunkte} size="16rem" />
+      ) : (
+        <Loading />
+      )}
       <div className="mb-0">
         <Link href="/sponsoren">
           <ArrowLink>Weitere Sponsoren</ArrowLink>
