@@ -103,3 +103,8 @@ function log_app_error($severity, $context, $message)
     $path = '../../logs/app_error.log';
     error_log($text, 3, $path);
 }
+
+function is_in_waiting_list($rank)
+{
+    return $rank > 20;
+}

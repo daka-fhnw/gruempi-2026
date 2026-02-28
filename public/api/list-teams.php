@@ -7,9 +7,9 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
 }
 try {
     $dbconn = db_connect();
-    $data = load_teams($dbconn);
+    $teams = load_teams($dbconn);
     http_response_code(200);
-    echo json_encode_unescaped($data);
+    echo json_encode_unescaped($teams);
 } catch (Exception $e) {
     log_app_error('ERROR', 'list-teams', $e);
     exit_with(500, 'Internal server error');
@@ -19,5 +19,21 @@ function load_teams($dbconn)
 {
     $sql = 'SELECT `team` FROM teams WHERE `verified_at` IS NOT NULL ORDER BY `verified_at` ASC';
     $stmt = $dbconn->query($sql);
-    return $stmt->fetchAll(PDO::FETCH_COLUMN);
+    $names = $stmt->fetchAll(PDO::FETCH_COLUMN);
+    return prepare_list($names);
+}
+
+function prepare_list($names)
+{
+    $teams = [];
+    $count = count($names);
+    for ($index = 0; $index < $count; $index++) {
+        $rank = $index + 1;
+        $team = [
+            'team' => $names[$index],
+            'waitinglist' => is_in_waiting_list($rank),
+        ];
+        array_push($teams, $team);
+    }
+    return $teams;
 }
