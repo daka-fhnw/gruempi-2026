@@ -20,12 +20,14 @@ try {
         add_team_log_entry($dbconn, $id, 'verified');
     }
     unset($team['verified_at']);
+    $team['waitinglist'] = check_waiting_list($dbconn, $id);
     http_response_code(200);
     echo json_encode_unescaped($team);
 } catch (Exception $e) {
     log_app_error('ERROR', 'get-team', $e);
     exit_with(500, 'Internal server error');
 }
+
 function load_team($dbconn, $id, $token)
 {
     $sql = 'SELECT `team`, `email`, `firstname`, `lastname`, `mobile`, `verified_at` FROM `teams` WHERE `id`=? AND `token`=? LIMIT 1';
@@ -39,4 +41,14 @@ function verify_team($dbconn, $id)
     $sql = 'UPDATE `teams` SET `verified_at`=CURRENT_TIMESTAMP WHERE `id`=? AND `verified_at` IS NULL';
     $stmt = $dbconn->prepare($sql);
     $stmt->execute([$id]);
+}
+
+function check_waiting_list($dbconn, $id)
+{
+    $sql = 'SELECT `id` FROM `teams` WHERE `id`=? AND `verified_at` IS NOT NULL ORDER BY `verified_at` ASC';
+    $stmt = $dbconn->prepare($sql);
+    $stmt->execute([$id]);
+    $ids = $stmt->fetchAll(PDO::FETCH_COLUMN);
+    $rank = array_search($id, $ids) + 1;
+    return is_in_waiting_list($rank);
 }
