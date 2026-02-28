@@ -1,13 +1,8 @@
 import { useCallback, useState } from "react";
+import { Link } from "wouter";
 import Alert from "react-bootstrap/Alert";
 import { BackToStart } from "../comps/BackToStart";
-import { TeamForm } from "../comps/TeamForm";
-import type { Team } from "../types";
-
-const mainMessage =
-  "Die Anmeldung ist erst vollständig, nachdem du den Bestätigungslink aufgerufen hast. " +
-  "Mit dem Link im E-Mail kannst du dein Team auch später noch anpassen oder wieder abmelden. " +
-  "Bewahre die E-Mail also unbedingt auf.";
+import { TeamForm, type Team } from "../comps/TeamForm";
 
 export default function Anmelden() {
   const [success, setSuccess] = useState(false);
@@ -38,16 +33,23 @@ export default function Anmelden() {
       {success ? (
         <>
           <Alert variant="success">
-            Du solltest in den nächsten Minuten eine E-Mail erhalten.{" "}
-            {mainMessage}
+            Es freut uns sehr, dass du beim FHNW Grümpi 2026 dabei bist. Du
+            solltest in den nächsten Minuten eine{" "}
+            <b>E-Mail mit einem Bestätigungslink</b> erhalten. Deine Anmeldung
+            ist erst gültig, wenn du <b>innerhalb von 24 Stunden</b> auf diesen
+            Link klickst. Bitte schau auch im Spam-Ordner nach.
           </Alert>
           <BackToStart />
         </>
       ) : (
         <>
           <Alert variant="info">
-            Du erhälst nach dem Abschicken des Formulars eine E-Mail.{" "}
-            {mainMessage}
+            Bitte lies die{" "}
+            <Link href="/infos" target="_blank">
+              Teilnahmebedingungen und Spielregeln
+            </Link>{" "}
+            und denk daran: Jedes Team stellt einen Schiedsrichter für Spiele
+            anderer Teams.
           </Alert>
           <TeamForm submitLabel="Abschicken" onSubmit={onSubmit} />
         </>
