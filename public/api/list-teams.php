@@ -20,20 +20,22 @@ function load_teams($dbconn)
     $sql = 'SELECT `team` FROM teams WHERE `verified_at` IS NOT NULL ORDER BY `verified_at` ASC';
     $stmt = $dbconn->query($sql);
     $names = $stmt->fetchAll(PDO::FETCH_COLUMN);
-    return prepare_list($names);
+    return prepare_lists($names);
 }
 
-function prepare_list($names)
+function prepare_lists($teams)
 {
-    $teams = [];
-    $count = count($names);
+    $confirmed = [];
+    $waitinglist = [];
+    $count = count($teams);
     for ($index = 0; $index < $count; $index++) {
         $rank = $index + 1;
-        $team = [
-            'team' => $names[$index],
-            'waitinglist' => is_in_waiting_list($rank),
-        ];
-        array_push($teams, $team);
+        $team = $teams[$index];
+        if (is_in_waiting_list($rank)) {
+            array_push($waitinglist, $team);
+        } else {
+            array_push($confirmed, $team);
+        }
     }
-    return $teams;
+    return ['confirmed' => $confirmed, 'waitinglist' => $waitinglist];
 }
