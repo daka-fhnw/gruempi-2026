@@ -1,6 +1,5 @@
 import { useState, type SubmitEvent, type MouseEvent } from "react";
 import { Alert, Button, Form } from "react-bootstrap";
-import "./TeamForm.scss";
 
 const maxTeamNameLen = 40;
 const errorIdInvalid = "invalid";
