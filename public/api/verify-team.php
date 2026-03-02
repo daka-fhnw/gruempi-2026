@@ -15,17 +15,17 @@ try {
     if (!check_team_exists($dbconn, $id, $token)) {
         exit_with(400, 'Bad request');
     }
-    delete_team($dbconn, $id, $token);
-    add_team_log_entry($dbconn, $id, 'deleted');
-    json_response(['message' => 'Team deleted']);
+    verify_team($dbconn, $id);
+    add_team_log_entry($dbconn, $id, 'verified');
+    json_response(['message' => 'Team verified']);
 } catch (Exception $e) {
-    log_app_error('ERROR', 'delete-team', $e);
+    log_app_error('ERROR', 'get-team', $e);
     exit_with(500, 'Internal server error');
 }
 
-function delete_team($dbconn, $id, $token)
+function verify_team($dbconn, $id)
 {
-    $sql = 'DELETE FROM `teams` WHERE `id`=? AND `token`=?';
+    $sql = 'UPDATE `teams` SET `verified_at`=CURRENT_TIMESTAMP WHERE `id`=? AND `verified_at` IS NULl';
     $stmt = $dbconn->prepare($sql);
-    $stmt->execute([$id, $token]);
+    $stmt->execute([$id]);
 }

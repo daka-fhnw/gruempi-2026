@@ -11,18 +11,13 @@ if ($id === null || $token === null) {
 }
 try {
     $dbconn = db_connect();
-    $team = load_team($dbconn, $id, $token);
-    if (!$team) {
+    $data = load_team($dbconn, $id, $token);
+    if (!$data) {
         exit_with(400, 'Bad request');
     }
-    if ($team['verified_at'] === null) {
-        verify_team($dbconn, $id);
-        add_team_log_entry($dbconn, $id, 'verified');
-    }
-    unset($team['verified_at']);
-    $team['waitinglist'] = check_waiting_list($dbconn, $id);
-    http_response_code(200);
-    echo json_encode_unescaped($team);
+    handle_verified($data);
+    handle_waiting_list($dbconn, $id, $data);
+    json_response($data);
 } catch (Exception $e) {
     log_app_error('ERROR', 'get-team', $e);
     exit_with(500, 'Internal server error');
@@ -36,19 +31,22 @@ function load_team($dbconn, $id, $token)
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
-function verify_team($dbconn, $id)
+function handle_verified(&$data)
 {
-    $sql = 'UPDATE `teams` SET `verified_at`=CURRENT_TIMESTAMP WHERE `id`=? AND `verified_at` IS NULL';
-    $stmt = $dbconn->prepare($sql);
-    $stmt->execute([$id]);
+    $data['verified'] = ($data['verified_at'] !== null);
+    unset($data['verified_at']);
+    return $data['verified'];
 }
 
-function check_waiting_list($dbconn, $id)
+function handle_waiting_list($dbconn, $id, &$data)
 {
     $sql = 'SELECT `id` FROM `teams` WHERE `id`=? AND `verified_at` IS NOT NULL ORDER BY `verified_at` ASC';
     $stmt = $dbconn->prepare($sql);
     $stmt->execute([$id]);
     $ids = $stmt->fetchAll(PDO::FETCH_COLUMN);
-    $rank = array_search($id, $ids) + 1;
-    return is_in_waiting_list($rank);
+    $index = array_search($id, $ids);
+    if ($index === false) {
+        $index = 0;
+    }
+    $data['waitinglist'] = is_in_waiting_list($index);
 }

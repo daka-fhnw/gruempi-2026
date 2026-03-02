@@ -8,19 +8,18 @@ const errorIdExistingEmail = "existingEmail";
 
 type TeamFormStates = "initial" | "pending" | "failed";
 
-export interface Team {
+export interface TeamValues {
   team: string;
   email: string;
   firstname: string;
   lastname: string;
   mobile: string | null;
-  waitinglist?: boolean;
 }
 
 interface TeamFormProps {
-  values?: Team;
+  values?: TeamValues;
   submitLabel: string;
-  onSubmit: (formData: Team) => Promise<void>;
+  onSubmit: (formData: TeamValues) => Promise<void>;
   onCancel?: () => void;
 }
 

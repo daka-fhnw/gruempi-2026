@@ -8,8 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
 try {
     $dbconn = db_connect();
     $teams = load_teams($dbconn);
-    http_response_code(200);
-    echo json_encode_unescaped($teams);
+    json_response($teams);
 } catch (Exception $e) {
     log_app_error('ERROR', 'list-teams', $e);
     exit_with(500, 'Internal server error');
@@ -23,18 +22,17 @@ function load_teams($dbconn)
     return prepare_lists($names);
 }
 
-function prepare_lists($teams)
+function prepare_lists($names)
 {
     $confirmed = [];
     $waitinglist = [];
-    $count = count($teams);
+    $count = count($names);
     for ($index = 0; $index < $count; $index++) {
-        $rank = $index + 1;
-        $team = $teams[$index];
-        if (is_in_waiting_list($rank)) {
-            array_push($waitinglist, $team);
+        $name = $names[$index];
+        if (is_in_waiting_list($index)) {
+            array_push($waitinglist, $name);
         } else {
-            array_push($confirmed, $team);
+            array_push($confirmed, $name);
         }
     }
     return ['confirmed' => $confirmed, 'waitinglist' => $waitinglist];
