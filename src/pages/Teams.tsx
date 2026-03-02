@@ -16,7 +16,7 @@ export default function Teams() {
     fetch("/api/list-teams.php")
       .then((response) => {
         if (response.ok) {
-          return response.json();
+          return response.json() as Promise<TeamLists>;
         } else {
           return Promise.reject("HTTP status code " + response.status);
         }

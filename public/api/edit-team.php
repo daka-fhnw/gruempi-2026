@@ -15,7 +15,7 @@ if (!check_data($data)) {
 try {
     $dbconn = db_connect();
     remove_expired_teams($dbconn);
-    if (!check_team_exists($dbconn, $data)) {
+    if (!check_team_exists($dbconn, $data['id'], $data['token'])) {
         exit_with(400, 'Bad request');
     }
     if (!check_existing_team($dbconn, $data)) {
@@ -26,8 +26,7 @@ try {
     }
     update_team($dbconn, $data);
     add_team_log_entry($dbconn, $data['id'], 'edited', $data);
-    http_response_code(200);
-    echo json_encode_unescaped(['message' => 'Team updated']);
+    json_response(['message' => 'Team updated']);
 } catch (Exception $e) {
     log_app_error('ERROR', 'edit-team', $e);
     exit_with(500, 'Internal server error');
@@ -35,7 +34,7 @@ try {
 
 function extract_data()
 {
-    $input = json_decode(file_get_contents('php://input'), true);
+    $input = json_decode_request_data();
     [$id, $token] = split_id_token($input['token'] ?? null);
     return [
         'id' => $id,
@@ -54,14 +53,6 @@ function check_data($data)
         && is_non_empty_string($data['firstname'])
         && is_non_empty_string($data['lastname'])
         && is_valid_email($data['email']);
-}
-
-function check_team_exists($dbconn, $data)
-{
-    $sql = 'SELECT COUNT(*) FROM `teams` WHERE `id`=? AND `token`=? LIMIT 1';
-    $stmt = $dbconn->prepare($sql);
-    $stmt->execute([$data['id'], $data['token']]);
-    return $stmt->fetchColumn() !== 0;
 }
 
 function check_existing_team($dbconn, $data)

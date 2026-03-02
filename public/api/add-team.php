@@ -25,8 +25,7 @@ try {
     if (!send_email($data)) {
         throw new RuntimeException("Sending email to {$data["email"]} failed");
     }
-    http_response_code(200);
-    echo json_encode_unescaped(['message' => 'Team added']);
+    json_response(['message' => 'Team added']);
 } catch (Exception $e) {
     log_app_error('ERROR', 'add-team', $e);
     exit_with(500, 'Internal server error');
@@ -34,7 +33,7 @@ try {
 
 function extract_data()
 {
-    $input = json_decode(file_get_contents('php://input'), true);
+    $input = json_decode_request_data();
     return [
         'team' => trim_to_null($input['team'] ?? null),
         'firstname' => trim_to_null($input['firstname'] ?? null),

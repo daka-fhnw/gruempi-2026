@@ -2,11 +2,11 @@ import { useCallback, useState } from "react";
 import { Link } from "wouter";
 import { Alert } from "react-bootstrap";
 import { BackToStart } from "../comps/BackToStart";
-import { TeamForm, type Team } from "../comps/TeamForm";
+import { TeamForm, type TeamValues } from "../comps/TeamForm";
 
 export default function Anmelden() {
   const [success, setSuccess] = useState(false);
-  const onSubmit = useCallback((values: Team) => {
+  const onSubmit = useCallback((values: TeamValues) => {
     return fetch("/api/add-team.php", {
       method: "POST",
       body: JSON.stringify(values),

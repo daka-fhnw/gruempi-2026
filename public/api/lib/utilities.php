@@ -5,19 +5,22 @@ function header_json()
     header('Content-Type: application/json');
 }
 
-function json_encode_unescaped($data)
+function json_decode_request_data()
 {
-    return json_encode($data, JSON_UNESCAPED_UNICODE);
+    return json_decode(file_get_contents('php://input'), true);
+}
+
+function json_response($data, $code = 200)
+{
+    http_response_code($code);
+    echo json_encode($data, JSON_UNESCAPED_UNICODE);
 }
 
 function exit_with($code, $message, $error_id = null)
 {
-    http_response_code($code);
-    echo json_encode_unescaped(
-        isset($error_id)
+    json_response($error_id !== null
         ? ['message' => $message, 'errorId' => $error_id]
-        : ['message' => $message]
-    );
+        : ['message' => $message], $code);
     exit();
 }
 
@@ -80,6 +83,14 @@ function remove_expired_teams($dbconn)
     $stmt->execute();
 }
 
+function check_team_exists($dbconn, $id, $token)
+{
+    $sql = 'SELECT COUNT(*) FROM `teams` WHERE `id`=? AND `token`=? LIMIT 1';
+    $stmt = $dbconn->prepare($sql);
+    $stmt->execute([$id, $token]);
+    return $stmt->fetchColumn() !== 0;
+}
+
 function add_team_log_entry($dbconn, $id, $action, $data = [])
 {
     $sql = 'INSERT INTO teams_log (`team_id`, `action`, `team`, `firstname`, `lastname`, `email`, `mobile`) VALUES (?,?,?,?,?,?,?)';
@@ -104,7 +115,7 @@ function log_app_error($severity, $context, $message)
     error_log($text, 3, $path);
 }
 
-function is_in_waiting_list($rank)
+function is_in_waiting_list($index)
 {
-    return $rank > 20;
+    return ($index + 1) > 20;
 }

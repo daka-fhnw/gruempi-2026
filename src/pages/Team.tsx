@@ -3,12 +3,13 @@ import { Link, type DefaultParams, type RouteComponentProps } from "wouter";
 import { Alert, Button } from "react-bootstrap";
 import { Loading } from "../comps/Loading";
 import { BackToStart } from "../comps/BackToStart";
-import { TeamForm, type Team } from "../comps/TeamForm";
+import { TeamForm, type TeamValues } from "../comps/TeamForm";
 import { ArrowLink } from "../comps/ArrowLink";
 
-type TeamViewStates =
+type MainViewStates =
   | "loading"
   | "failed"
+  | "verify"
   | "overview"
   | "edit"
   | "delete"
@@ -16,6 +17,18 @@ type TeamViewStates =
 
 interface TeamParams extends DefaultParams {
   token: string;
+}
+
+interface TeamResponse extends TeamValues {
+  verified: boolean;
+  waitinglist: boolean;
+}
+
+interface TeamViewProps {
+  token: string;
+  values: TeamResponse;
+  setMainViewState: (state: MainViewStates) => void;
+  triggerUpdate: () => void;
 }
 
 function getErrorMsg(error: unknown) {
@@ -28,19 +41,19 @@ function getErrorMsg(error: unknown) {
 }
 
 export default function Team({ params }: RouteComponentProps<TeamParams>) {
-  const [values, setValues] = useState<Team | null>(null);
-  const [viewState, setViewState] = useState<TeamViewStates>("loading");
+  const [values, setValues] = useState<TeamResponse | null>(null);
+  const [mainViewState, setMainViewState] = useState<MainViewStates>("loading");
   const [errorMessage, setErrorMessage] = useState("");
   const [version, setVersion] = useState(1);
   const triggerUpdate = useCallback(() => {
-    setViewState("loading");
+    setMainViewState("loading");
     setVersion(version + 1);
   }, [version, setVersion]);
   useEffect(() => {
     fetch("/api/get-team.php?token=" + params.token)
       .then((response) => {
         if (response.ok) {
-          return response.json();
+          return response.json() as Promise<TeamResponse>;
         } else {
           if (response.status === 400) {
             return Promise.reject("invalid");
@@ -51,31 +64,52 @@ export default function Team({ params }: RouteComponentProps<TeamParams>) {
       })
       .then((data) => {
         setValues(data);
-        setViewState("overview");
+        if (data.verified) {
+          setMainViewState("overview");
+        } else {
+          setMainViewState("verify");
+        }
       })
       .catch((error) => {
-        setViewState("failed");
+        setMainViewState("failed");
         setErrorMessage(getErrorMsg(error));
       });
   }, [params.token, version]);
-  switch (viewState) {
+  switch (mainViewState) {
+    case "verify":
+      return (
+        <TeamVerify
+          values={values!}
+          token={params.token}
+          setMainViewState={setMainViewState}
+          triggerUpdate={triggerUpdate}
+        />
+      );
     case "overview":
-      return <TeamOverview values={values!} setViewState={setViewState} />;
+      return (
+        <TeamOverview
+          values={values!}
+          token={params.token}
+          setMainViewState={setMainViewState}
+          triggerUpdate={triggerUpdate}
+        />
+      );
     case "edit":
       return (
         <TeamEdit
           values={values!}
           token={params.token}
-          setViewState={setViewState}
+          setMainViewState={setMainViewState}
           triggerUpdate={triggerUpdate}
         />
       );
     case "delete":
       return (
         <TeamDelete
-          token={params.token}
           values={values!}
-          setViewState={setViewState}
+          token={params.token}
+          setMainViewState={setMainViewState}
+          triggerUpdate={triggerUpdate}
         />
       );
     case "deleted":
@@ -97,16 +131,58 @@ export default function Team({ params }: RouteComponentProps<TeamParams>) {
   }
 }
 
-interface TeamOverviewProps {
-  values: Team;
-  setViewState: (state: TeamViewStates) => void;
+type VerifyViewStates = "initial" | "pending" | "failed";
+
+function TeamVerify({ token, values, triggerUpdate }: TeamViewProps) {
+  const [viewState, setViewState] = useState<VerifyViewStates>("initial");
+  const handleVerify = () => {
+    setViewState("pending");
+    fetch("/api/verify-team.php", {
+      method: "POST",
+      body: JSON.stringify({ token }),
+    })
+      .then((response) => {
+        if (response.ok) {
+          triggerUpdate();
+        } else {
+          Promise.reject("HTTP status code " + response.status);
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        setViewState("failed");
+      });
+  };
+  return (
+    <>
+      <h1>Team anmelden</h1>
+      <Alert variant="info">
+        Bitte bestätige die Anmeldung deines Teams "{values.team}".
+      </Alert>
+      {viewState === "failed" && (
+        <Alert variant="danger">{getErrorMsg("failed")}</Alert>
+      )}
+      <div>
+        <Button
+          variant="primary"
+          onClick={handleVerify}
+          disabled={viewState === "pending"}
+        >
+          {viewState === "pending" && (
+            <span className="spinner-border spinner-border-sm" />
+          )}{" "}
+          Anmeldung Bestätigen
+        </Button>
+      </div>
+    </>
+  );
 }
 
 function nonBreakingText(text: string) {
   return text.replaceAll(" ", "\u00a0");
 }
 
-function TeamOverview({ values, setViewState }: TeamOverviewProps) {
+function TeamOverview({ values, setMainViewState }: TeamViewProps) {
   const teamListLink = (
     <Link href="/teams">
       <ArrowLink>Liste der angemeldeten Teams</ArrowLink>
@@ -115,17 +191,17 @@ function TeamOverview({ values, setViewState }: TeamOverviewProps) {
   return (
     <>
       <h1>Dein Team</h1>
-      {values.waitinglist === false ? (
-        <Alert variant="success">
-          Dein Team ist bestätigt (nicht auf der Warteliste).
-          <br />
-          {teamListLink}
-        </Alert>
-      ) : (
+      {values.waitinglist ? (
         <Alert variant="danger">
           Dein Team steht auf der Warteliste, da bereits 20&nbsp;Teams
           angemeldet sind. Schau doch ab und zu vorbei, vielleicht wird ein
           Platz frei.
+          <br />
+          {teamListLink}
+        </Alert>
+      ) : (
+        <Alert variant="success">
+          Dein Team ist bestätigt (nicht auf der Warteliste).
           <br />
           {teamListLink}
         </Alert>
@@ -138,10 +214,10 @@ function TeamOverview({ values, setViewState }: TeamOverviewProps) {
         {values.mobile ? ` / ${nonBreakingText(values.mobile)}` : ""}
       </p>
       <div>
-        <Button variant="primary me-2" onClick={() => setViewState("edit")}>
+        <Button variant="primary me-2" onClick={() => setMainViewState("edit")}>
           Team bearbeiten
         </Button>
-        <Button variant="primary" onClick={() => setViewState("delete")}>
+        <Button variant="primary" onClick={() => setMainViewState("delete")}>
           Team löschen
         </Button>
       </div>
@@ -149,24 +225,17 @@ function TeamOverview({ values, setViewState }: TeamOverviewProps) {
   );
 }
 
-interface TeamEditProps {
-  token: string;
-  values: Team;
-  setViewState: (state: TeamViewStates) => void;
-  triggerUpdate: () => void;
-}
-
 function TeamEdit({
   token,
   values,
-  setViewState,
+  setMainViewState,
   triggerUpdate,
-}: TeamEditProps) {
+}: TeamViewProps) {
   const onSubmitEdit = useCallback(
-    (values: Team) => {
+    (newValues: TeamValues) => {
       return fetch("/api/edit-team.php", {
         method: "POST",
-        body: JSON.stringify({ token, ...values }),
+        body: JSON.stringify({ token, ...newValues }),
       }).then((response) => {
         if (response.ok) {
           triggerUpdate();
@@ -186,7 +255,10 @@ function TeamEdit({
     },
     [token, triggerUpdate],
   );
-  const onCancel = useCallback(() => setViewState("overview"), [setViewState]);
+  const onCancel = useCallback(
+    () => setMainViewState("overview"),
+    [setMainViewState],
+  );
   return (
     <>
       <h1>Team bearbeiten</h1>
@@ -200,37 +272,31 @@ function TeamEdit({
   );
 }
 
-interface TeamDeleteProps {
-  token: string;
-  values: Team;
-  setViewState: (state: TeamViewStates) => void;
-}
+type DeleteViewStates = "initial" | "pending" | "failed";
 
-type DeleteState = "initial" | "pending" | "failed";
-
-function TeamDelete({ token, values, setViewState }: TeamDeleteProps) {
-  const [deleteState, setDeleteState] = useState<DeleteState>("initial");
+function TeamDelete({ token, values, setMainViewState }: TeamViewProps) {
+  const [viewState, setViewState] = useState<DeleteViewStates>("initial");
   const handleDelete = () => {
-    setDeleteState("pending");
+    setViewState("pending");
     fetch("/api/delete-team.php", {
       method: "POST",
       body: JSON.stringify({ token }),
     })
       .then((response) => {
         if (response.ok) {
-          setViewState("deleted");
+          setMainViewState("deleted");
         } else {
           Promise.reject("HTTP status code " + response.status);
         }
       })
       .catch((error) => {
         console.error(error);
-        setDeleteState("failed");
+        setViewState("failed");
       });
   };
   const handleCancel = (event: MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
-    setViewState("overview");
+    setMainViewState("overview");
   };
   return (
     <>
@@ -239,16 +305,16 @@ function TeamDelete({ token, values, setViewState }: TeamDeleteProps) {
         Willst du das Team "{values.team}" wirklich löschen? Dieser Schritt kann
         nicht rückgängig gemacht werden.
       </Alert>
-      {deleteState === "failed" && (
+      {viewState === "failed" && (
         <Alert variant="danger">{getErrorMsg("failed")}</Alert>
       )}
       <div>
         <Button
           variant="primary"
           onClick={handleDelete}
-          disabled={deleteState === "pending"}
+          disabled={viewState === "pending"}
         >
-          {deleteState === "pending" && (
+          {viewState === "pending" && (
             <span className="spinner-border spinner-border-sm" />
           )}{" "}
           Bestätigen
