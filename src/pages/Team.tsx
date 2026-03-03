@@ -42,13 +42,20 @@ function getErrorMsg(error: unknown) {
 
 export default function Team({ params }: RouteComponentProps<TeamParams>) {
   const [values, setValues] = useState<TeamResponse | null>(null);
-  const [mainViewState, setMainViewState] = useState<MainViewStates>("loading");
+  const [viewState, setViewState] = useState<MainViewStates>("loading");
   const [errorMessage, setErrorMessage] = useState("");
   const [version, setVersion] = useState(1);
+  const setMainViewState = useCallback(
+    (state: MainViewStates) => {
+      setViewState(state);
+      window.scrollTo(0, 0);
+    },
+    [setViewState],
+  );
   const triggerUpdate = useCallback(() => {
     setMainViewState("loading");
     setVersion(version + 1);
-  }, [version, setVersion]);
+  }, [setMainViewState, version, setVersion]);
   useEffect(() => {
     fetch("/api/get-team.php?token=" + params.token)
       .then((response) => {
@@ -74,8 +81,8 @@ export default function Team({ params }: RouteComponentProps<TeamParams>) {
         setMainViewState("failed");
         setErrorMessage(getErrorMsg(error));
       });
-  }, [params.token, version]);
-  switch (mainViewState) {
+  }, [params.token, setMainViewState, version]);
+  switch (viewState) {
     case "verify":
       return (
         <TeamVerify
