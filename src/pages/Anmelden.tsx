@@ -13,6 +13,7 @@ export default function Anmelden() {
     }).then((response) => {
       if (response.ok) {
         setSuccess(true);
+        window.scrollTo(0, 0);
       } else {
         const defaultError = "HTTP status code " + response.status;
         return response
@@ -36,8 +37,8 @@ export default function Anmelden() {
             Es freut uns sehr, dass du beim FHNW Grümpi 2026 dabei bist. Du
             solltest in den nächsten Minuten eine{" "}
             <b>E-Mail mit einem Bestätigungslink</b> erhalten. Deine Anmeldung
-            ist erst gültig, wenn du <b>innerhalb von 24 Stunden</b> auf diesen
-            Link klickst. Bitte schau auch im Spam-Ordner nach.
+            ist erst gültig, wenn du diese <b>innerhalb von 24 Stunden</b> über
+            den Link bestätigst. Bitte schau auch im Spam-Ordner nach.
           </Alert>
           <BackToStart />
         </>
@@ -45,10 +46,8 @@ export default function Anmelden() {
         <>
           <Alert variant="info">
             Bitte lies die{" "}
-            <Link href="/infos" target="_blank">
-              Teilnahmebedingungen und Spielregeln
-            </Link>{" "}
-            und denk daran: Jedes Team stellt einen Schiedsrichter für Spiele
+            <Link href="/infos">Teilnahmebedingungen und Spielregeln</Link> und
+            denk daran: Jedes Team stellt einen Schiedsrichter für Spiele
             anderer Teams.
           </Alert>
           <TeamForm submitLabel="Abschicken" onSubmit={onSubmit} />

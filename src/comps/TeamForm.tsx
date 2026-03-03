@@ -146,8 +146,11 @@ export function TeamForm({
         <Form.Check id="form-rules" disabled={formState === "pending"}>
           <Form.Check.Input type="checkbox" required />
           <Form.Check.Label>
-            Hiermit bestätige ich, dass ich mit den Teilnahmebedingungen und
-            Spielregeln einverstanden bin.
+            Hiermit bestätige ich, dass ich mit den{" "}
+            <a href="/infos" target="_blank">
+              Teilnahmebedingungen und Spielregeln
+            </a>{" "}
+            einverstanden bin.
           </Form.Check.Label>
         </Form.Check>
       </div>
