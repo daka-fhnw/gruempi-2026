@@ -76,21 +76,29 @@ export function Karte() {
         </Popup>
       </Marker>
       <Marker position={positionFHNW} icon={markerSchuleIcon}>
-        <Popup>FHNW Campus Muttenz</Popup>
+        <Popup>
+          <b>FHNW Campus Muttenz</b>
+          <br />
+          Garderoben im 2. UG
+          <br />
+          Hofackerstrasse 30
+        </Popup>
       </Marker>
       <Marker position={positionBhf} icon={markerAnreiseIcon}>
-        <Popup>Bahnhof Muttenz</Popup>
+        <Popup>
+          <b>Bahnhof Muttenz</b>
+        </Popup>
       </Marker>
       <Marker position={positionBus1} icon={markerAnreiseIcon}>
         <Popup>
-          Bushaltestelle
+          <b>Bushaltestelle</b>
           <br />
           Muttenz, Kriegacker
         </Popup>
       </Marker>
       <Marker position={positionBus2} icon={markerAnreiseIcon}>
         <Popup>
-          Bushaltestelle
+          <b>Bushaltestelle</b>
           <br />
           Muttenz, Fachhochschule
         </Popup>
