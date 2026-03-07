@@ -39,17 +39,17 @@ export function Menu({ hideMenu }: MenuProps) {
           <MenuItem href="/" hideMenu={hideMenu}>
             Startseite
           </MenuItem>
+          <MenuItem href="/anmelden" hideMenu={hideMenu}>
+            Anmelden
+          </MenuItem>
+          <MenuItem href="/infos" hideMenu={hideMenu}>
+            Infos & Regeln
+          </MenuItem>
           <MenuItem href="/galerie" hideMenu={hideMenu}>
             Rückblick
           </MenuItem>
           <MenuItem href="/sponsoren" hideMenu={hideMenu}>
             Sponsoren
-          </MenuItem>
-          <MenuItem href="/infos" hideMenu={hideMenu}>
-            Infos & Regeln
-          </MenuItem>
-          <MenuItem href="/impressum" hideMenu={hideMenu}>
-            Kontakt
           </MenuItem>
           <MenuItem
             href="https://instagram.com/fhnwgruempi"

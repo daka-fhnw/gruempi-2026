@@ -10,6 +10,7 @@ import { FoodIcon } from "../icons/FoodIcon";
 import { FireIcon } from "../icons/FireIcon";
 import { ArrowLink } from "../comps/ArrowLink";
 import { Loading } from "../comps/Loading";
+import jetztAnmelden from "../assets/jetzt_anmelden.svg";
 
 function randomFoto() {
   return fotos2025[Math.floor(Math.random() * fotos2025.length)];
@@ -71,6 +72,22 @@ export default function Start() {
           <ArrowLink>Alle weiteren Infos findest du hier</ArrowLink>
         </Link>{" "}
         😎
+      </div>
+      <h2>Anmeldung ist eröffnet!</h2>
+      <div className="mb-3">
+        <Link href="/anmelden">
+          <img
+            style={{ width: "100%", maxWidth: "16rem" }}
+            src={jetztAnmelden}
+            alt="Jetzt anmelden!"
+          />
+        </Link>
+      </div>
+      <div className="mb-3">
+        <Link href="/anmelden">
+          <ArrowLink>Melde dein Team zum Grümpi an!</ArrowLink>
+        </Link>{" "}
+        ⚽
       </div>
       <h2>Eindrücke vom Grümpi 2025</h2>
       <div className="mb-3">
