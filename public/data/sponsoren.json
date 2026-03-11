@@ -1,4 +1,11 @@
 {
+  "triangulationspunkte": [
+    {
+      "imgPath": "/img/sponsoren/placeholder.webp",
+      "label": "Sponsor werden!",
+      "url": "mailto:info@grümpi.ch"
+    }
+  ],
   "fixpunkte": [
     {
       "imgPath": "/img/sponsoren/placeholder.webp",
@@ -22,10 +29,8 @@
   ],
   "grenzpunkte": [
     {
-      "imgPath": "/img/sponsoren/placeholder.webp",
       "label": "Sponsor werden!",
       "url": "mailto:info@grümpi.ch"
     }
-  ],
-  "ruebli": ["Sponsor werden!"]
+  ]
 }
