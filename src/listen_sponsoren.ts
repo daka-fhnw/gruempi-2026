@@ -1,15 +1,18 @@
-export interface Sponsor {
-  imgPath: string;
+export interface SponsorLight {
   label: string;
   url?: string;
 }
 
+export interface Sponsor extends SponsorLight {
+  imgPath: string;
+}
+
 export interface SponsorLists {
+  triangulationspunkte: Sponsor[];
   fixpunkte: Sponsor[];
   hoehenfixpunkte: Sponsor[];
   passpunkte: Sponsor[];
-  grenzpunkte: Sponsor[];
-  ruebli: string[];
+  grenzpunkte: SponsorLight[];
 }
 
 export function loadSponsors() {

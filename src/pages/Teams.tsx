@@ -43,7 +43,7 @@ export default function Teams() {
         <>
           <h2>Bestätigt</h2>
           {teamLists.confirmed.length === 0 ? (
-            <span>noch leer</span>
+            <span>(noch leer)</span>
           ) : (
             <ul>
               {teamLists.confirmed.map((team, index) => (
@@ -53,7 +53,7 @@ export default function Teams() {
           )}
           <h2>Warteliste</h2>
           {teamLists.waitinglist.length === 0 ? (
-            <span>noch leer</span>
+            <span>(noch leer)</span>
           ) : (
             <ol>
               {teamLists.waitinglist.map((team, index) => (
