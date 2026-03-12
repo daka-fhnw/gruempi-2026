@@ -22,6 +22,11 @@
   ],
   "passpunkte": [
     {
+      "imgPath": "/img/sponsoren/passpunkte/001.webp",
+      "label": "Spänhauer Gipsergeschäft",
+      "url": "https://www.spaenhauer-gipser.ch/"
+    },
+    {
       "imgPath": "/img/sponsoren/placeholder.webp",
       "label": "Sponsor werden!",
       "url": "mailto:info@grümpi.ch"
