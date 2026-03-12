@@ -101,7 +101,11 @@ export default function Start() {
       </div>
       <h2>Hauptsponsoren</h2>
       {sponsoren !== null ? (
-        <SponsorGruppe list={sponsoren.triangulationspunkte} size="16rem" />
+        <SponsorGruppe
+          list={sponsoren.triangulationspunkte}
+          size="20rem"
+          fontSize="1.1rem"
+        />
       ) : (
         <Loading />
       )}

@@ -5,14 +5,20 @@ import "./SponsorGruppe.scss";
 
 interface SponsorGruppeProps {
   size: string;
+  fontSize: string;
   list: Sponsor[];
 }
 
-export function SponsorGruppe({ size, list }: SponsorGruppeProps) {
+export function SponsorGruppe({ size, fontSize, list }: SponsorGruppeProps) {
   return (
-    <div className="row g-3 mb-3">
+    <div className="row g-2 g-md-3 mb-3">
       {list.map((sponsor, index) => (
-        <Sponsor key={index} sponsor={sponsor} size={size} />
+        <Sponsor
+          key={index}
+          sponsor={sponsor}
+          size={size}
+          fontSize={fontSize}
+        />
       ))}
     </div>
   );
@@ -21,9 +27,10 @@ export function SponsorGruppe({ size, list }: SponsorGruppeProps) {
 interface SponsorProps {
   sponsor: Sponsor;
   size: string;
+  fontSize: string;
 }
 
-function Sponsor({ sponsor, size }: SponsorProps) {
+function Sponsor({ sponsor, size, fontSize }: SponsorProps) {
   return (
     <div className="col-auto">
       <Card className="shadow bg-white" style={{ width: size }}>
@@ -31,9 +38,9 @@ function Sponsor({ sponsor, size }: SponsorProps) {
           <Card.Img variant="top" src={sponsor.imgPath} title={sponsor.label} />
         </MaybeWithUrl>
         <Card.Body className="text-center p-1">
-          <MaybeWithUrl url={sponsor.url}>
-            <span className="sponsor-label">{sponsor.label}</span>
-          </MaybeWithUrl>
+          <div className="sponsor-label" style={{ fontSize: fontSize }}>
+            <MaybeWithUrl url={sponsor.url}>{sponsor.label}</MaybeWithUrl>
+          </div>
         </Card.Body>
       </Card>
     </div>
