@@ -78,7 +78,7 @@ function db_connect()
 
 function remove_expired_teams($dbconn)
 {
-    $sql = 'DELETE FROM `teams` WHERE `verified_at` IS NULL AND TIMESTAMPDIFF(HOUR, `created_at`, CURRENT_TIMESTAMP) > 24';
+    $sql = 'DELETE FROM `teams` WHERE `verified_at` IS NULL AND TIMESTAMPDIFF(HOUR, `created_at`, CURRENT_TIMESTAMP) > 48';
     $stmt = $dbconn->prepare($sql);
     $stmt->execute();
 }
