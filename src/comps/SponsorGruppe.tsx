@@ -1,6 +1,7 @@
 import { Card } from "react-bootstrap";
 import type { Sponsor } from "../listen_sponsoren";
 import { MaybeWithUrl } from "./MaybeWithUrl";
+import "./SponsorGruppe.scss";
 
 interface SponsorGruppeProps {
   size: string;
@@ -30,7 +31,9 @@ function Sponsor({ sponsor, size }: SponsorProps) {
           <Card.Img variant="top" src={sponsor.imgPath} title={sponsor.label} />
         </MaybeWithUrl>
         <Card.Body className="text-center p-1">
-          <MaybeWithUrl url={sponsor.url}>{sponsor.label}</MaybeWithUrl>
+          <MaybeWithUrl url={sponsor.url}>
+            <span className="sponsor-label">{sponsor.label}</span>
+          </MaybeWithUrl>
         </Card.Body>
       </Card>
     </div>

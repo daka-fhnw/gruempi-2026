@@ -13,7 +13,7 @@ export function Loading() {
   if (show) {
     return (
       <div className="d-flex align-items-center justify-content-center">
-        <img className="icon" src={icon} alt="Fussball" />
+        <img className="loading-icon" src={icon} alt="Fussball" />
         <div>Lädt gerade...</div>
       </div>
     );
