@@ -11,15 +11,21 @@ RewriteRule ^ - [L]
 RewriteRule ^ index.html [L]
 </IfModule>
 
-<IfModule mod_headers.c> 		
+<IfModule mod_headers.c>
+
 <Files "index.html">
-FileETag None 		
-Header unset ETag 		
-Header unset Pragma 		
-Header unset Cache-Control 		
-Header unset Last-Modified 		
-Header set Pragma "no-cache" 		
-Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate" 		
-Header set Expires "Thu, 1 Jan 1970 00:00:00 GMT" 	
+FileETag None
+Header unset ETag
+Header unset Pragma
+Header unset Cache-Control
+Header unset Last-Modified
+Header set Pragma "no-cache"
+Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
+Header set Expires "Thu, 1 Jan 1970 00:00:00 GMT"
 </Files>
-</IfModule> 
+
+<Files "sponsoren.json">
+Header set Cache-Control "public, max-age=300"
+</Files>
+
+</IfModule>
