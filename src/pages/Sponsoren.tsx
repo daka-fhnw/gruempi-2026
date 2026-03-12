@@ -28,7 +28,7 @@ export default function Sponsoren() {
         <h2>Höhenfixpunkte</h2>
         <SponsorGruppe
           list={sponsoren.hoehenfixpunkte}
-          size="12rem"
+          size="11rem"
           fontSize="0.9rem"
         />
         <h2>Passpunkte</h2>
