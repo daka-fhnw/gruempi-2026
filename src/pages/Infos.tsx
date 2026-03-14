@@ -59,9 +59,9 @@ export default function Regeln() {
       <h4>2. Mannschaften</h4>
       <ul>
         <li>
-          Teilnahmeberechtigt sind alle Studierenden und Mitarbeitenden der
-          Fachhochschule Nordwestschweiz in Muttenz (am Turnier Studi-Ausweis
-          vorweisen).
+          Teilnahmeberechtigt sind alle aktiven und ehemaligen Studierenden
+          sowie alle Mitarbeitenden der Fachhochschule Nordwestschweiz in
+          Muttenz.
         </li>
         <li>
           Eine Mannschaft besteht aus 5 Feldspieler:innen und einem:r
