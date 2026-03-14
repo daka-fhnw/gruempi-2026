@@ -1,4 +1,8 @@
-.sponsor-label {
-  height: 3em;
-  overflow: hidden;
+.sponsor-card {
+  max-width: 100%;
+
+  .label {
+    height: 3em;
+    overflow: hidden;
+  }
 }

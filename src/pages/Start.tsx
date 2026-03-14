@@ -103,7 +103,7 @@ export default function Start() {
       {sponsoren !== null ? (
         <SponsorGruppe
           list={sponsoren.triangulationspunkte}
-          size="20rem"
+          size="22rem"
           fontSize="1.1rem"
         />
       ) : (
