@@ -13,31 +13,31 @@ export default function Sponsoren() {
     return (
       <div className="mb-n3">
         <h1>Sponsoren</h1>
-        <h2>Triangulationspunkte (Hauptsponsoren)</h2>
+        <h2>Triangulationspunkt (Hauptsponsoren)</h2>
         <SponsorGruppe
           list={sponsoren.triangulationspunkte}
-          size="20rem"
+          size="22rem"
           fontSize="1.1rem"
         />
-        <h2>Fixpunkte</h2>
+        <h2>Fixpunkt</h2>
         <SponsorGruppe
           list={sponsoren.fixpunkte}
-          size="16rem"
+          size="18rem"
           fontSize="1rem"
         />
-        <h2>Höhenfixpunkte</h2>
+        <h2>Höhenfixpunkt</h2>
         <SponsorGruppe
           list={sponsoren.hoehenfixpunkte}
-          size="11rem"
+          size="14rem"
           fontSize="0.9rem"
         />
-        <h2>Passpunkte</h2>
+        <h2>Passpunkt</h2>
         <SponsorGruppe
           list={sponsoren.passpunkte}
-          size="8rem"
+          size="10rem"
           fontSize="0.8rem"
         />
-        <h2>Grenzpunkte</h2>
+        <h2>Grenzpunkt</h2>
         {sponsoren.grenzpunkte.map((sponsor, index) => (
           <span key={index}>
             {index !== 0 ? " | " : ""}

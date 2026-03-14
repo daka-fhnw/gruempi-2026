@@ -8,6 +8,11 @@
   ],
   "fixpunkte": [
     {
+      "imgPath": "/img/sponsoren/fixpunkte/001.webp",
+      "label": "Geozug Ingenieure AG",
+      "url": "https://www.geozug.ch"
+    },
+    {
       "imgPath": "/img/sponsoren/placeholder.webp",
       "label": "Sponsor werden!",
       "url": "mailto:info@grümpi.ch"
