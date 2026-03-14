@@ -76,13 +76,6 @@ function db_connect()
     );
 }
 
-function remove_expired_teams($dbconn)
-{
-    $sql = 'DELETE FROM `teams` WHERE `verified_at` IS NULL AND TIMESTAMPDIFF(HOUR, `created_at`, CURRENT_TIMESTAMP) > 48';
-    $stmt = $dbconn->prepare($sql);
-    $stmt->execute();
-}
-
 function check_team_exists($dbconn, $id, $token)
 {
     $sql = 'SELECT COUNT(*) FROM `teams` WHERE `id`=? AND `token`=? LIMIT 1';

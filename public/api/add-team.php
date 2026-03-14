@@ -11,7 +11,6 @@ if (!check_data($data)) {
 }
 try {
     $dbconn = db_connect();
-    remove_expired_teams($dbconn);
     if (!check_existing_team($dbconn, $data)) {
         exit_with(400, 'Team name already exists', 'existingTeam');
     }

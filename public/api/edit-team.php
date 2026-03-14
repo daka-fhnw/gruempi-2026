@@ -14,7 +14,6 @@ if (!check_data($data)) {
 }
 try {
     $dbconn = db_connect();
-    remove_expired_teams($dbconn);
     if (!check_team_exists($dbconn, $data['id'], $data['token'])) {
         exit_with(400, 'Bad request');
     }
