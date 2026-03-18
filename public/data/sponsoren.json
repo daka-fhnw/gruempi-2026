@@ -42,6 +42,16 @@
       "url": "https://www.konrad.li"
     },
     {
+      "imgPath": "/img/sponsoren/passpunkte/003.webp",
+      "label": "LandNetwork",
+      "url": "https://www.landnetwork.ch"
+    },
+    {
+      "imgPath": "/img/sponsoren/passpunkte/004.webp",
+      "label": "Wild Ingenieure",
+      "url": "https://www.wilding.ch"
+    },
+    {
       "imgPath": "/img/sponsoren/placeholder.webp",
       "label": "Sponsor werden!",
       "url": "mailto:info@grümpi.ch"
