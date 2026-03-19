@@ -1,6 +1,11 @@
 {
   "triangulationspunkte": [
     {
+      "imgPath": "/img/sponsoren/triangulationspunkte/001.webp",
+      "label": "Portmann + Partner",
+      "url": "https://portmann-partner.ch"
+    },
+    {
       "imgPath": "/img/sponsoren/placeholder.webp",
       "label": "Sponsor werden!",
       "url": "mailto:info@grümpi.ch"
@@ -22,7 +27,17 @@
     {
       "imgPath": "/img/sponsoren/hoehenfixpunkte/001.webp",
       "label": "Jermann Ingenieure + Geometer AG",
-      "url": "https://www.jermann-ag.ch/"
+      "url": "https://www.jermann-ag.ch"
+    },
+    {
+      "imgPath": "/img/sponsoren/hoehenfixpunkte/002.webp",
+      "label": "geotopo ag",
+      "url": "https://geotopo.ch"
+    },
+    {
+      "imgPath": "/img/sponsoren/hoehenfixpunkte/003.webp",
+      "label": "bbp geomatik ag",
+      "url": "https://geozen.ch"
     },
     {
       "imgPath": "/img/sponsoren/placeholder.webp",
@@ -50,6 +65,11 @@
       "imgPath": "/img/sponsoren/passpunkte/004.webp",
       "label": "Wild Ingenieure",
       "url": "https://www.wilding.ch"
+    },
+    {
+      "imgPath": "/img/sponsoren/passpunkte/005.webp",
+      "label": "Savinis AG",
+      "url": "https://savinis.ch"
     },
     {
       "imgPath": "/img/sponsoren/placeholder.webp",
