@@ -40,6 +40,11 @@
       "url": "https://geozen.ch"
     },
     {
+      "imgPath": "/img/sponsoren/hoehenfixpunkte/004.webp",
+      "label": "GEOBOX AG",
+      "url": "https://geobox.ch"
+    },
+    {
       "imgPath": "/img/sponsoren/placeholder.webp",
       "label": "Sponsor werden!",
       "url": "mailto:info@grümpi.ch"
@@ -70,6 +75,11 @@
       "imgPath": "/img/sponsoren/passpunkte/005.webp",
       "label": "Savinis AG",
       "url": "https://savinis.ch"
+    },
+    {
+      "imgPath": "/img/sponsoren/passpunkte/006.webp",
+      "label": "W+H AG",
+      "url": "https://w-h.ch"
     },
     {
       "imgPath": "/img/sponsoren/placeholder.webp",
