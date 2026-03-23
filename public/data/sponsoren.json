@@ -38,13 +38,18 @@
       "imgPath": "/img/sponsoren/hoehenfixpunkte/004.webp",
       "label": "GEOBOX AG",
       "url": "https://geobox.ch"
+    },
+    {
+      "imgPath": "/img/sponsoren/hoehenfixpunkte/005.webp",
+      "label": "geoPro Suisse AG",
+      "url": "https://geoprosuisse.ch"
     }
   ],
   "passpunkte": [
     {
       "imgPath": "/img/sponsoren/passpunkte/001.webp",
-      "label": "Spänhauer Gipsergeschäft",
-      "url": "https://www.spaenhauer-gipser.ch/"
+      "label": "Spänhauer AG",
+      "url": "https://www.spaenhauer-gipser.ch"
     },
     {
       "imgPath": "/img/sponsoren/passpunkte/002.webp",
@@ -53,7 +58,7 @@
     },
     {
       "imgPath": "/img/sponsoren/passpunkte/003.webp",
-      "label": "LandNetwork",
+      "label": "LandNetwork GmbH",
       "url": "https://www.landnetwork.ch"
     },
     {
