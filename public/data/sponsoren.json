@@ -9,11 +9,6 @@
       "imgPath": "/img/sponsoren/triangulationspunkte/002.webp",
       "label": "SITE.ch Schweiz AG",
       "url": "https://sitech.ch"
-    },
-    {
-      "imgPath": "/img/sponsoren/placeholder.webp",
-      "label": "Sponsor werden!",
-      "url": "mailto:info@grümpi.ch"
     }
   ],
   "fixpunkte": [
@@ -21,11 +16,6 @@
       "imgPath": "/img/sponsoren/fixpunkte/001.webp",
       "label": "Geozug Ingenieure AG",
       "url": "https://www.geozug.ch"
-    },
-    {
-      "imgPath": "/img/sponsoren/placeholder.webp",
-      "label": "Sponsor werden!",
-      "url": "mailto:info@grümpi.ch"
     }
   ],
   "hoehenfixpunkte": [
@@ -48,11 +38,6 @@
       "imgPath": "/img/sponsoren/hoehenfixpunkte/004.webp",
       "label": "GEOBOX AG",
       "url": "https://geobox.ch"
-    },
-    {
-      "imgPath": "/img/sponsoren/placeholder.webp",
-      "label": "Sponsor werden!",
-      "url": "mailto:info@grümpi.ch"
     }
   ],
   "passpunkte": [
@@ -85,11 +70,6 @@
       "imgPath": "/img/sponsoren/passpunkte/006.webp",
       "label": "W+H AG",
       "url": "https://w-h.ch"
-    },
-    {
-      "imgPath": "/img/sponsoren/placeholder.webp",
-      "label": "Sponsor werden!",
-      "url": "mailto:info@grümpi.ch"
     }
   ],
   "grenzpunkte": [
