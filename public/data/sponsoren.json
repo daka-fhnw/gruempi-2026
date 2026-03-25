@@ -43,6 +43,16 @@
       "imgPath": "/img/sponsoren/hoehenfixpunkte/005.webp",
       "label": "geoPro Suisse AG",
       "url": "https://geoprosuisse.ch"
+    },
+    {
+      "imgPath": "/img/sponsoren/hoehenfixpunkte/006.webp",
+      "label": "Jost Umzugs AG",
+      "url": "https://www.jost-transport.ch/"
+    },
+    {
+      "imgPath": "/img/sponsoren/hoehenfixpunkte/007.webp",
+      "label": "geounity",
+      "url": "https://geounity.ch"
     }
   ],
   "passpunkte": [
@@ -75,6 +85,11 @@
       "imgPath": "/img/sponsoren/passpunkte/006.webp",
       "label": "W+H AG",
       "url": "https://w-h.ch"
+    },
+    {
+      "imgPath": "/img/sponsoren/passpunkte/007.webp",
+      "label": "Blueme Ginkgo",
+      "url": "https://www.bluemeginkgomuttenz.ch/"
     }
   ],
   "grenzpunkte": [
