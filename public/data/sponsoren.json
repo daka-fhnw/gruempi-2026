@@ -47,7 +47,7 @@
     {
       "imgPath": "/img/sponsoren/hoehenfixpunkte/006.webp",
       "label": "Jost Umzugs AG",
-      "url": "https://www.jost-transport.ch/"
+      "url": "https://www.jost-transport.ch"
     },
     {
       "imgPath": "/img/sponsoren/hoehenfixpunkte/007.webp",
@@ -89,7 +89,12 @@
     {
       "imgPath": "/img/sponsoren/passpunkte/007.webp",
       "label": "Blueme Ginkgo",
-      "url": "https://www.bluemeginkgomuttenz.ch/"
+      "url": "https://www.bluemeginkgomuttenz.ch"
+    },
+    {
+      "imgPath": "/img/sponsoren/passpunkte/008.webp",
+      "label": "Jenzer Fleisch + Feinkost AG",
+      "url": "https://www.goldwurst.ch"
     }
   ],
   "grenzpunkte": [
