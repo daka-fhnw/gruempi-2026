@@ -42,7 +42,7 @@ export default function Regeln() {
       <h4>1. Überblick</h4>
       <ul>
         <li>
-          <b>Maximale Anzahl Teams:</b> 20 Mannschaften
+          <b>Maximale Anzahl Teams:</b> 20
         </li>
         <li>
           <b>Gruppeneinteilung:</b> 4 Gruppen à 5 Teams.
@@ -56,7 +56,7 @@ export default function Regeln() {
           gibt kein Spiel um Platz 3/4.
         </li>
       </ul>
-      <h4>2. Mannschaften</h4>
+      <h4>2. Teams</h4>
       <ul>
         <li>
           Teilnahmeberechtigt sind alle aktiven und ehemaligen Studierenden
@@ -64,37 +64,36 @@ export default function Regeln() {
           Muttenz.
         </li>
         <li>
-          Eine Mannschaft besteht aus 5 Feldspieler:innen und einem:r
+          Ein Team besteht aus 5 Feldspieler:innen und einem:r
           Torhüter:in sowie Auswechselspieler:innen. Pro Team sind maximal 12
           Spieler:innen erlaubt.
         </li>
         <li>
-          Während des Spiels ist es nicht zwingend, dass eine Dame auf dem Feld
-          steht, Tore von Damen werden jedoch doppelt gewertet.
+          Inklusionsbonus: Tore von Frauen werden doppelt gewertet.
         </li>
         <li>
-          Jede:r Spieler:in darf nur in einer Mannschaft eingesetzt werden.
+          Jede:r Spieler:in darf nur in einem Team eingesetzt werden.
           Verstösse führen zu Forfait-Niederlagen oder zum Ausschluss aus dem
           Turnier.
         </li>
         <li>
-          Pro Mannschaft ist eine Teilnahmegebühr von CHF 30.– am Turniertag zu
+          Pro Team ist eine Teilnahmegebühr von CHF 30.– am Turniertag zu
           bezahlen (Bar oder via TWINT).
         </li>
         <li>
-          Jede Mannschaft hat einen Teamnamen, der nur aus alphanumerischen
+          Jedes Team hat einen Teamnamen, der nur aus alphanumerischen
           Zeichen, Leerzeichen und Bindestrichen besteht. Irreguläre, vulgäre,
           rassistische oder sexistische Teamnamen können vom OK abgewiesen
           werden.
         </li>
         <li>
-          Jede Mannschaft muss in einem einheitlichen Tenue antreten (z. B.
-          einheitliche Farbe). Bei zu ähnlichen Tenues muss die zweitgenannte
-          Mannschaft ein vom OK zur Verfügung gestelltes Überziehleibchen
+          Jedes Team muss in einem einheitlichen Tenue antreten (z. B.
+          einheitliche Farbe). Bei zu ähnlichen Tenues muss das zweitgenannte
+          Team ein vom OK zur Verfügung gestelltes Überziehleibchen
           tragen.
         </li>
         <li>
-          Jede Mannschaft muss sich spätestens 15 Minuten vor dem ersten Spiel
+          Jedes Team muss sich spätestens 15 Minuten vor dem ersten Spiel
           beim Wettkampfbüro melden und die Turniergebühr begleichen.
         </li>
       </ul>
@@ -104,7 +103,7 @@ export default function Regeln() {
           <b>Gruppenphase</b>
           <ul>
             <li>
-              Die gemeldeten Mannschaften werden in 4 Gruppen aufgeteilt und
+              Die gemeldeten Teams werden in 4 Gruppen aufgeteilt und
               spielen jeweils einmal gegen jedes Team aus der eigenen Gruppe.
             </li>
           </ul>
@@ -141,7 +140,7 @@ export default function Regeln() {
         <li>
           Spieldauer beträgt 10 Minuten ohne Seitenwechsel und ohne Pause.
         </li>
-        <li>Die erstgenannte Mannschaft darf den Anstoss ausführen.</li>
+        <li>Das erstgenannte Team darf den Anstoss ausführen.</li>
         <li>
           Punkteverteilung:
           <ul>
@@ -179,18 +178,18 @@ export default function Regeln() {
         <li>
           Ein:e Spieler:in kann bei unsportlichem Verhalten oder groben Fouls
           vom Feld verwiesen werden und für den Rest des Spiels gesperrt werden.
-          Das OK kann Spieler:innen oder ganze Mannschaften vom Turnier
+          Das OK kann Spieler:innen oder ganze Teams vom Turnier
           ausschliessen.
         </li>
         <li>
-          Zu spät oder nicht antretende Mannschaften verlieren das betroffene
+          Zu spät oder nicht antretende Teams verlieren das betroffene
           Spiel mit 0:3 Forfait.
         </li>
       </ul>
       <h4>5. Schiedsrichter</h4>
       <ul>
         <li>
-          Jede Mannschaft muss während der Gruppenphase Schiedsrichter für
+          Jedes Team muss während der Gruppenphase Schiedsrichter für
           andere Spiele stellen.
         </li>
         <li>
