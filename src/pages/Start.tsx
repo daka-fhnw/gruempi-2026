@@ -10,7 +10,7 @@ import { FoodIcon } from "../icons/FoodIcon";
 import { FireIcon } from "../icons/FireIcon";
 import { ArrowLink } from "../comps/ArrowLink";
 import { Loading } from "../comps/Loading";
-import jetztAnmelden from "../assets/jetzt_anmelden.svg";
+// import jetztAnmelden from "../assets/jetzt_anmelden.svg";
 
 function randomFoto() {
   return fotos2025[Math.floor(Math.random() * fotos2025.length)];
@@ -29,7 +29,7 @@ export default function Start() {
         Das jährliche FHNW Grümpi findet auch dieses Jahr in unmittelbarer Nähe
         zum FHNW Campus in Muttenz statt. Kommt vorbei und erlebt einen
         spannenden Fussballabend. Natürlich geniesst ihr auch als Zuschauer ein
-        tolles Angebot inklusive Festwirtschaft und seid herzlich Willkommen.
+        tolles Angebot inklusive Festwirtschaft und seid herzlich willkommen.
       </p>
       <div className="mb-2">
         <div className="row gx-2 h5">
@@ -73,7 +73,10 @@ export default function Start() {
         </Link>{" "}
         😎
       </div>
+      {/*
       <h2>Anmeldung ist eröffnet!</h2>
+      */}
+      {/* 
       <div className="mb-3">
         <Link href="/anmelden">
           <img
@@ -83,9 +86,24 @@ export default function Start() {
           />
         </Link>
       </div>
+      */}
+      {/*
       <div className="mb-3">
         <Link href="/anmelden">
           <ArrowLink>Melde dein Team zum Grümpi an!</ArrowLink>
+        </Link>{" "}
+        ⚽
+      </div>
+      */}
+      <h2>Wir haben 20 Teams!</h2>
+      <div className="mb-2">
+        Inzwischen sind 20 Teams angemeldet. Ab jetzt landest du auf der
+        Warteliste, wenn du dich anmeldest. Dein Team kann also nur teilnehmen,
+        wenn eines der angemeldeten Teams nicht teilnehmen kann.
+      </div>
+      <div className="mb-3">
+        <Link href="/teams">
+          <ArrowLink>Die angemeldeten Teams</ArrowLink>
         </Link>{" "}
         ⚽
       </div>
