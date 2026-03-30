@@ -60,8 +60,7 @@ export default function Regeln() {
       <ul>
         <li>
           Teilnahmeberechtigt sind alle aktiven und ehemaligen Studierenden
-          sowie alle Mitarbeitenden der Fachhochschule Nordwestschweiz in
-          Muttenz.
+          sowie alle Mitarbeitenden der Fachhochschule Nordwestschweiz.
         </li>
         <li>
           Ein Team besteht aus 5 Feldspieler:innen und einem:r

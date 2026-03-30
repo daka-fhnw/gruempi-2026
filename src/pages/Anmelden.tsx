@@ -45,6 +45,11 @@ export default function Anmelden() {
       ) : (
         <>
           <Alert variant="info">
+            Inzwischen sind 20 Teams angemeldet. Ab jetzt landest du auf der
+            Warteliste, wenn du dich anmeldest. Dein Team kann also nur
+            teilnehmen, wenn eines der angemeldeten Teams nicht teilnehmen kann.
+          </Alert>
+          <Alert variant="info">
             Bitte lies die{" "}
             <Link href="/infos">Teilnahmebedingungen und Spielregeln</Link> und
             denk daran: Jedes Team stellt einen Schiedsrichter für Spiele
