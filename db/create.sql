@@ -28,3 +28,17 @@ CREATE TABLE
         `mobile` VARCHAR(255),
         PRIMARY KEY (`id`)
     ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
+
+CREATE TABLE
+    games (
+        `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+        `state` VARCHAR(20),
+        `context` VARCHAR(255),
+        `field` VARCHAR(20),
+        `time` TIME,
+        `team1_id` INT UNSIGNED REFERENCES teams (`id`),
+        `team2_id` INT UNSIGNED REFERENCES teams (`id`),
+        `goals1` TINYINT UNSIGNED,
+        `goals2` TINYINT UNSIGNED,
+        PRIMARY KEY (`id`)
+    ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
