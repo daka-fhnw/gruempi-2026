@@ -16,6 +16,16 @@
       "imgPath": "/img/sponsoren/fixpunkte/001.webp",
       "label": "Geozug Ingenieure AG",
       "url": "https://www.geozug.ch"
+    },
+    {
+      "imgPath": "/img/sponsoren/fixpunkte/002.webp",
+      "label": "terra vermessungen ag",
+      "url": "https://terra.ch"
+    },
+    {
+      "imgPath": "/img/sponsoren/fixpunkte/003.webp",
+      "label": "Andreotti & Partners SA",
+      "url": "https://andreotti.ch"
     }
   ],
   "hoehenfixpunkte": [
@@ -68,6 +78,16 @@
       "imgPath": "/img/sponsoren/hoehenfixpunkte/010.webp",
       "label": "KADI AG",
       "url": "https://www.kadi.ch"
+    },
+    {
+      "imgPath": "/img/sponsoren/hoehenfixpunkte/011.webp",
+      "label": "VITO Schweiz AG",
+      "url": "https://www.vito.ch"
+    },
+    {
+      "imgPath": "/img/sponsoren/hoehenfixpunkte/012.webp",
+      "label": "Bernasconi e Forrer ingegneria e misurazioni SA",
+      "url": "https://bfingegneria.ch"
     }
   ],
   "passpunkte": [
@@ -110,6 +130,11 @@
       "imgPath": "/img/sponsoren/passpunkte/008.webp",
       "label": "Jenzer Fleisch + Feinkost AG",
       "url": "https://www.goldwurst.ch"
+    },
+    {
+      "imgPath": "/img/sponsoren/passpunkte/009.webp",
+      "label": "studio d'ingegneria Riccardo Calastri SA",
+      "url": "https://www.studiocalastri.ch"
     }
   ],
   "grenzpunkte": [
