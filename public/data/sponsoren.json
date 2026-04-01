@@ -62,7 +62,12 @@
     {
       "imgPath": "/img/sponsoren/hoehenfixpunkte/009.webp",
       "label": "Primeo Energie",
-      "url": "hhttps://www.primeo-energie.ch"
+      "url": "https://www.primeo-energie.ch"
+    },
+    {
+      "imgPath": "/img/sponsoren/hoehenfixpunkte/010.webp",
+      "label": "KADI AG",
+      "url": "https://www.kadi.ch"
     }
   ],
   "passpunkte": [
