@@ -26,6 +26,21 @@
       "imgPath": "/img/sponsoren/fixpunkte/003.webp",
       "label": "Andreotti & Partners SA",
       "url": "https://andreotti.ch"
+    },
+    {
+      "imgPath": "/img/sponsoren/fixpunkte/004.webp",
+      "label": "TERRADATA AG",
+      "url": "https://terradata.ch"
+    },
+    {
+      "imgPath": "/img/sponsoren/fixpunkte/005.webp",
+      "label": "Guido Bartholet GmbH",
+      "url": null
+    },
+    {
+      "imgPath": "/img/sponsoren/fixpunkte/006.webp",
+      "label": "Gruner AG",
+      "url": "https://www.gruner.ch"
     }
   ],
   "hoehenfixpunkte": [
@@ -135,6 +150,21 @@
       "imgPath": "/img/sponsoren/passpunkte/009.webp",
       "label": "studio d'ingegneria Riccardo Calastri SA",
       "url": "https://www.studiocalastri.ch"
+    },
+    {
+      "imgPath": "/img/sponsoren/passpunkte/010.webp",
+      "label": "Osterwalder, Lehmann - Ingenieure und Geometer AG",
+      "url": "https://olig.ch"
+    },
+    {
+      "imgPath": "/img/sponsoren/passpunkte/011.webp",
+      "label": "Kreis AG Sargans",
+      "url": "https://kreis-sargans.ch"
+    },
+    {
+      "imgPath": "/img/sponsoren/passpunkte/012.webp",
+      "label": "FLOTRON AG",
+      "url": "https://flotron.ch"
     }
   ],
   "grenzpunkte": [
