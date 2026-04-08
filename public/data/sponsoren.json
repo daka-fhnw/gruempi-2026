@@ -41,6 +41,11 @@
       "imgPath": "/img/sponsoren/fixpunkte/006.webp",
       "label": "Gruner AG",
       "url": "https://www.gruner.ch"
+    },
+    {
+      "imgPath": "/img/sponsoren/fixpunkte/007.webp",
+      "label": "Gossweiler Ingenieure AG",
+      "url": "https://www.gossweiler.com"
     }
   ],
   "hoehenfixpunkte": [
