@@ -1,0 +1,353 @@
+{
+  "kuerzel": {
+    "t01": "Ballverlust 04",
+    "t02": "Hobbyvermesser G6",
+    "t03": "Holzfuess United",
+    "t04": "Trinat",
+    "t05": "Winkel-Bölzer",
+    "t06": "Sportfreunde Muttenz",
+    "t07": "Lemma 69",
+    "t08": "Beton Union",
+    "t09": "FC Dritte Stock",
+    "t10": "iBall",
+    "t11": "FC Porzellanschüsselfüller",
+    "t12": "G2021",
+    "t13": "Souaffe",
+    "t14": "FCO₂",
+    "t15": "Les Goalbusiers",
+    "t16": "Grümpu Guardians",
+    "t17": "Big Basel-Land",
+    "t18": "Döner Szene",
+    "t19": "Stiftung Wadentest",
+    "t20": "Peak Performer FC",
+    "GA1": "1. Platz Gruppe A",
+    "GA2": "2. Platz Gruppe A",
+    "GB1": "1. Platz Gruppe B",
+    "GB2": "2. Platz Gruppe B",
+    "GC1": "1. Platz Gruppe C",
+    "GC2": "2. Platz Gruppe C",
+    "GD1": "1. Platz Gruppe D",
+    "GD2": "2. Platz Gruppe D",
+    "V1W": "Sieger Viertelfinale 1",
+    "V1L": "Verlierer Viertelfinale 1",
+    "V2W": "Sieger Viertelfinale 2",
+    "V2L": "Verlierer Viertelfinale 2",
+    "V3W": "Sieger Viertelfinale 3",
+    "V3L": "Verlierer Viertelfinale 3",
+    "V4W": "Sieger Viertelfinale 4",
+    "V4L": "Verlierer Viertelfinale 4",
+    "H1W": "Sieger Halbfinale 1",
+    "H2W": "Sieger Halbfinale 2",
+    "SOK": "OK Grümpi (Niko)"
+  },
+  "gruppen": [
+    {
+      "name": "Gruppe A",
+      "teams": ["t01", "t06", "t03", "t07", "t15"]
+    },
+    {
+      "name": "Gruppe B",
+      "teams": ["t02", "t08", "t04", "t05", "t10"]
+    },
+    {
+      "name": "Gruppe C",
+      "teams": ["t09", "t11", "t12", "t13", "t14"]
+    },
+    {
+      "name": "Gruppe D",
+      "teams": ["t16", "t19", "t17", "t18", "t20"]
+    }
+  ],
+  "spiele": {
+    "gruppen": [
+      {
+        "zeit": "17:00",
+        "team1": "t01",
+        "team2": "t06",
+        "schiri": "t09"
+      },
+      {
+        "zeit": "17:00",
+        "team1": "t03",
+        "team2": "t07",
+        "schiri": "t11"
+      },
+      {
+        "zeit": "17:00",
+        "team1": "t02",
+        "team2": "t08",
+        "schiri": "t12"
+      },
+      {
+        "zeit": "17:15",
+        "team1": "t04",
+        "team2": "t05",
+        "schiri": "t20"
+      },
+      {
+        "zeit": "17:15",
+        "team1": "t09",
+        "team2": "t11",
+        "schiri": "t10"
+      },
+      {
+        "zeit": "17:15",
+        "team1": "t12",
+        "team2": "t13",
+        "schiri": "t15"
+      },
+      {
+        "zeit": "17:30",
+        "team1": "t16",
+        "team2": "t19",
+        "schiri": "t07"
+      },
+      {
+        "zeit": "17:30",
+        "team1": "t17",
+        "team2": "t18",
+        "schiri": "t05"
+      },
+      {
+        "zeit": "17:30",
+        "team1": "t15",
+        "team2": "t01",
+        "schiri": "t13"
+      },
+      {
+        "zeit": "17:45",
+        "team1": "t06",
+        "team2": "t03",
+        "schiri": "t14"
+      },
+      {
+        "zeit": "17:45",
+        "team1": "t10",
+        "team2": "t02",
+        "schiri": "t01"
+      },
+      {
+        "zeit": "17:45",
+        "team1": "t08",
+        "team2": "t04",
+        "schiri": "t06"
+      },
+      {
+        "zeit": "18:00",
+        "team1": "t14",
+        "team2": "t09",
+        "schiri": "t03"
+      },
+      {
+        "zeit": "18:00",
+        "team1": "t11",
+        "team2": "t12",
+        "schiri": "t02"
+      },
+      {
+        "zeit": "18:00",
+        "team1": "t20",
+        "team2": "t16",
+        "schiri": "t08"
+      },
+      {
+        "zeit": "18:15",
+        "team1": "t19",
+        "team2": "t17",
+        "schiri": "t04"
+      },
+      {
+        "zeit": "18:15",
+        "team1": "t01",
+        "team2": "t07",
+        "schiri": "t16"
+      },
+      {
+        "zeit": "18:15",
+        "team1": "t06",
+        "team2": "t15",
+        "schiri": "t19"
+      },
+      {
+        "zeit": "18:30:",
+        "team1": "t02",
+        "team2": "t05",
+        "schiri": "t17"
+      },
+      {
+        "zeit": "18:30",
+        "team1": "t08",
+        "team2": "t10",
+        "schiri": "t18"
+      },
+      {
+        "zeit": "18:30",
+        "team1": "t09",
+        "team2": "t13",
+        "schiri": "t15"
+      },
+      {
+        "zeit": "18:45",
+        "team1": "t11",
+        "team2": "t14",
+        "schiri": "t07"
+      },
+      {
+        "zeit": "18:45",
+        "team1": "t16",
+        "team2": "t18",
+        "schiri": "t09"
+      },
+      {
+        "zeit": "18:45",
+        "team1": "t19",
+        "team2": "t20",
+        "schiri": "t11"
+      },
+      {
+        "zeit": "19:00",
+        "team1": "t03",
+        "team2": "t01",
+        "schiri": "t14"
+      },
+      {
+        "zeit": "19:00",
+        "team1": "t07",
+        "team2": "t15",
+        "schiri": "t16"
+      },
+      {
+        "zeit": "19:00",
+        "team1": "t02",
+        "team2": "t04",
+        "schiri": "t19"
+      },
+      {
+        "zeit": "19:15",
+        "team1": "t05",
+        "team2": "t10",
+        "schiri": "t01"
+      },
+      {
+        "zeit": "19:15",
+        "team1": "t09",
+        "team2": "t12",
+        "schiri": "t06"
+      },
+      {
+        "zeit": "19:15",
+        "team1": "t13",
+        "team2": "t14",
+        "schiri": "t02"
+      },
+      {
+        "zeit": "19:30",
+        "team1": "t16",
+        "team2": "t17",
+        "schiri": "t08"
+      },
+      {
+        "zeit": "19:30",
+        "team1": "t18",
+        "team2": "t20",
+        "schiri": "t12"
+      },
+      {
+        "zeit": "19:30",
+        "team1": "t15",
+        "team2": "t03",
+        "schiri": "t13"
+      },
+      {
+        "zeit": "19:45",
+        "team1": "t07",
+        "team2": "t06",
+        "schiri": "t17"
+      },
+      {
+        "zeit": "19:45",
+        "team1": "t10",
+        "team2": "t04",
+        "schiri": "t18"
+      },
+      {
+        "zeit": "19:45",
+        "team1": "t05",
+        "team2": "t08",
+        "schiri": "t20"
+      },
+      {
+        "zeit": "20:00",
+        "team1": "t14",
+        "team2": "t12",
+        "schiri": "t03"
+      },
+      {
+        "zeit": "20:00",
+        "team1": "t13",
+        "team2": "t11",
+        "schiri": "t04"
+      },
+      {
+        "zeit": "20:15",
+        "team1": "t20",
+        "team2": "t17",
+        "schiri": "t05"
+      },
+      {
+        "zeit": "20:15",
+        "team1": "t18",
+        "team2": "t19",
+        "schiri": "t10"
+      }
+    ],
+    "viertelfinal": [
+      {
+        "zeit": "20:30",
+        "team1": "GA1",
+        "team2": "GC2",
+        "schiri": "GB2"
+      },
+      {
+        "zeit": "20:30",
+        "team1": "GB1",
+        "team2": "GD2",
+        "schiri": "GA2"
+      },
+      {
+        "zeit": "20:45",
+        "team1": "GC1",
+        "team2": "GB2",
+        "schiri": "GC2"
+      },
+      {
+        "zeit": "20:45",
+        "team1": "GD1",
+        "team2": "GA2",
+        "schiri": "GD2"
+      }
+    ],
+    "halbfinal": [
+      {
+        "zeit": "21:10",
+        "team1": "V1W",
+        "team2": "V2W",
+        "schiri": "V3L"
+      },
+      {
+        "zeit": "21:10",
+        "team1": "V3W",
+        "team2": "V4W",
+        "schiri": "V4L"
+      }
+    ],
+    "final": [
+      {
+        "zeit": "21:35",
+        "team1": "H1W",
+        "team2": "H2W",
+        "schiri": "SOK"
+      }
+    ]
+  }
+}
