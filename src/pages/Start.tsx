@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import { Countdown } from "../comps/Countdown";
 import { fotos2025 } from "../listen_galerie";
-import { loadSponsors, type SponsorLists } from "../listen_sponsoren";
+import { loadSponsors, type SponsorLists } from "../daten_sponsoren";
 import { SponsorGruppe } from "../comps/SponsorGruppe";
 import { DateIcon } from "../icons/DateIcon";
 import { GeoIcon } from "../icons/GeoIcon";

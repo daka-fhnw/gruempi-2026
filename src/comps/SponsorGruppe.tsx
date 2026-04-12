@@ -1,5 +1,5 @@
 import { Card } from "react-bootstrap";
-import type { Sponsor } from "../listen_sponsoren";
+import type { Sponsor } from "../daten_sponsoren";
 import { MaybeWithUrl } from "./MaybeWithUrl";
 import "./SponsorGruppe.scss";
 
