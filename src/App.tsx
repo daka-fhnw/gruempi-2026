@@ -18,6 +18,7 @@ export function App() {
   const Datenschutz = React.lazy(() => import("./pages/Datenschutz"));
   const Team = React.lazy(() => import("./pages/Team"));
   const Teams = React.lazy(() => import("./pages/Teams"));
+  const Spielplan = React.lazy(() => import("./pages/Spielplan"));
   return (
     <>
       <Header />
@@ -36,6 +37,7 @@ export function App() {
               <Route path="/datenschutz" component={Datenschutz} />
               <Route path="/team/:token" component={Team} />
               <Route path="/teams" component={Teams} />
+              <Route path="/spielplan" component={Spielplan} />
               <Route component={NotFound} />
             </Switch>
           </Suspense>
