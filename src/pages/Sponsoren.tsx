@@ -34,7 +34,7 @@ export default function Sponsoren() {
         <h2>Passpunkt</h2>
         <SponsorGruppe
           list={sponsoren.passpunkte}
-          size="10rem"
+          size="10.8rem"
           fontSize="0.8rem"
         />
         <h2>Grenzpunkt</h2>
