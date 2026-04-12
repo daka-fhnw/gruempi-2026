@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { SponsorGruppe } from "../comps/SponsorGruppe";
 import { Loading } from "../comps/Loading";
 import { MaybeWithUrl } from "../comps/MaybeWithUrl";
-import { loadSponsors, type SponsorLists } from "../listen_sponsoren";
+import { loadSponsors, type SponsorLists } from "../daten_sponsoren";
 
 export default function Sponsoren() {
   const [sponsoren, setSponsoren] = useState<SponsorLists | null>(null);
