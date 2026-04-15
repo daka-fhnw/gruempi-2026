@@ -42,11 +42,23 @@ export function Menu({ hideMenu }: MenuProps) {
           <MenuItem href="/infos" hideMenu={hideMenu}>
             Infos & Regeln
           </MenuItem>
+          {/*
           <MenuItem href="/anmelden" hideMenu={hideMenu}>
             Anmelden
           </MenuItem>
+          */}
           <MenuItem href="/teams" hideMenu={hideMenu}>
             Teams
+          </MenuItem>
+          <MenuItem href="/spielplan" hideMenu={hideMenu}>
+            Spielplan
+          </MenuItem>
+          <MenuItem
+            href="https://www.sofascore.com/de/minifootball/tournament/switzerland/fhnw-grumpi/33877"
+            external={true}
+            hideMenu={hideMenu}
+          >
+            Ergebnisse
           </MenuItem>
           <MenuItem href="/sponsoren" hideMenu={hideMenu}>
             Sponsoren

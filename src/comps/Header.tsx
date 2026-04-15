@@ -27,7 +27,7 @@ export function Header() {
             </div>
             <div className="col-auto py-1">
               <nav>
-                {/*}
+                {/*
                 <span className="d-none d-md-inline">
                   <Link href="/anmelden">Jetzt anmelden!</Link>
                 </span>
