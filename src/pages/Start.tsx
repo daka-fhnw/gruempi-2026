@@ -95,17 +95,43 @@ export default function Start() {
         ⚽
       </div>
       */}
+      {/*
       <h2>Wir haben 20 Teams!</h2>
+      */}
+      {/*
       <div className="mb-2">
         Inzwischen sind 20 Teams angemeldet. Ab jetzt landest du auf der
         Warteliste, wenn du dich anmeldest. Dein Team kann also nur teilnehmen,
         wenn eines der angemeldeten Teams nicht teilnehmen kann.
       </div>
+      */}
+      {/*
       <div className="mb-3">
         <Link href="/teams">
           <ArrowLink>Die angemeldeten Teams</ArrowLink>
         </Link>{" "}
         ⚽
+      </div>
+      */}
+      <h2>Bald geht's los!</h2>
+      <div className="mb-2">
+        In wenigen Tagen findet das FHNW Grümpi statt und wir freuen uns schon
+        riesig darauf 🔥
+      </div>
+      <div className="mb-2">
+        <Link href="/spielplan">
+          <ArrowLink>Hier geht's zum Spielplan</ArrowLink>
+        </Link>{" "}
+        ⚽
+      </div>
+      <div className="mb-3">
+        <a
+          href="https://www.sofascore.com/de/minifootball/tournament/switzerland/fhnw-grumpi/33877"
+          target="_blank"
+        >
+          <ArrowLink>Spielergebnisse auf Sofascore</ArrowLink>
+        </a>{" "}
+        🏆
       </div>
       <h2>Eindrücke vom Grümpi 2025</h2>
       <div className="mb-3">
