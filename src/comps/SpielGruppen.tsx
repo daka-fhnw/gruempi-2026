@@ -13,7 +13,7 @@ export function SpielGruppen({ gruppen, resolveName }: SpielGruppenProps) {
       <div className="row justify-content-start g-2">
         {gruppen.map((gruppe, gidx) => (
           <div key={gidx} className="col-12 col-sm-6 col-lg-3">
-            <Card className="shadow bg-white">
+            <Card className="shadow">
               <Card.Header>
                 <b>{gruppe.name}</b>
               </Card.Header>
