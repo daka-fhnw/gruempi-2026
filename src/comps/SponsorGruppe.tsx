@@ -33,7 +33,7 @@ interface SponsorProps {
 function Sponsor({ sponsor, size, fontSize }: SponsorProps) {
   return (
     <div className="col-auto">
-      <Card className="shadow bg-white p-1 sponsor-card" style={{ width: size }}>
+      <Card className="shadow p-1 sponsor-card" style={{ width: size }}>
         <MaybeWithUrl url={sponsor.url}>
           <Card.Img variant="top" src={sponsor.imgPath} title={sponsor.label} />
         </MaybeWithUrl>

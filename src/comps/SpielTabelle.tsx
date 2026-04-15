@@ -10,9 +10,9 @@ interface SpielTabelleProps {
 export function SpielTabelle({ spiele, resolveName }: SpielTabelleProps) {
   return (
     <>
-      <Card className="shadow bg-white">
+      <Card className="shadow">
         <Card.Body className="p-0">
-          <table className="table table-striped bg-white rounded overflow-hidden spiel-table">
+          <table className="table table-striped rounded overflow-hidden spiel-table">
             <thead>
               <tr className="d-none d-md-table-row">
                 <th className="d-md-none">Spiele</th>
