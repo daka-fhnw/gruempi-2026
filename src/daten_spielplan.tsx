@@ -9,7 +9,7 @@ export interface SpielGruppe {
 
 export interface Spiel {
   zeit: string;
-  platz?: string;
+  platz: string;
   team1: string;
   team2: string;
   schiri: string;
