@@ -12,7 +12,7 @@ export function SpielTabelle({ spiele, resolveName }: SpielTabelleProps) {
     <>
       <Card className="shadow bg-white">
         <Card.Body className="p-0">
-          <table className="table table-striped bg-white rounded-3 overflow-hidden spiel-table">
+          <table className="table table-striped bg-white rounded overflow-hidden spiel-table">
             <thead>
               <tr className="d-none d-md-table-row">
                 <th className="d-md-none">Spiele</th>
