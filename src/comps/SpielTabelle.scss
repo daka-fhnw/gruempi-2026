@@ -1,5 +1,15 @@
-.spiel-text {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
+table.spiel-table {
+  margin: 0;
+  td {
+    word-break: break-all;
+  }
+  tr:last-child td {
+    border-bottom: none;
+  }
+}
+
+div.spiel-small {
+  display: grid;
+  column-gap: 0.5rem;
+  grid-template-columns: auto 1fr;
 }
