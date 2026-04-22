@@ -1,13 +1,13 @@
 import { Card } from "react-bootstrap";
-import { type Spiel } from "../daten_spielplan";
+import { type SpielDetail } from "../daten_spielplan";
 import "./SpielTabelle.scss";
 
 interface SpielTabelleProps {
-  spiele: Spiel[];
-  resolveName: (kuerzel: string) => string;
+  spiele: SpielDetail[];
+  filterSpiel: (spiel: SpielDetail) => boolean;
 }
 
-export function SpielTabelle({ spiele, resolveName }: SpielTabelleProps) {
+export function SpielTabelle({ spiele, filterSpiel }: SpielTabelleProps) {
   return (
     <>
       <Card className="shadow">
@@ -17,10 +17,10 @@ export function SpielTabelle({ spiele, resolveName }: SpielTabelleProps) {
               <tr className="d-none d-md-table-row">
                 <th className="d-md-none">Spiele</th>
                 <th className="d-none d-md-table-cell">
-                  <span className="d-lg-none">Zeit, Platz</span>
+                  <span className="d-lg-none">Zeit, Feld</span>
                   <span className="d-none d-lg-table-cell">Uhrzeit</span>
                 </th>
-                <th className="d-none d-lg-table-cell">Platz</th>
+                <th className="d-none d-lg-table-cell">Feld</th>
                 <th className="d-none d-md-table-cell">
                   <span className="d-lg-none">Teams</span>
                   <span className="d-none d-lg-table-cell">Heimteam</span>
@@ -30,45 +30,43 @@ export function SpielTabelle({ spiele, resolveName }: SpielTabelleProps) {
               </tr>
             </thead>
             <tbody>
-              {spiele.map((spiel, index) => (
-                <tr key={index}>
+              {spiele.filter(filterSpiel).map((spiel) => (
+                <tr key={spiel.id}>
                   <td className="d-md-none">
                     <div className="spiel-small">
-                      <div className="fw-bold">Zeit, Platz:</div>
+                      <div className="fw-bold">Zeit, Feld:</div>
                       <div>
-                        {spiel.zeit}, {spiel.platz}
+                        {spiel.zeit}, {spiel.feld}
                       </div>
                       <div className="fw-bold">Heimteam:</div>
-                      <div>{resolveName(spiel.team1)}</div>
+                      <div>{spiel.team1.name}</div>
                       <div className="fw-bold">Gastteam:</div>
-                      <div>{resolveName(spiel.team2)}</div>
+                      <div>{spiel.team2.name}</div>
                       <div className="fw-bold">
                         <span className="d-inline d-sm-none">Schiri:</span>
                         <span className="d-none d-sm-inline">
                           Schiedsrichter:
                         </span>
                       </div>
-                      <div>{resolveName(spiel.schiri)}</div>
+                      <div>{spiel.schiri.name}</div>
                     </div>
                   </td>
                   <td className="d-none d-md-table-cell">
                     {spiel.zeit}
                     <div className="d-none d-md-table-cell d-lg-none">
-                      {spiel.platz}
+                      {spiel.feld}
                     </div>
                   </td>
-                  <td className="d-none d-lg-table-cell">{spiel.platz}</td>
+                  <td className="d-none d-lg-table-cell">{spiel.feld}</td>
                   <td className="d-none d-md-table-cell">
-                    {resolveName(spiel.team1)}
+                    {spiel.team1.name}
                     <div className="d-none d-md-table-cell d-lg-none">
-                      {resolveName(spiel.team2)}
+                      {spiel.team2.name}
                     </div>
                   </td>
-                  <td className="d-none d-lg-table-cell">
-                    {resolveName(spiel.team2)}
-                  </td>
+                  <td className="d-none d-lg-table-cell">{spiel.team2.name}</td>
                   <td className="d-none d-md-table-cell">
-                    {resolveName(spiel.schiri)}
+                    {spiel.schiri.name}
                   </td>
                 </tr>
               ))}

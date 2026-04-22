@@ -1,18 +1,17 @@
 import { Card } from "react-bootstrap";
-import { type SpielGruppe } from "../daten_spielplan";
+import { type GruppeDetail } from "../daten_spielplan";
 import "./SpielGruppen.scss";
 
 interface SpielGruppenProps {
-  gruppen: SpielGruppe[];
-  resolveName: (kuerzel: string) => string;
+  gruppen: GruppeDetail[];
 }
 
-export function SpielGruppen({ gruppen, resolveName }: SpielGruppenProps) {
+export function SpielGruppen({ gruppen }: SpielGruppenProps) {
   return (
     <>
       <div className="row justify-content-start g-2">
-        {gruppen.map((gruppe, gidx) => (
-          <div key={gidx} className="col-12 col-sm-6 col-lg-3">
+        {gruppen.map((gruppe) => (
+          <div key={gruppe.id} className="col-12 col-sm-6 col-lg-3">
             <Card className="shadow">
               <Card.Header>
                 <b>{gruppe.name}</b>
@@ -20,7 +19,7 @@ export function SpielGruppen({ gruppen, resolveName }: SpielGruppenProps) {
               <Card.Body>
                 {gruppe.teams.map((team, tidx) => (
                   <div key={tidx} className="group-card">
-                    {resolveName(team)}
+                    {team.name}
                   </div>
                 ))}
               </Card.Body>
