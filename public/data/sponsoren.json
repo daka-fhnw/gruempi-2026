@@ -171,16 +171,11 @@
       "label": "REMONDIS Schweiz AG",
       "url": "https://www.remondis.ch"
     },
-        {
+    {
       "imgPath": "/img/sponsoren/passpunkte/014.webp",
       "label": "VITO Schweiz AG",
       "url": "https://www.vito.ch"
     }
   ],
-  "grenzpunkte": [
-    {
-      "label": "Sponsor werden!",
-      "url": "mailto:info@grümpi.ch"
-    }
-  ]
+  "grenzpunkte": []
 }
