@@ -100,11 +100,6 @@
       "url": "https://www.kadi.ch"
     },
     {
-      "imgPath": "/img/sponsoren/hoehenfixpunkte/011.webp",
-      "label": "VITO Schweiz AG",
-      "url": "https://www.vito.ch"
-    },
-    {
       "imgPath": "/img/sponsoren/hoehenfixpunkte/012.webp",
       "label": "Bernasconi e Forrer ingegneria e misurazioni SA",
       "url": "https://bfingegneria.ch"
@@ -175,6 +170,11 @@
       "imgPath": "/img/sponsoren/passpunkte/013.webp",
       "label": "REMONDIS Schweiz AG",
       "url": "https://www.remondis.ch"
+    },
+        {
+      "imgPath": "/img/sponsoren/passpunkte/014.webp",
+      "label": "VITO Schweiz AG",
+      "url": "https://www.vito.ch"
     }
   ],
   "grenzpunkte": [
