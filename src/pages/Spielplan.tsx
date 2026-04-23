@@ -12,6 +12,7 @@ import { SpielGruppen } from "../comps/SpielGruppen";
 import { SpielTabelle } from "../comps/SpielTabelle";
 import { Button } from "react-bootstrap";
 import { CloseIcon } from "../icons/CloseIcon";
+import { ArrowLink } from "../comps/ArrowLink";
 
 export default function Sponsoren() {
   const [spielplan, setSpielplan] = useState<SpielplanDetail | null>(null);
@@ -72,12 +73,24 @@ export default function Sponsoren() {
     return (
       <>
         <h1>Spielplan</h1>
+        <h2>Ergebnisse</h2>
+        <div className="mb-3">
+          <a
+            href="https://www.sofascore.com/de/minifootball/tournament/switzerland/fhnw-grumpi/33877"
+            target="_blank"
+          >
+            <ArrowLink>Spielergebnisse auf Sofascore</ArrowLink>
+          </a>{" "}
+          🏆
+        </div>
         <h2>Gruppen</h2>
         <SpielGruppen gruppen={spielplan.gruppen} />
-        <h2 className="mt-3">Spiele</h2>
-        <div className="fw-bold">Filtern nach Team:</div>
-        <div className="row g-2">
+        <div className="row align-items-end g-2 mt-3 mb-3">
+          <div className="col-12 col-sm-auto">
+            <h2 className="m-0">Spiele</h2>
+          </div>
           <div className="col-auto">
+            <div className="fw-bold">Filtern nach Team:</div>
             <select
               value={teamKuerzel}
               className="form-select form-select"
@@ -102,19 +115,19 @@ export default function Sponsoren() {
             </Button>
           </div>
         </div>
-        <h3 className="mt-3">Gruppenphase</h3>
+        <h4>Gruppenphase</h4>
         <SpielTabelle
           spiele={spielplan.gruppenphase}
           filterSpiel={filterSpiel}
         />
-        <h3 className="mt-3">Viertelfinal</h3>
+        <h4 className="mt-3">Viertelfinal</h4>
         <SpielTabelle
           spiele={spielplan.viertelfinal}
           filterSpiel={filterSpiel}
         />
-        <h3 className="mt-3">Halbfinal</h3>
+        <h4 className="mt-3">Halbfinal</h4>
         <SpielTabelle spiele={spielplan.halbfinal} filterSpiel={filterSpiel} />
-        <h3 className="mt-3">Final</h3>
+        <h4 className="mt-3">Final</h4>
         <SpielTabelle spiele={spielplan.final} filterSpiel={filterSpiel} />
       </>
     );

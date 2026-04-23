@@ -29,7 +29,7 @@ Header set Cache-Control "public, max-age=300"
 </Files>
 
 <Files "spielplan.json">
-Header set Cache-Control "public, max-age=300"
+Header set Cache-Control "public, max-age=0"
 </Files>
 
 </IfModule>
