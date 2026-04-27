@@ -12,12 +12,12 @@ export function App() {
   const Infos = React.lazy(() => import("./pages/Infos"));
   const Anreise = React.lazy(() => import("./pages/Anreise"));
   const Galerie = React.lazy(() => import("./pages/Galerie"));
-  const Anmelden = React.lazy(() => import("./pages/Anmelden"));
+  //const Anmelden = React.lazy(() => import("./pages/Anmelden"));
   const Sponsoren = React.lazy(() => import("./pages/Sponsoren"));
   const Impressum = React.lazy(() => import("./pages/Impressum"));
   const Datenschutz = React.lazy(() => import("./pages/Datenschutz"));
-  const Team = React.lazy(() => import("./pages/Team"));
-  const Teams = React.lazy(() => import("./pages/Teams"));
+  //const Team = React.lazy(() => import("./pages/Team"));
+  //const Teams = React.lazy(() => import("./pages/Teams"));
   const Spielplan = React.lazy(() => import("./pages/Spielplan"));
   return (
     <>
@@ -31,12 +31,12 @@ export function App() {
               <Route path="/infos" component={Infos} />
               <Route path="/anreise" component={Anreise} />
               <Route path="/galerie" component={Galerie} />
-              <Route path="/anmelden" component={Anmelden} />
+              {/*<Route path="/anmelden" component={Anmelden} />*/}
               <Route path="/sponsoren" component={Sponsoren} />
               <Route path="/impressum" component={Impressum} />
               <Route path="/datenschutz" component={Datenschutz} />
-              <Route path="/team/:token" component={Team} />
-              <Route path="/teams" component={Teams} />
+              {/*<Route path="/team/:token" component={Team} />*/}
+              {/*<Route path="/teams" component={Teams} />*/}
               <Route path="/spielplan" component={Spielplan} />
               <Route component={NotFound} />
             </Switch>

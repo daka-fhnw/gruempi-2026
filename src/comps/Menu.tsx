@@ -47,9 +47,11 @@ export function Menu({ hideMenu }: MenuProps) {
             Anmelden
           </MenuItem>
           */}
+          {/*
           <MenuItem href="/teams" hideMenu={hideMenu}>
             Teams
           </MenuItem>
+          */}
           <MenuItem href="/spielplan" hideMenu={hideMenu}>
             Spielplan
           </MenuItem>
