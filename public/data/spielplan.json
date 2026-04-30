@@ -342,28 +342,28 @@
   ],
   "viertelfinal": [
     {
-      "zeit": "20:30",
+      "zeit": "20:40",
       "feld": "Feld 1",
       "team1": "t07",
       "team2": "t09",
       "schiri": "t05"
     },
     {
-      "zeit": "20:30",
+      "zeit": "20:40",
       "feld": "Feld 2",
       "team1": "t04",
       "team2": "t18",
       "schiri": "t03"
     },
     {
-      "zeit": "20:45",
+      "zeit": "20:55",
       "feld": "Feld 1",
       "team1": "t13",
       "team2": "t05",
       "schiri": "t09"
     },
     {
-      "zeit": "20:45",
+      "zeit": "20:55",
       "feld": "Feld 2",
       "team1": "t19",
       "team2": "t03",
@@ -372,18 +372,18 @@
   ],
   "halbfinal": [
     {
-      "zeit": "21:10",
+      "zeit": "21:20",
       "feld": "Feld 1",
-      "team1": "V1W",
-      "team2": "V2W",
-      "schiri": "V3L"
+      "team1": "t09",
+      "team2": "t18",
+      "schiri": "t05"
     },
     {
-      "zeit": "21:10",
+      "zeit": "21:20",
       "feld": "Feld 2",
-      "team1": "V3W",
-      "team2": "V4W",
-      "schiri": "V4L"
+      "team1": "t13",
+      "team2": "t03",
+      "schiri": "t19"
     }
   ],
   "final": [
