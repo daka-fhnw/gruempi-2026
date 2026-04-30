@@ -344,30 +344,30 @@
     {
       "zeit": "20:30",
       "feld": "Feld 1",
-      "team1": "GA1",
-      "team2": "GC2",
-      "schiri": "GB2"
+      "team1": "t07",
+      "team2": "t09",
+      "schiri": "t05"
     },
     {
       "zeit": "20:30",
       "feld": "Feld 2",
-      "team1": "GB1",
-      "team2": "GD2",
-      "schiri": "GA2"
+      "team1": "t04",
+      "team2": "t18",
+      "schiri": "t03"
     },
     {
       "zeit": "20:45",
       "feld": "Feld 1",
-      "team1": "GC1",
-      "team2": "GB2",
-      "schiri": "GC2"
+      "team1": "t13",
+      "team2": "t05",
+      "schiri": "t09"
     },
     {
       "zeit": "20:45",
       "feld": "Feld 2",
-      "team1": "GD1",
-      "team2": "GA2",
-      "schiri": "GD2"
+      "team1": "t19",
+      "team2": "t03",
+      "schiri": "t18"
     }
   ],
   "halbfinal": [
@@ -389,7 +389,7 @@
   "final": [
     {
       "zeit": "21:35",
-      "feld": "Feld 3",
+      "feld": "Feld 2",
       "team1": "H1W",
       "team2": "H2W",
       "schiri": "SOK"
