@@ -28,3 +28,4 @@ public/api/lib/config.php
 
 # gallery images
 public/img/gallerie/**/*.webp
+public/img/fotos/**/*.webp

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
 //import { Countdown } from "../comps/Countdown";
-import { fotos2025 } from "../listen_galerie";
+import { fotosGross } from "../listen_fotos";
 import { loadSponsors, type SponsorLists } from "../daten_sponsoren";
 import { SponsorGruppe } from "../comps/SponsorGruppe";
 import { DateIcon } from "../icons/DateIcon";
@@ -10,10 +10,11 @@ import { FoodIcon } from "../icons/FoodIcon";
 //import { FireIcon } from "../icons/FireIcon";
 import { ArrowLink } from "../comps/ArrowLink";
 import { Loading } from "../comps/Loading";
+
 // import jetztAnmelden from "../assets/jetzt_anmelden.svg";
 
 function randomFoto() {
-  return fotos2025[Math.floor(Math.random() * fotos2025.length)];
+  return fotosGross[Math.floor(Math.random() * fotosGross.length)].src;
 }
 
 export default function Start() {
@@ -126,8 +127,7 @@ export default function Start() {
       */}
       <h2>Döner Szene gewinnt das Grümpi 2026! 🏆</h2>
       <div className="mb-2">
-        Herzliche Gratulation! Es hat Spass gemacht mit euch. Die Fotos werden
-        wir in den nächsten Tagen hier reinstellen.
+        Herzliche Gratulation! Es hat Spass gemacht mit euch!
       </div>
       <div className="mb-2">
         <Link href="/spielplan">
@@ -144,16 +144,17 @@ export default function Start() {
         </a>{" "}
         🏆
       </div>
-      <h2>Eindrücke vom Grümpi 2025</h2>
+      <h2>Die Fotos vom Grümpi 2026 sind da!</h2>
       <div className="mb-3">
-        <img src={foto} className="img-fluid border" />
-      </div>
-      <div className="mb-3">
-        <Link href="/galerie">
-          <ArrowLink>Hier findest du weitere Fotos</ArrowLink>
+        <Link href="/fotos">
+          <ArrowLink>Hier geht's zur Fotogalerie</ArrowLink>
         </Link>{" "}
         🤩
       </div>
+      <div className="mb-3">
+        <img src={foto} className="img-fluid border" />
+      </div>
+
       <h2>Hauptsponsoren</h2>
       {sponsoren !== null ? (
         <SponsorGruppe
