@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
-import { Countdown } from "../comps/Countdown";
+//import { Countdown } from "../comps/Countdown";
 import { fotos2025 } from "../listen_galerie";
 import { loadSponsors, type SponsorLists } from "../daten_sponsoren";
 import { SponsorGruppe } from "../comps/SponsorGruppe";
 import { DateIcon } from "../icons/DateIcon";
 import { GeoIcon } from "../icons/GeoIcon";
 import { FoodIcon } from "../icons/FoodIcon";
-import { FireIcon } from "../icons/FireIcon";
+//import { FireIcon } from "../icons/FireIcon";
 import { ArrowLink } from "../comps/ArrowLink";
 import { Loading } from "../comps/Loading";
 // import jetztAnmelden from "../assets/jetzt_anmelden.svg";
@@ -58,6 +58,7 @@ export default function Start() {
           </div>
           <div className="col">Mit Festwirtschaft zu fairen Preisen</div>
         </div>
+        {/*
         <div className="row gx-2 h5">
           <div className="col-auto">
             <FireIcon />
@@ -66,6 +67,7 @@ export default function Start() {
             <Countdown />
           </div>
         </div>
+        */}
       </div>
       <div className="mb-3">
         <Link href="/infos">
@@ -113,10 +115,19 @@ export default function Start() {
         ⚽
       </div>
       */}
+      {/*
       <h2>Bald geht's los!</h2>
+      */}
+      {/*
       <div className="mb-2">
         In wenigen Tagen findet das FHNW Grümpi statt und wir freuen uns schon
         riesig darauf 🔥
+      </div>
+      */}
+      <h2>Döner Szene gewinnt das Grümpi 2026! 🏆</h2>
+      <div className="mb-2">
+        Herzliche Gratulation! Es hat Spass gemacht mit euch. Die Fotos werden
+        wir in den nächsten Tagen hier reinstellen.
       </div>
       <div className="mb-2">
         <Link href="/spielplan">
