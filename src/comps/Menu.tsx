@@ -39,6 +39,9 @@ export function Menu({ hideMenu }: MenuProps) {
           <MenuItem href="/" hideMenu={hideMenu}>
             Startseite
           </MenuItem>
+          <MenuItem href="/fotos" hideMenu={hideMenu}>
+            Fotos 2026
+          </MenuItem>
           <MenuItem href="/infos" hideMenu={hideMenu}>
             Infos & Regeln
           </MenuItem>
@@ -65,9 +68,9 @@ export function Menu({ hideMenu }: MenuProps) {
           <MenuItem href="/sponsoren" hideMenu={hideMenu}>
             Sponsoren
           </MenuItem>
-          <MenuItem href="/galerie" hideMenu={hideMenu}>
+          {/*<MenuItem href="/galerie" hideMenu={hideMenu}>
             Rückblick
-          </MenuItem>
+          </MenuItem>*/}
           <MenuItem href="/impressum" hideMenu={hideMenu}>
             Kontakt
           </MenuItem>

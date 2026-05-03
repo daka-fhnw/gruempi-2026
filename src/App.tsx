@@ -11,7 +11,7 @@ export function App() {
   const Start = React.lazy(() => import("./pages/Start"));
   const Infos = React.lazy(() => import("./pages/Infos"));
   const Anreise = React.lazy(() => import("./pages/Anreise"));
-  const Galerie = React.lazy(() => import("./pages/Galerie"));
+  //const Galerie = React.lazy(() => import("./pages/Galerie"));
   //const Anmelden = React.lazy(() => import("./pages/Anmelden"));
   const Sponsoren = React.lazy(() => import("./pages/Sponsoren"));
   const Impressum = React.lazy(() => import("./pages/Impressum"));
@@ -19,6 +19,7 @@ export function App() {
   //const Team = React.lazy(() => import("./pages/Team"));
   //const Teams = React.lazy(() => import("./pages/Teams"));
   const Spielplan = React.lazy(() => import("./pages/Spielplan"));
+  const Fotos = React.lazy(() => import("./pages/Fotos"))
   return (
     <>
       <Header />
@@ -30,7 +31,7 @@ export function App() {
               <Route path="/" component={Start} />
               <Route path="/infos" component={Infos} />
               <Route path="/anreise" component={Anreise} />
-              <Route path="/galerie" component={Galerie} />
+              {/*<Route path="/galerie" component={Galerie} />*/}
               {/*<Route path="/anmelden" component={Anmelden} />*/}
               <Route path="/sponsoren" component={Sponsoren} />
               <Route path="/impressum" component={Impressum} />
@@ -38,6 +39,7 @@ export function App() {
               {/*<Route path="/team/:token" component={Team} />*/}
               {/*<Route path="/teams" component={Teams} />*/}
               <Route path="/spielplan" component={Spielplan} />
+              <Route path="/fotos" component={Fotos} />
               <Route component={NotFound} />
             </Switch>
           </Suspense>
