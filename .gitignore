@@ -26,6 +26,6 @@ dist-ssr
 # config file
 public/api/lib/config.php
 
-# gallery images
-public/img/gallerie/**/*.webp
-public/img/fotos/**/*.webp
+# images
+public/img/*
+!public/img/.gitkeep
